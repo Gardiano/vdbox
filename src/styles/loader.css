@@ -1,0 +1,22 @@
+
+.loader {
+  width: 100%;
+  
+  height: 200px;
+
+  margin: auto;
+  display: block;
+
+  border: 1px solid red;
+}
+
+.loader img {
+  width: 100%;
+  max-width: 100px;
+  height: 100px;
+
+  margin: auto;
+  display: block;
+
+  border: 1px solid red;
+}

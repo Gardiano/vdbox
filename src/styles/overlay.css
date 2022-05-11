@@ -1,0 +1,56 @@
+
+article .overlay {
+  width: 100%;
+  height: 800px;
+  
+  display: flex;
+  margin: 0 auto;
+
+  position: relative;
+  flex-direction: column;
+
+  background-size: 100% 100%; 
+}
+
+article .overlay .description { 
+  width: 100%;
+  max-width: auto;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+  
+  left: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+article .overlay .description a {
+  font-size: 28px;
+  color: #FBFEFD;
+  margin-left: 20px;
+
+  padding: 5px;
+  margin-top: 18px;
+  text-align: center;
+  line-height: 1;
+
+  text-decoration: none;
+}
+
+article .overlay .description h3 {
+  color: #FBFEFD;
+  width: 20px;
+  height: 20px;
+
+  padding: 5px;
+  margin-top: 22px;
+
+  font-size: 12px;
+  text-align: center;
+  line-height: 1.9;
+  
+  border-radius: 50px;
+  background: rgb(188, 78, 78);
+  text-decoration: none;
+}
