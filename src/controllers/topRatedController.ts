@@ -5,7 +5,7 @@
 
   export const topRatedController = async () => {
     try { 
-      const response = await api.get( `/movie/top_rated?api_key=${GK}&language=pt-BR&page=1` );
+      const response = await api.get( `/movie/top_rated?api_key=${ GK }&language=pt-BR&page=1` );
         return response.data.results;     
     } catch ( e ) {
         console.log( e );

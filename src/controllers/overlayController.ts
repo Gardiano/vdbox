@@ -6,7 +6,7 @@
   export const getDataForOverlayFilm = async () => {
     try { 
       const response = await api.get( `search/movie?api_key=${GK}&query=$interestelar&language=pt-BR` );
-        return response.data.results;     
+        return response.data.results;
     } catch ( e ) {
         console.log( e );
     };

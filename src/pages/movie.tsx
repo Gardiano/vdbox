@@ -1,10 +1,10 @@
 
 
-  import  { MovieDetails } from '../components/movie';
+  import { MovieDetails } from '../components/movie';
 
   import '../styles/home.css';
 
-  export const Movie = () => {
+  export const Movie: any = () => {
     return (
         <main>
           <MovieDetails />

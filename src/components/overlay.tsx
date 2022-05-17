@@ -13,6 +13,7 @@
   export const Overlay = () => {
 
   useEffect( ( ) => {
+    window.scrollTo( 0 , 0 );
     getDataFromOverLayController( );
   }, [ ] );
 

@@ -9,7 +9,7 @@ export const Header = () => {
     <header>
       <nav className="navbar">
         <p> VideoBox </p>
-        <Link to="/home" > Home </Link>
+        <Link to="/" > Home </Link>
         <Link to="/series" > Series </Link>
         <Link to="/filmes" > Filmes </Link>
         <Link to="/Trending" > Traillers </Link>

@@ -9,7 +9,7 @@ article .overlay {
   position: relative;
   flex-direction: column;
 
-  background-size: 100% 100%; 
+  background-size: 100% 100%;
 }
 
 article .overlay .description { 
