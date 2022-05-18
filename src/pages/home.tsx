@@ -1,9 +1,10 @@
 
+ 
   import { Overlay } from '../components/overlay';
   import { Popular } from '../components/popular';
   import { Theaters } from '../components/theaters';
   import { TopRated } from '../components/topRated';
-  import { Trending } from '../components/trending';  
+  import { Trending } from '../components/trending';
 
   import '../styles/home.css';
 
@@ -14,7 +15,7 @@
           <Theaters />
           <TopRated />
           <Popular />          
-          <Trending />
+          <Trending />          
         </main>
       );
   };

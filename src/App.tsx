@@ -4,11 +4,11 @@ import { AppRoutes }  from './routes';
 
 import './styles/global.css';
 
-export const App = () => {
+export const App = ( ) => {
   return (
     <>
       <Header />
-      <AppRoutes />
+      <AppRoutes /> 
     </>
   );
 };

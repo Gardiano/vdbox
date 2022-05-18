@@ -1,7 +1,6 @@
 
 
-body {  
-  box-sizing: border-box;
+body {
   margin: 0;
   padding: 0;
 
@@ -9,7 +8,6 @@ body {
 
   box-sizing: border-box;
   
-  /* background: rgb(251, 251, 251); */
   background: #222B32;
   
   font-family: "Inter", sans-serif;

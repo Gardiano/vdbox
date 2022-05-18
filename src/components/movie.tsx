@@ -5,6 +5,7 @@
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill } from 'react-icons/bs';
 
   import '../styles/movie.css';
+  import '../styles/medias/movieMedias.css';
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
@@ -37,7 +38,7 @@
       setTrailler( traillers );
       setCredits ( credits );
     };
-    console.log( ' c ' , credits )
+
     return (
       <main>
         <div className="container" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgPath+movie?.backdrop_path})` } }>
@@ -57,6 +58,7 @@
 
             <div className="description">
               <p> { movie?.title } </p>
+              
               <div className="genres">
                 { movie?.genres.map( ( genres: any ) => {
                   return (
@@ -87,17 +89,14 @@
                   {credits.map( ( actors: any ) => {
                     return (                      
                       <span>                        
-                        <img src={ bgPath + actors.profile_path } alt="ator/atriz"></img>  
-                                              
-                        <p> <BsFillPersonCheckFill className="icons" /> { actors.original_name } </p>
-                       
-                        <p>  <BsFillPersonBadgeFill className="icons" /> { actors.character } </p>
+                        <img src={ bgPath + actors.profile_path } alt="ator/atriz"></img>                                               
+                        <p> <BsFillPersonCheckFill className="icons" /> { actors.original_name } </p>                       
+                        <p> <BsFillPersonBadgeFill className="icons" /> { actors.character } </p>
                       </span>
                     )
                   })}
               </div>
             </div>
-
           </div>
         </div>
       </main>    

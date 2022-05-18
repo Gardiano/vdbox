@@ -1,0 +1,117 @@
+@media screen and (max-width: 900px) {
+    main .container {
+        height: 720px;
+        background-size: cover;
+    }
+
+    main .container .details {
+        margin-top: 50px;
+        padding: 30px 0px 0px 0px;
+
+        align-items: center;
+        flex-direction: column;
+    }
+
+    main .container .description {
+        width: 450px;
+        display: block;
+        padding: 0;
+    }
+
+    main .container .description .sinopse {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main .container .description .sinopse i {
+        margin-top: 0;
+    }
+
+    main .container .description .sinopse p {
+        width: 400px;
+        margin: auto;
+        padding: 10px;
+    }
+
+    main .container .rating {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+
+        display: flex;
+
+        flex-wrap: nowrap;
+    }
+
+    main .container .rating ul {
+        width: 300px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    main .container .rating li:nth-child(1) {
+        width: 155px;
+        height: 100px;
+
+        display: flex;
+
+        font-size: 2rem;
+        font-weight: 300;
+    }
+
+    main .container .rating li:nth-child(2) {
+        width: 30%;
+        height: 100px;
+
+        font-size: 1.2rem;
+        font-weight: 300;
+        background: #FF5757;
+    }
+
+    main .container .rating li:nth-child(3) {
+        width: 50%;
+        height: 100px;
+
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+
+    main .container .rating .casting {
+        gap: 20px;
+
+        width: 100%;
+        max-width: 350px;
+
+        display: inline-block;
+
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    main .container .rating .casting img {
+        width: 130px;
+        height: 200px;
+
+        border-radius: 2px;
+    }
+
+    main .container .rating .casting span {
+        width: auto;
+        height: 400px;
+
+        padding: 0 10px 0 10px;
+    }
+
+    main .container .rating .casting p {
+        font-size: 16px;
+    }
+
+    main .container .rating .casting .icons {
+        width: 20px;
+        margin-right: 10px;
+    }
+
+    main .container .rating .casting::-webkit-scrollbar {
+        width: 3px;
+    }
+}
