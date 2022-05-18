@@ -39,6 +39,8 @@
       setCredits ( credits );
     };
 
+    console.log(credits)
+
     return (
       <main>
         <div className="container" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgPath+movie?.backdrop_path})` } }>
