@@ -3,7 +3,8 @@ export default interface movieTypes {
     id: string;
 
     overview?: string;
-    title: string;    
+    title: string;
+    runtime?: any;
 
     poster_path: string;
     backdrop_path?: string;

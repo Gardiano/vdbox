@@ -8,14 +8,14 @@
 
   import '../styles/home.css';
 
-  export const Home = () => {
+  export const Home = ( ) => {
     return (
         <main>
           <Overlay />
           <Theaters />
+          <Trending />
           <TopRated />
-          <Popular />          
-          <Trending />          
+          <Popular />         
         </main>
       );
   };

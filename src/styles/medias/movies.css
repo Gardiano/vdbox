@@ -1,0 +1,74 @@
+
+@media screen and ( max-width: 500px ) {
+
+    h1 {
+      font-size: 22px!important;
+    }
+    
+    section {
+      width: 200px!important;    
+    }
+
+  .movieList {
+      width: 200px;
+    
+      height: 305px;
+    }   
+
+    .movieList span {
+      top: -210px;
+      left: 90px;
+    }
+      
+    .movieList img {
+      width: 180px;
+      height: 255px;
+    }
+
+    .movieList .infos {
+      width: 100%;
+      max-width: 180px;
+      top: 255px;
+  }
+
+    /* slide */
+    .styles-module_sliderBase__swkx1 {
+      position: relative;
+      top: -50px;
+     }
+    
+    .styles-module_slider__o0fqa { 
+      gap: 20px; 
+
+      width: 100%;
+      max-width: 1700px;
+      height: 320px!important;
+    
+      display: flex;
+      margin:  0 auto 4rem;
+    
+      overflow: hidden;
+    
+      z-index: 9999;
+    
+      -webkit-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400)!important;
+      -moz-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400)!important;
+      box-shadow: inset  -65px 5px 0px -13px rgba(205, 51, 51, 0.27)!important;
+     }
+    
+    .styles-module_slider__o0fqa > * {      
+      width: 220px;
+      display: flex;
+      
+      flex-wrap: wrap;  
+      
+      justify-content: center;
+     }
+
+     .slide [ data-arrow = right ] span { 
+      
+      top: 200px!important;
+   }
+
+}
+

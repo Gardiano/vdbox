@@ -5,7 +5,7 @@
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill } from 'react-icons/bs';
 
   import '../styles/movie.css';
-  import '../styles/medias/movieMedias.css';
+  import '../styles/medias/movie.css';
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
@@ -38,8 +38,6 @@
       setTrailler( traillers );
       setCredits ( credits );
     };
-
-    console.log(credits)
 
     return (
       <main>
@@ -88,16 +86,17 @@
               </ul>
               
               <div className="casting">
-                  {credits.map( ( actors: any ) => {
+                  {credits?.map( ( actors: any ) => {
                     return (                      
                       <span>                        
-                        <img src={ bgPath + actors.profile_path } alt="ator/atriz"></img>                                               
-                        <p> <BsFillPersonCheckFill className="icons" /> { actors.original_name } </p>                       
-                        <p> <BsFillPersonBadgeFill className="icons" /> { actors.character } </p>
+                        <img src={ bgPath + actors?.profile_path } alt="ator/atriz"></img>                                               
+                        <p> <BsFillPersonCheckFill className="icons" /> { actors?.original_name } </p>                       
+                        <p> <BsFillPersonBadgeFill className="icons" /> { actors?.character } </p>
                       </span>
                     )
                   })}
               </div>
+              
             </div>
           </div>
         </div>

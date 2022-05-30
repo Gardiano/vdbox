@@ -13,7 +13,7 @@ header {
   position: absolute;
   top: 0;
   
-  background: transparent;  
+  /* background: transparent;   */
 }
 
 header nav {
@@ -81,13 +81,15 @@ header .searchBox input {
 }
 
 header .searchBox button {
-  color: whitesmoke;
+  color: #f8f8f8;
+  font-size: 16px;
   width: 100%;
   max-width: 70px;
   height: 30px;
 
   margin-left: 20px;
   margin-right: 20px;
+  line-height: 1.8;
 
   outline: 0;
   cursor: pointer;

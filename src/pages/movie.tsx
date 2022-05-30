@@ -4,10 +4,10 @@
 
   import '../styles/home.css';
 
-  export const Movie: any = () => {
+  export const Movie = ( ) => {
     return (
-        <main>
-          <MovieDetails />
+        <main>        
+          <MovieDetails />          
         </main>
       );
   };
