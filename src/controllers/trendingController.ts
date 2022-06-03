@@ -1,5 +1,5 @@
 
-  import api from '../api/connect';
+  import api from '../services/connect';
 
   const GK = process.env.REACT_APP_MAK;
 

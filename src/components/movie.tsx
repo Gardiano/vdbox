@@ -4,6 +4,10 @@
   import { GetMovieById, GetTraillers, GetActors } from '../controllers/movieController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill } from 'react-icons/bs';
 
+  import movieTypes from '../models/movie'
+  import actorsTypes from '../models/actors';
+  import traillerTypes from '../models/trailler'
+
   import '../styles/movie.css';
   import '../styles/medias/movie.css';
   
@@ -20,21 +24,22 @@
 
     const movieId = useParams();
 
-    const [ movie, setMovie ] = useState< any > (  );
+    const [ movie, setMovie ] = useState < movieTypes > (  );
 
-    const [ trailler, setTrailler ] = useState < any [ ] > ( [ ] );
+    const [ trailler, setTrailler ] = useState < traillerTypes [ ] > ( [ ] );
 
-    const [ credits, setCredits ] = useState < any [ ] > ( [ ] );
+    const [ credits, setCredits ] = useState < actorsTypes [ ] > ( [ ] );
 
     const [ bgPath ] = useState< string > ( 'https://image.tmdb.org/t/p/w500' );
 
     const [ youTubePath ] = useState < string > ( 'https://www.youtube.com/embed/' );
 
     const getData = async () => {
-      const data      = await GetMovieById( movieId.id );
+      const data      = await GetMovieById( movieId.id );      
       const traillers = await GetTraillers( movieId.id );
       const credits   = await GetActors( movieId.id );
-      setMovie( data );
+      
+      setMovie( data )
       setTrailler( traillers );
       setCredits ( credits );
     };
@@ -60,7 +65,7 @@
               <p> { movie?.title } </p>
               
               <div className="genres">
-                { movie?.genres.map( ( genres: any ) => {
+                { movie?.genres?.map( ( genres: movieTypes ) => {
                   return (
                     <span> { genres.name } </span>
                   );
@@ -86,7 +91,7 @@
               </ul>
               
               <div className="casting">
-                  {credits?.map( ( actors: any ) => {
+                  { credits?.map( ( actors: actorsTypes ) => {
                     return (                      
                       <span>                        
                         <img src={ bgPath + actors?.profile_path } alt="ator/atriz"></img>                                               

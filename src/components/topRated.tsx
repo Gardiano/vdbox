@@ -14,6 +14,8 @@
   import "moment/locale/pt-br";
 import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { BsFillArrowRightCircleFill } from 'react-icons/bs';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
   Moment.globalLocale = "pt-br";
 
   export const TopRated = ( ) => {
@@ -32,21 +34,33 @@ import { BsFillArrowRightCircleFill } from 'react-icons/bs';
 return (
   <>
     <h1> Mais Votados </h1>
-        <ScrollingCarousel rightIcon={ <span> <BsFillArrowRightCircleFill className="slideIcon" /></span> } className="slide"  >       
-          { movies.map( ( movie: movieTypes ) => {
-            return (              
-              <section key={movie.id}>
-                <Movies
-                  key={ movie.id }
-                  id={ movie.id } 
-                  title={ movie.title }
-                  release_date={ movie.release_date }
-                  poster_path={ movie.poster_path }
-                  vote_average={ movie.vote_average }
-                /> 
-              </section>
-            )})}
-        </ScrollingCarousel>   
+    <Swiper
+        resizeObserver={false}
+        slidesPerView={'auto'}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+      >
+       
+        { movies.map( ( movie: movieTypes ) => {
+          return (   
+            <SwiperSlide>           
+            <section key={movie.id}>                
+              <Movies
+                key={ movie.id }
+                id={ movie.id } 
+                title={ movie.title }
+                release_date={ movie.release_date }
+                poster_path={ movie.poster_path }
+                vote_average={ movie.vote_average }
+              /> 
+            </section>
+            </SwiperSlide>
+          )})}
+    </Swiper>
   </>    
   );
 };
