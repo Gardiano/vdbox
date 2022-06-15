@@ -1,7 +1,7 @@
 
 import { useEffect, useLayoutEffect, useState } from 'react';
-import { Header } from './components/header';
-import { MenuMobile } from './components/menuMobile';
+import { Header } from './components/navbar/header';
+import { MenuMobile } from './components/navbar/menuMobile';
 import { AppRoutes }  from './routes';
 
 import './styles/global.css';

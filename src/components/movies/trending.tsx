@@ -1,11 +1,11 @@
 
   import { useEffect, useState } from 'react';
 
-  import { trendingController } from '../controllers/trendingController';
+  import { trendingController } from '../../controllers/moviesController/trendingController';
 
-  import { Movies } from '../view/cardMovies';
+  import { Movies } from '../../view/cardMovies';
 
-  import movieTypes from '../models/movie';
+  import movieTypes from '../../models/movie';
 
   // Import Swiper React components
   import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,7 +16,7 @@
   import "swiper/css/pagination";
   import "swiper/css/navigation";
 
-  import '../styles/cardListContainer.css';
+  import '../../styles/cardListContainer.css';
 
   import Moment from "react-moment";
   import "moment/locale/pt-br";

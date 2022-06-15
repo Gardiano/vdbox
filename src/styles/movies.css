@@ -76,7 +76,7 @@
 
 .movieList i {
   width: 100%;
-  max-width: 230px;
+  max-width: 240px;
   height: 345px;
 
   display: none;
@@ -96,7 +96,7 @@
 
 .movieList a:hover i {
   display: flex;
-  
+  margin: auto;
   align-items: center;
   justify-content: center;
 }

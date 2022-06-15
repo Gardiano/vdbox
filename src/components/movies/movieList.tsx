@@ -6,10 +6,11 @@ import { Trending } from './trending';
 import { TopRated } from './topRated';
 import { Popular } from './popular';
 
-import '../styles/movie.css';
-import '../styles/movieList.css';
-import '../styles/medias/movieList.css';
-import '../styles/medias/movie.css';
+import '../../styles/movieList.css';
+import '../../styles/movie.css';
+
+import '../../styles/medias/movieList.css';
+import '../../styles/medias/movie.css';
 
 import Moment from 'react-moment';
 import "moment/locale/pt-br";

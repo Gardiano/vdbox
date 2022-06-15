@@ -1,7 +1,7 @@
 
 import { AiFillPoundCircle } from 'react-icons/ai';
 import { Routes, Route } from 'react-router-dom';
-import { Search } from './components/search';
+import { Search } from './components/searchBar/search';
 
 import { Home } from "./pages/home";
 import { Movie } from "./pages/movie";

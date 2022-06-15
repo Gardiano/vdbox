@@ -1,7 +1,7 @@
 
-  import { MovieList } from '../components/movieList';
+  import { MovieList } from '../components/movies/movieList';
 
-  import { Overlay } from '../components/overlay';
+  import { Overlay } from '../components/movies/overlay';
 
   import '../styles/home.css';
 

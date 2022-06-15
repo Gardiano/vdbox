@@ -1,16 +1,20 @@
 
-
-import { ScrollingCarousel } from '@trendyol-js/react-carousel';
 import { useEffect, useState } from 'react';
-import { BsFillArrowRightCircleFill } from 'react-icons/bs';
-import { Autoplay, Pagination } from 'swiper';
+
+// view
+import { Movies } from '../../view/cardMovies';
+
+// slide
+import { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { SearchController } from '../controllers/searchController';
-import movieTypes from '../models/movie';
+// controller
+import { SearchController } from '../../controllers/moviesController/searchController';
 
-import '../styles/search.css';
-import { Movies } from '../view/cardMovies';
+// types
+import movieTypes from '../../models/movie';
+
+import '../../styles/search.css';
 
 export const Search = ( ) => {
 
@@ -18,7 +22,7 @@ export const Search = ( ) => {
   const [ movies, setMovies ] = useState< [ ] > ( [ ] );
 
   useEffect( ( ) => {
-    getData(  );
+    getData( );
   }, [ input ] );
 
    const handleChange = ( e: any ) => {
@@ -44,32 +48,32 @@ export const Search = ( ) => {
        />
     
     <Swiper
-        resizeObserver={false}
-        slidesPerView={'auto'}
-        spaceBetween={50}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
+        resizeObserver={ false }
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        slidesPerView={ 'auto' }
+        spaceBetween={ 0 }
+        pagination={{ clickable: true }}
+        modules={[ Autoplay, Pagination, Navigation ]}
+        navigation={ true }
         className="mySwiper"
       >
        
         { movies.map( ( movie: movieTypes ) => {
           return (   
             <SwiperSlide>           
-            <section key={movie.id}>                
-              <Movies
-                key={ movie.id }
-                id={ movie.id } 
-                title={ movie.title }
-                release_date={ movie.release_date }
-                poster_path={ movie.poster_path }
-                vote_average={ movie.vote_average }
-              /> 
-            </section>
+              <section key={movie.id}>
+                <Movies
+                  key={ movie.id }
+                  id={ movie.id }
+                  title={ movie.title }
+                  release_date={ movie.release_date }
+                  poster_path={ movie.poster_path }
+                  vote_average={ movie.vote_average }
+                />
+              </section>
             </SwiperSlide>
           )})}
-    </Swiper>     
+    </Swiper>
     </div>
   );
 };

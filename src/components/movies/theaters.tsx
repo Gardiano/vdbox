@@ -1,9 +1,9 @@
 
   import { useEffect, useState } from 'react';
 
-  import { theatersController } from '../controllers/theatersController';
+  import { theatersController } from '../../controllers/moviesController/theatersController';
 
-  import { Movies } from '../view/cardMovies';
+  import { Movies } from '../../view/cardMovies';
 
   // Import Swiper React components
   import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,10 +15,10 @@
   import "swiper/css/navigation";
 
   // types
-  import movieTypes from '../models/movie';
+  import movieTypes from '../../models/movie';
 
   // css
-  import '../styles/cardListContainer.css';
+  import '../../styles/cardListContainer.css';
 
   import Moment from "react-moment";
   import "moment/locale/pt-br";
@@ -47,7 +47,7 @@ return (
           spaceBetween={ 0 }
           pagination={{ clickable: true }}
           modules={[ Autoplay, Pagination, Navigation]}
-          navigation={true}
+          navigation={ true }
           className="mySwiper"
         >
 

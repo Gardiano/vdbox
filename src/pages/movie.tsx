@@ -1,6 +1,6 @@
 
 
-  import { MovieDetails } from '../components/movie';
+  import { MovieDetails } from '../components/movies/movieDetails';
 
   import '../styles/home.css';
 

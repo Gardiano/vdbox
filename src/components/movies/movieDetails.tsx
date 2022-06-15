@@ -1,15 +1,15 @@
   
   import { useEffect, useState } from 'react';  
   import { useParams } from 'react-router';
-  import { GetMovieById, GetTraillers, GetActors } from '../controllers/movieController';
+  import { GetMovieById, GetTraillers, GetActors } from '../../controllers/moviesController/movieDetailsController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill } from 'react-icons/bs';
 
-  import movieTypes from '../models/movie'
-  import actorsTypes from '../models/actors';
-  import traillerTypes from '../models/trailler'
+  import movieTypes from '../../models/movie'
+  import actorsTypes from '../../models/actors';
+  import traillerTypes from '../../models/trailler';
 
-  import '../styles/movie.css';
-  import '../styles/medias/movie.css';
+  import '../../styles/movies.css';
+  import '../../styles/medias/movie.css';
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
@@ -36,7 +36,7 @@
 
     const [gradient] = useState<string>('0deg,#020202 0,rgba(2,2,2,.96) 10%,rgba(2,2,2,.9) 22%,rgba(2,2,2,.66) 38%,rgba(2,2,2,.61) 58%,rgba(0,0,21,.76) 100%')
 
-    const getData = async () => {
+    const getData = async ( ) => {
       const data      = await GetMovieById( movieId.id );
       const traillers = await GetTraillers( movieId.id );
       const credits   = await GetActors( movieId.id );
@@ -107,6 +107,6 @@
             </div>
           </div>
         </div>
-      </main>    
+      </main>
     );
   };
