@@ -1,10 +1,7 @@
 
- 
+  import { MovieList } from '../components/movieList';
+
   import { Overlay } from '../components/overlay';
-  import { Popular } from '../components/popular';
-  import { Theaters } from '../components/theaters';
-  import { TopRated } from '../components/topRated';
-  import { Trending } from '../components/trending';
 
   import '../styles/home.css';
 
@@ -12,10 +9,7 @@
     return (
         <main>
           <Overlay />
-          <Theaters />
-          <Trending />
-          <TopRated />
-          <Popular />         
+          <MovieList />
         </main>
       );
   };

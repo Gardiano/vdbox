@@ -1,22 +1,7 @@
 
-h1 {  
-  width: 100%;
-  max-width: 300px;
-
-  height: 30px;  
-  
-  margin: 0px auto 0;
-  display: block;
-
-  text-align: center;
-
-  font-size: 28px;
-  color: rgb(220, 100, 100);
-}
-
 section {
   width: 100%;
-  max-width: 1400px;
+  max-width: 250px;
   height: auto;
 
   display: flex;
@@ -24,9 +9,10 @@ section {
   flex-direction: row;
 
   margin: auto;
+  margin-left: 12px;
 
   align-items: center;
-
+  
   overflow: hidden;
 
   transition: all 0.2s ease-in-out;
@@ -41,23 +27,25 @@ section:hover {
 /* swiper css */
  .swiper {
   width: 100%;
-  max-width: 1700px;
-  height: 550px;
 
+  height: auto;
+  
   -webkit-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
   -moz-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
-  box-shadow: inset  -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
+  box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
 
-  margin-bottom: 80px;
+  margin-bottom: 10px;
 }
 
 .swiper-slide {
   width: 320px!important;
-  height: 500px!important;
+  height: 400px!important;
   text-align: center;
   font-size: 18px;
   background: transparent;
 
+  flex: 1!important;
+  flex-shrink: 0!important;
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -71,15 +59,27 @@ section:hover {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+
+  margin-top: 60px;
+  margin-right: 15px!important;
 }
 
 .swiper-slide img {
+  width: 230px;
+  height: 345px;
+
   display: flex;
-  width: 300px;
-  height: 410px;
-  justify-content: center;
+
   margin: auto;
-  object-fit: cover;
+  justify-content: center;
+}
+
+.swiper-slide-active {
+  margin-right: 15px!important;
+}
+
+.swiper-slide-next {
+  margin-right: 15px!important;
 }
 
 .swiper-pagination-bullet {
@@ -87,5 +87,79 @@ section:hover {
 }
 
 .swiper-pagination-bullet-active {
+  margin: 0;
   background: rgba(205 51 51 / 40%)!important;
+}
+
+.swiper-slide .swiper-slide-active {
+  margin-right: 0!important;
+}
+
+.swiper-button-prev {
+  width: 65px;
+  height: 100px;
+  
+  font-size: 30px;
+  display: flex;
+
+  margin-left: -0.65rem;
+  margin-top: -3.5rem;
+  
+  opacity: 0.7;
+  background: #0d1013;
+  border-radius: 0px 50px 50px 0px;
+}
+
+.swiper-button-prev:hover {
+  opacity: 1;
+  background: #0d1013;
+}
+
+.swiper-button-prev::after {
+  color: #f8f8f8;
+  width: 30px;
+  height: 50px;
+  
+  display: flex;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+
+}
+
+.swiper-button-next {
+  width: 65px;
+  height: 100px;
+  
+  font-size: 30px;
+  display: flex;
+  margin-right: -0.7rem;
+  margin-top: -3.5rem;
+  
+  opacity: 0.7;
+  background: #0d1013;
+  border-radius: 50px 0px 0px 50px;
+}
+
+.swiper-button-next::after {
+  color: #f8f8f8;
+  width: 30px;
+  height: 50px;
+  
+  display: flex;
+
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 21px;
+}
+
+.swiper-button-next:hover {
+  opacity: 1;
+  background: #f8686dec;
+  background: #0d1013;
 }

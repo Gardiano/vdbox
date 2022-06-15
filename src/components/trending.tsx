@@ -7,14 +7,19 @@
 
   import movieTypes from '../models/movie';
 
+  // Import Swiper React components
+  import { Swiper, SwiperSlide } from "swiper/react";
+  import { Pagination, Navigation, Autoplay } from 'swiper';
+
+  // Import Swiper styles
+  import "swiper/css";
+  import "swiper/css/pagination";
+  import "swiper/css/navigation";
+
   import '../styles/cardListContainer.css';
 
   import Moment from "react-moment";
   import "moment/locale/pt-br";
-import { ScrollingCarousel } from '@trendyol-js/react-carousel';
-import { BsFillArrowRightCircleFill } from 'react-icons/bs';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper';
   Moment.globalLocale = "pt-br";
 
   export const Trending = ( ) => {
@@ -31,21 +36,20 @@ import { Pagination } from 'swiper';
   
 return (
   <>
-    <h1> Trending </h1>
     <Swiper
-        resizeObserver={false}
-        slidesPerView={'auto'}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
+        resizeObserver={ false }
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        slidesPerView={ 'auto' }
+        spaceBetween={ 0 }
+        pagination={{ clickable: true }}
+        modules={[ Autoplay, Pagination, Navigation]}
+        navigation={true}
         className="mySwiper"
       >
        
         { movies.map( ( movie: movieTypes ) => {
           return (   
-            <SwiperSlide>           
+            <SwiperSlide key={movie.id}>           
             <section key={movie.id}>                
               <Movies
                 key={ movie.id }

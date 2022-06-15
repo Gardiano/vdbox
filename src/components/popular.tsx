@@ -7,13 +7,19 @@
 
   import movieTypes from '../models/movie';
 
+  // Import Swiper React components
+  import { Swiper, SwiperSlide } from "swiper/react";
+  import { Pagination, Autoplay, Navigation } from 'swiper';
+
+  // Import Swiper styles
+  import "swiper/css";
+  import "swiper/css/pagination";
+  import "swiper/css/navigation";
+
   import '../styles/cardListContainer.css';
 
   import Moment from "react-moment";
   import "moment/locale/pt-br";
-
-  import { Pagination } from 'swiper';
-  import { Swiper, SwiperSlide } from 'swiper/react';
   Moment.globalLocale = "pt-br";
 
   export const Popular = ( ) => {
@@ -31,31 +37,30 @@
   
 return (
   <>
-    <h1> Popular </h1>
     <Swiper
-        resizeObserver={false}
-        slidesPerView={'auto'}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
+        resizeObserver={ false }
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        slidesPerView={ 'auto' }
+        spaceBetween={ 0 }
+        pagination={{ clickable: true }}
+        modules={[ Autoplay, Pagination, Navigation]}
+        navigation={true}
         className="mySwiper"
       >
        
         { movies.map( ( movie: movieTypes ) => {
           return (   
-            <SwiperSlide>           
-            <section key={movie.id}>                
-              <Movies
-                key={ movie.id }
-                id={ movie.id } 
-                title={ movie.title }
-                release_date={ movie.release_date }
-                poster_path={ movie.poster_path }
-                vote_average={ movie.vote_average }
-              /> 
-            </section>
+            <SwiperSlide key={movie.id}>           
+              <section key={movie.id}>
+                <Movies
+                  key={ movie.id }
+                  id={ movie.id } 
+                  title={ movie.title }
+                  release_date={ movie.release_date }
+                  poster_path={ movie.poster_path }
+                  vote_average={ movie.vote_average }
+                /> 
+              </section>
             </SwiperSlide>
           )})}
     </Swiper>

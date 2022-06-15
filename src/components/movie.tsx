@@ -19,12 +19,12 @@
 
     useEffect( ( ) => {
       window.scrollTo( 0 , 0 );
-      getData();
+      getData( );
     }, [ ] );
 
-    const movieId = useParams();
+    const movieId = useParams( );
 
-    const [ movie, setMovie ] = useState < movieTypes > (  );
+    const [ movie, setMovie ] = useState < movieTypes > ( );
 
     const [ trailler, setTrailler ] = useState < traillerTypes [ ] > ( [ ] );
 
@@ -34,8 +34,10 @@
 
     const [ youTubePath ] = useState < string > ( 'https://www.youtube.com/embed/' );
 
+    const [gradient] = useState<string>('0deg,#020202 0,rgba(2,2,2,.96) 10%,rgba(2,2,2,.9) 22%,rgba(2,2,2,.66) 38%,rgba(2,2,2,.61) 58%,rgba(0,0,21,.76) 100%')
+
     const getData = async () => {
-      const data      = await GetMovieById( movieId.id );      
+      const data      = await GetMovieById( movieId.id );
       const traillers = await GetTraillers( movieId.id );
       const credits   = await GetActors( movieId.id );
       
@@ -46,7 +48,7 @@
 
     return (
       <main>
-        <div className="container" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${bgPath+movie?.backdrop_path})` } }>
+        <div className="container" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(${gradient}), url(${bgPath+movie?.backdrop_path})` } }>
           <div className="details">
 
             <div className="pic">

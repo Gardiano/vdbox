@@ -1,4 +1,5 @@
 
+import { AiFillPoundCircle } from 'react-icons/ai';
 import { Routes, Route } from 'react-router-dom';
 import { Search } from './components/search';
 
@@ -15,4 +16,3 @@ export const AppRoutes = () => {
     </Routes>
   );
 };
-

@@ -2,15 +2,16 @@
 article .overlay {
   width: 100%;
   max-width: 1920px;
-  height: 595px;
+  height: 800px;
   
-  display: flex;
-  margin: 0 auto 40px;
+  display: block;
+  margin: 0 auto 5px;
 
   position: relative;
   flex-direction: column;  
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  
 }
 
 article .overlay .description { 
@@ -27,12 +28,12 @@ article .overlay .description {
 }
 
 article .overlay .description a {
-  font-size: 28px;
+  font-size: 25px;
   color: #FBFEFD;
   margin-left: 20px;
 
   padding: 5px;
-  margin-top: 18px;
+  margin-top: 22px;
   text-align: center;
   line-height: 1;
 

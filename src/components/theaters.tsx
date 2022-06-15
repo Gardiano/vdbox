@@ -1,21 +1,23 @@
 
-  import { useEffect, useState, useRef } from 'react';
+  import { useEffect, useState } from 'react';
 
   import { theatersController } from '../controllers/theatersController';
 
-  import { Movies } from '../view/cardMovies'; 
-
-  import { BsFillArrowRightCircleFill } from "react-icons/bs";
+  import { Movies } from '../view/cardMovies';
 
   // Import Swiper React components
   import { Swiper, SwiperSlide } from "swiper/react";
-  import { Pagination } from 'swiper';
+  import { Autoplay, Pagination, Navigation } from 'swiper';
+
   // Import Swiper styles
   import "swiper/css";
   import "swiper/css/pagination";
+  import "swiper/css/navigation";
 
+  // types
   import movieTypes from '../models/movie';
 
+  // css
   import '../styles/cardListContainer.css';
 
   import Moment from "react-moment";
@@ -36,41 +38,35 @@
     setMovies( data ); 
   }
   
-  // rightIcon={ <span> <BsFillArrowRightCircleFill className="slideIcon" /> </span> }
-
 return (
-  <>
-    <h1> Em Cartaz </h1>
+    <>
+      <Swiper
+          resizeObserver={ false }
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          slidesPerView={ 'auto' }
+          spaceBetween={ 0 }
+          pagination={{ clickable: true }}
+          modules={[ Autoplay, Pagination, Navigation]}
+          navigation={true}
+          className="mySwiper"
+        >
 
-    <Swiper
-        resizeObserver={false}
-        slidesPerView={'auto'}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-       
-        { movies.map( ( movie: movieTypes ) => {
-          return (   
-            <SwiperSlide>           
-            <section key={movie.id}>                
-              <Movies
-                key={ movie.id }
-                id={ movie.id } 
-                title={ movie.title }
-                release_date={ movie.release_date }
-                poster_path={ movie.poster_path }
-                vote_average={ movie.vote_average }
-              /> 
-            </section>
-            </SwiperSlide>
+          { movies.map( ( movie: movieTypes ) => {
+            return (   
+              <SwiperSlide key={ movie.id }> 
+              <section key={ movie.id }>                
+                <Movies
+                  key={ movie.id }
+                  id={ movie.id } 
+                  title={ movie.title }
+                  release_date={ movie.release_date }
+                  poster_path={ movie.poster_path }
+                  vote_average={ movie.vote_average }
+                /> 
+              </section>
+              </SwiperSlide>
           )})}
-    </Swiper>
-
-  </>
+      </Swiper>
+    </>
   );
 };
-

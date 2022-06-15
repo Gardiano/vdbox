@@ -10,10 +10,12 @@ body {
   background: #222B32;
   background: #020202;
   background: #0f1316; 
+  background: #020202;
   
   font-family: "Inter", sans-serif;
 }
 
+/* font size resp */
 @media (max-width: 1080px ) {
   html {
     font-size: 95.75%;

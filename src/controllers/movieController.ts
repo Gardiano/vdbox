@@ -1,13 +1,11 @@
 
-
-import api from '../services/connect';
+  import api from '../services/connect';
 
   const GK = process.env.REACT_APP_MAK;
 
   export const GetMovieById: any = async ( movieId : string ) => {
     try {
-        const response = await api.get( `/movie/${ movieId }?api_key=${ GK }&language=pt-BR` );            
-        console.log( 'movie detail',response.data );    
+        const response = await api.get( `/movie/${ movieId }?api_key=${ GK }&language=pt-BR` );
         return response.data;
       } catch ( e ) {
           console.log( e );
