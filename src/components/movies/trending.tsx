@@ -1,7 +1,7 @@
 
   import { useEffect, useState } from 'react';
 
-  import { trendingController } from '../../controllers/moviesController/trendingController';
+  import { trendingsController } from '../../controllers/moviesController/trendingController';
 
   import { Movies } from '../../view/cardMovies';
 
@@ -29,8 +29,8 @@
   }, [] );
 
   const [ movies , setMovies ] = useState < [ ] > ( [ ] );
-  const getData = async () => {
-    const data = await trendingController();
+  const getData = async ( ) => {
+    const data = await trendingsController();
     setMovies( data );
   }
   
@@ -49,17 +49,17 @@ return (
        
         { movies.map( ( movie: movieTypes ) => {
           return (   
-            <SwiperSlide key={movie.id}>           
-            <section key={movie.id}>                
-              <Movies
-                key={ movie.id }
-                id={ movie.id } 
-                title={ movie.title }
-                release_date={ movie.release_date }
-                poster_path={ movie.poster_path }
-                vote_average={ movie.vote_average }
-              /> 
-            </section>
+            <SwiperSlide key={ movie.id }>           
+              <section key={ movie.id }>
+                <Movies
+                  key={ movie.id }
+                  id={ movie.id } 
+                  title={ movie.title }
+                  release_date={ movie.release_date }
+                  poster_path={ movie.poster_path }
+                  vote_average={ movie.vote_average }
+                />
+              </section>
             </SwiperSlide>
           )})}
     </Swiper>

@@ -43,7 +43,7 @@ return (
         slidesPerView={ 'auto' }
         spaceBetween={ 0 }
         pagination={{ clickable: true }}
-        modules={[ Autoplay, Pagination, Navigation]}
+        modules={[ Autoplay, Pagination, Navigation ]}
         navigation={true}
         className="mySwiper"
       >

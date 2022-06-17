@@ -1,44 +1,26 @@
 
-  import api from '../../services/connect';
+  import { getMovieById, getTraillers, getActors } from '../../services/services';
 
-  const GK = process.env.REACT_APP_MAK;
-
-  export const GetMovieById: any = async ( movieId : string ) => {
-    try {
-        const response = await api.get( `/movie/${ movieId }?api_key=${ GK }&language=pt-BR` );
-        return response.data;
-      } catch ( e ) {
-          console.log( e );
-      };
+  export const MovieByIdController = async ( movieId : string ) => {
+    const data = await getMovieById( movieId );
+      return data;
   };
 
-  export const GetTraillers: any = async ( movieId : string ) => {
-    try {
-        const response = await api.get( `/movie/${ movieId }/videos?api_key=${ GK }&language=pt-BR` );
-            const traillerKey = response.data.results.map( ( traillerKey: any ) => {
-                return traillerKey.key;
-            });
-          return traillerKey;
-      } catch ( e ) {
-          console.log( e );
-      };
-  }
+  export const TraillersController = async ( movieId : string ) => {
+    const data = await getTraillers( movieId );
+      return data;
+  };
 
-  export const GetActors: any = async ( movieId : string ) => {
-    try {
-      const response = await api.get( `/movie/${ movieId }/credits?api_key=${ GK }&language=pt-BR` );
+  export const GetActorsController = async ( movieId : string ) => {
+    const data = await getActors( movieId );
 
-        let getFirstTenActors: any [ ] = [ ];
+    let getFirstTenActors: any [ ] = [ ];
 
-        for( let i = 0; i <= 9; i ++ ) {
-          getFirstTenActors.push( response.data.cast [ i ] );
-        };
+    for( let i = 0; i <= 9; i ++ ) {
+      getFirstTenActors.push( data.cast [ i ] );
+    };
 
-        return getFirstTenActors;
-
-      } catch ( e ) {
-          console.log( e );
-      };
-  }
+    return getFirstTenActors;
+  };
 
 

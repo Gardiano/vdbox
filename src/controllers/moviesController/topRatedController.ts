@@ -1,13 +1,7 @@
 
-  import api from '../../services/connect';
+  import { getTopRated } from '../../services/services';
 
-  const GK = process.env.REACT_APP_MAK;
-
-  export const topRatedController = async () => {
-    try { 
-      const response = await api.get( `/movie/top_rated?api_key=${ GK }&language=pt-BR&page=2` );
-        return response.data.results;     
-    } catch ( e ) {
-        console.log( e );
-    };
+  export const topRatedController = async ( ) => {
+    const data = await getTopRated( );
+      return data;
   };

@@ -26,13 +26,13 @@
   export const TopRated = ( ) => {
 
   useEffect( ( ) => {
-    getData();
+    getData( );
   }, [ ] );
 
   const [ movies , setMovies ] = useState < [ ] > ( [ ] );
 
-  const getData = async () => {
-    const data = await topRatedController();
+  const getData = async ( ) => {
+    const data = await topRatedController( );
     setMovies( data );
   }
   

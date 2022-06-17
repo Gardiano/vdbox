@@ -7,7 +7,7 @@
   export const Movie = ( ) => {
     return (
         <main>        
-          <MovieDetails />          
+          <MovieDetails />
         </main>
       );
   };

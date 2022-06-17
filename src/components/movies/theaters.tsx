@@ -25,8 +25,7 @@
   
   Moment.globalLocale = "pt-br";
 
-  export const Theaters: any = ( ) => {
-
+  export const Theaters = ( ) => {
   useEffect( ( ) => {
     getData( );    
   }, [] );
@@ -35,7 +34,7 @@
 
   const getData = async ( ) => {
     const data = await theatersController( );
-    setMovies( data ); 
+    setMovies( data );
   }
   
 return (
@@ -51,7 +50,7 @@ return (
           className="mySwiper"
         >
 
-          { movies.map( ( movie: movieTypes ) => {
+          { movies?.map( ( movie: movieTypes ) => {
             return (   
               <SwiperSlide key={ movie.id }> 
               <section key={ movie.id }>                

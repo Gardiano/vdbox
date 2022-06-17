@@ -30,11 +30,11 @@
   };
   
   return (
-      <article key={ movie[ 1 ]?.id } >
+      <article key={ movie[ 0 ]?.id } >
         <div  className="overlay" style={ { backgroundImage: `${bg}` } }>
           <div className="description">
-            <Link to={`/movie/${ movie[ 1 ]?.id }`}> { movie[ 1 ]?.original_title } &nbsp; </Link>
-            <h3> { movie[ 1 ]?.vote_average } </h3>
+            <Link to={`/movie/${ movie[ 0 ]?.id }`}> { movie[ 0 ]?.original_title } &nbsp; </Link>
+            <h3> { movie[ 0 ]?.vote_average } </h3>
           </div>
         </div>
       </article>

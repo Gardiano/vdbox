@@ -1,13 +1,7 @@
 
-  import api from '../../services/connect';
+  import { getPopular } from '../../services/services';
 
-  const GK = process.env.REACT_APP_MAK;
-
-  export const popularController = async () => {
-    try { 
-      const response = await api.get( `/movie/popular?api_key=${ GK }&language=pt-BR&page=1` );
-        return response.data.results;
-    } catch ( e ) {
-        console.log( e );
-    };
+  export const popularController = async ( ) => {
+    const data = await getPopular( );
+      return data;
   };

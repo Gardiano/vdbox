@@ -30,7 +30,7 @@
             <div className="infos">
               <p> <Moment locale="pt-br"format="YYYY" date={ release_date } > </Moment> </p> 
               <p> { vote_average } <BsFillStarFill className="star" /> </p>
-            </div>   
+            </div>
         </div>
       </>
   );

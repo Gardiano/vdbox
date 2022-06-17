@@ -1,13 +1,7 @@
 
-  import api from '../../services/connect';
+  import { getTrendings } from '../../services/services';
 
-  const GK = process.env.REACT_APP_MAK;
-
-  export const trendingController = async () => {
-    try { 
-      const response = await api.get( `/trending/movie/day?api_key=${GK}&language=pt-BR&page=1` ); 
-        return response.data.results;     
-    } catch ( e ) {
-        console.log( e );
-    };
+  export const trendingsController = async ( ) => {
+    const data = await getTrendings( );
+      return data;
   };
