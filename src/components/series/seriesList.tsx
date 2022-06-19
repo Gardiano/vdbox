@@ -6,11 +6,11 @@ import { TvOnTheAir } from '../series/tvOnTheAir';
 import { TopRated } from '../series/topRated';
 import { Popular } from '../series/popular';
 
-import '../../styles/cardNavBar.css';
+import '../../styles/card/cardNavBar.css';
 import '../../styles/medias/cardNavBar.css';
 
-import '../../styles/movie.css';
-import '../../styles/medias/movie.css';
+// import '../../styles/movies/movie.css';
+// import '../../styles/medias/movie.css';
 
 export const SeriesList = ( ) => {
     const [ list, setList ] = useState < string > ( 'Hoje' );

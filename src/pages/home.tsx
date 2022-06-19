@@ -11,11 +11,9 @@
     }, [ Overlay, MovieList, SeriesList])
     return (
      <>
-        
-          <Overlay />
-          <MovieList />
-          <SeriesList />
-        
+      <Overlay />
+      <MovieList />
+      <SeriesList />
      </>
-      );
+    );
   };

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { AiOutlineMenuUnfold, AiOutlineSearch, AiOutlineCloseSquare } from "react-icons/ai";
 
-import '../../styles/menuMobile.css';
+import '../../styles/navBar/menuMobile.css';
 
 export const MenuMobile = ( ) => {
 

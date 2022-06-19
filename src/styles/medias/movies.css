@@ -11,30 +11,30 @@
       height: 355px!important;
     }
 
-    .movieList {
+    .cardList {
       width: auto;
       height: 310px;
       margin: auto;
     }
     
-    .movieList a {
+    .cardList a {
       display: flex;
       margin: 5px auto;
       text-decoration: none;
       border-radius: 10px;
     }
 
-    .movieList i {
+    .cardList i {
       width: 100%;
       max-width: 200px;
       height: 305px;
     }
 
-    .movieList .infos {      
+    .cardList .infos {      
       top: -55px;
     }
 
-    .movieList .infos p {
+    .cardList .infos p {
       font-size: 15px;
     }
 
@@ -112,16 +112,16 @@
     margin-top: 0!important;
   }
 
-  .movieList i {
+  .cardList i {
     max-width: 170px;
     height: 250px;
   }
   
-  .movieList a:hover i {
+  .cardList a:hover i {
     display: none;
   }
 
-  .movieList .infos p {
+  .cardList .infos p {
     font-size: 15px;
   }
 

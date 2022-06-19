@@ -5,7 +5,7 @@
   
   import { OverLayController } from '../../controllers/moviesController/overlayController';
 
-  import '../../styles/overlay.css';
+  import '../../styles/movies/overlay.css';
   import '../../styles/medias/overlay.css';
 
   import wp from '../../assets/topgun.jpg';

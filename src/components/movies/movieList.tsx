@@ -6,10 +6,10 @@ import { Trending } from './trending';
 import { TopRated } from './topRated';
 import { Popular } from './popular';
 
-import '../../styles/cardNavBar.css';
+import '../../styles/card/cardNavBar.css';
 import '../../styles/medias/cardNavBar.css';
 
-import '../../styles/movie.css';
+import '../../styles/movies/movie.css';
 import '../../styles/medias/movie.css';
 
 export const MovieList = ( ) => {

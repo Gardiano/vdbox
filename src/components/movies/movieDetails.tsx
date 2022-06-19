@@ -8,7 +8,7 @@
   import actorsTypes from '../../models/actors';
   import traillerTypes from '../../models/trailler';
 
-  import '../../styles/movies.css';
+  import '../../styles/card/cards.css';
   import '../../styles/medias/movie.css';
   
   import Moment from 'react-moment';
@@ -49,64 +49,64 @@
     };
 
     return (
-        <div className="container" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(${gradient}), url(${bgPath+movie?.backdrop_path})` } }>
-          <div className="details">
+      <div className="MovieContainer" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(${gradient}), url(${bgPath+movie?.backdrop_path})` } }>
+        <div className="details">
 
-            <div className="pic">
-              <img src={ bgPath + movie?.poster_path } alt="image" />
+          <div className="pic">
+            <img src={ bgPath + movie?.poster_path } alt="image" />
 
-                <div className="trailler">
-                  <iframe
-                    src={ youTubePath + trailler[0] }           
-                    allowFullScreen={ true }
-                    title="trailler"
-                  />
-                </div>
+              <div className="trailler">
+                <iframe
+                  src={ youTubePath + trailler[0] }           
+                  allowFullScreen={ true }
+                  title="trailler"
+                />
+              </div>
+          </div>
+
+          <div className="description">
+            <p> { movie?.title } </p>
+            
+            <div className="genres">
+              { movie?.genres?.map( ( genres: movieTypes ) => {
+                return (
+                  <span> { genres.name } </span>
+                );
+              })}
             </div>
 
-            <div className="description">
-              <p> { movie?.title } </p>
+            <h4> Lançamento:  { `${' '}`}
+              <Moment locale="pt-br"format="DD/MM/YYYY" date={ movie?.release_date } > </Moment> 
+            </h4> 
+
+            <div className="sinopse">
+                <i> { movie?.tagline } </i>
+                <p> { movie?.overview } </p> 
+            </div>
               
-              <div className="genres">
-                { movie?.genres?.map( ( genres: movieTypes ) => {
-                  return (
-                    <span> { genres.name } </span>
-                  );
+          </div>
+
+          <div className="rating">
+            <ul>
+              <li> <p> { movie?.vote_average } </p> </li>
+              <li> <p> 18 + </p> </li>
+              <li> <p> { movie?.vote_count } votos </p> </li>
+            </ul>
+            
+            <div className="casting">
+                { credits?.map( ( actors: actorsTypes ) => {
+                  return (                      
+                    <span>                        
+                      <img src={ bgPath + actors?.profile_path } alt="ator/atriz"></img>                                               
+                      <p> <BsFillPersonCheckFill className="icons" /> { actors?.original_name } </p>                       
+                      <p> <BsFillPersonBadgeFill className="icons" /> { actors?.character } </p>
+                    </span>
+                  )
                 })}
-              </div>
-
-              <h4> Lançamento:  { `${' '}`}
-                <Moment locale="pt-br"format="DD/MM/YYYY" date={ movie?.release_date } > </Moment> 
-              </h4> 
-
-              <div className="sinopse">
-                 <i> { movie?.tagline } </i>
-                 <p> { movie?.overview } </p> 
-              </div>
-                
             </div>
-
-            <div className="rating">
-              <ul>
-                <li> <p> { movie?.vote_average } </p> </li>
-                <li> <p> 18 + </p> </li>
-                <li> <p> { movie?.vote_count } votos </p> </li>
-              </ul>
-              
-              <div className="casting">
-                  { credits?.map( ( actors: actorsTypes ) => {
-                    return (                      
-                      <span>                        
-                        <img src={ bgPath + actors?.profile_path } alt="ator/atriz"></img>                                               
-                        <p> <BsFillPersonCheckFill className="icons" /> { actors?.original_name } </p>                       
-                        <p> <BsFillPersonBadgeFill className="icons" /> { actors?.character } </p>
-                      </span>
-                    )
-                  })}
-              </div>
-              
-            </div>
+            
           </div>
         </div>
+      </div>
     );
   };

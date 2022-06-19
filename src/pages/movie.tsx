@@ -2,7 +2,7 @@
 
   import { MovieDetails } from '../components/movies/movieDetails';
 
-  import '../styles/home.css';
+  import '../styles/pages/home.css';
 
   export const Movie = ( ) => {
     return (

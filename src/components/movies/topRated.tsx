@@ -17,7 +17,7 @@
 
   import movieTypes from '../../models/cards';
 
-  import '../../styles/cardListContainer.css';
+  import '../../styles/card/swiperSlide.css';
 
   import Moment from "react-moment";
   import "moment/locale/pt-br";

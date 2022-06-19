@@ -16,7 +16,7 @@
   import "swiper/css/pagination";
   import "swiper/css/navigation";
 
-  import '../../styles/cardListContainer.css';
+  import '../../styles/card/swiperSlide.css';
 
   import Moment from "react-moment";
   import "moment/locale/pt-br";
@@ -25,8 +25,8 @@
   export const Trending = ( ) => {
 
   useEffect( ( ) => {
-    getData();
-  }, [] );
+    getData( );
+  }, [ ] );
 
   const [ movies , setMovies ] = useState < [ ] > ( [ ] );
   const getData = async ( ) => {
@@ -38,12 +38,12 @@ return (
   <>
     <Swiper
         resizeObserver={ false }
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        autoplay={ { delay: 5000, disableOnInteraction: false } }
         slidesPerView={ 'auto' }
         spaceBetween={ 0 }
-        pagination={{ clickable: true }}
-        modules={[ Autoplay, Pagination, Navigation]}
-        navigation={true}
+        pagination={ { clickable: true } }
+        modules={ [ Autoplay, Pagination, Navigation ] }
+        navigation={ true }
         className="mySwiper"
       >
 
@@ -51,8 +51,8 @@ return (
        
         { movies.map( ( movie: movieTypes ) => {
           return (   
-            <SwiperSlide key={ movie.id }>           
-              <section key={ movie.id }>
+            <SwiperSlide key={ movie.id } >           
+              <section key={ movie.id } >
                 <Cards
                   key={ movie.id }
                   id={ movie.id } 

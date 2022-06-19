@@ -4,6 +4,16 @@ import api from './baseUrl';
 // .env
 const GK = process.env.REACT_APP_MAK;
 
+// search movie endpoint
+export const getMovieByName = async ( movie: string ) => {
+    try { 
+      const response = await api.get( `search/movie?api_key=${ GK }&query=$${ movie }&language=pt-BR` );
+        return response.data.results;          
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
 // movies endpoints
 export const getMovieToOverlayComponent = async ( ) => {
     try { 
@@ -80,16 +90,6 @@ export const getActors = async ( movieId : string ) => {
       } catch ( e ) {
           console.log( e );
       };
-};
-
-// search movie endpoint
-export const getMovieByName = async ( movie: string ) => {
-    try { 
-      const response = await api.get( `search/movie?api_key=${ GK }&query=$${ movie }&language=pt-BR` );
-        return response.data.results;          
-    } catch ( e ) {
-        console.log( e );
-    };
 };
 
 // series endpoints

@@ -14,7 +14,7 @@ import { SearchController } from '../../controllers/moviesController/searchContr
 // types
 import cardTypes from '../../models/cards';
 
-import '../../styles/search.css';
+import '../../styles/search/search.css';
 
 export const Search = ( ) => {
 

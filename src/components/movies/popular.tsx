@@ -16,7 +16,7 @@
   import "swiper/css/pagination";
   import "swiper/css/navigation";
 
-  import '../../styles/cardListContainer.css';
+  import '../../styles/card/swiperSlide.css';
 
   import Moment from "react-moment";
   import "moment/locale/pt-br";
@@ -25,7 +25,7 @@
   export const Popular = ( ) => {
 
   useEffect( ( ) => {
-    getData();
+    getData( );
   }, [ ] );
 
   const [ movies , setMovies ] = useState < [ ] > ( [ ] );
