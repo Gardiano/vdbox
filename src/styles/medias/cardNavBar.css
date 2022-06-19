@@ -1,6 +1,6 @@
 
 @media screen and ( max-width: 800px ) {
-  main h4 {
+   h4 {
     display: block;
     margin: auto;
 
@@ -15,7 +15,7 @@
     font-family: "Inter", sans-serif;
  }
 
-  .navbarMovie {
+  .cardNavBar {
     width: auto;
  
     float: unset;
@@ -24,9 +24,9 @@
   }
 }
 
-  @media screen and ( max-width: 500px ) {
+@media screen and ( max-width: 500px ) {
 
-    main h4 {
+     h4 {
       width: 100%;
 
       font-size: 20px;
@@ -40,7 +40,7 @@
       font-family: "Inter", sans-serif;
    }
 
-    .navbarMovie {
+    .cardNavBar {
     width: auto;
 
     height: auto;
@@ -58,12 +58,12 @@
     justify-content: center;
    }
    
-    .navbarMovie button {
+    .cardNavBar button {
      width: 140px;
      margin: 0;
    }
    
-   .navbarMovie button:focus {
+   .cardNavBar button:focus {
 
    }
 }

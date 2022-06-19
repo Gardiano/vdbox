@@ -1,10 +1,10 @@
   
-  import { SetStateAction, useEffect, useState } from 'react';  
+  import { useEffect, useState } from 'react';  
   import { useParams } from 'react-router';
   import { MovieByIdController, TraillersController, GetActorsController } from '../../controllers/moviesController/movieDetailsController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill } from 'react-icons/bs';
 
-  import movieTypes from '../../models/movie'
+  import movieTypes from '../../models/cards'
   import actorsTypes from '../../models/actors';
   import traillerTypes from '../../models/trailler';
 
@@ -16,7 +16,7 @@
   Moment.globalLocale = "pt-br";
 
   export const MovieDetails = () => {
-
+    
     useEffect( ( ) => {
       window.scrollTo( 0 , 0 );
       getData( );
@@ -49,7 +49,6 @@
     };
 
     return (
-      <main >
         <div className="container" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(${gradient}), url(${bgPath+movie?.backdrop_path})` } }>
           <div className="details">
 
@@ -109,6 +108,5 @@
             </div>
           </div>
         </div>
-      </main>
     );
   };

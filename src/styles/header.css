@@ -18,7 +18,6 @@ header {
 
 header nav {
   width: 50%;
-  
   display: flex;
 
   flex-direction: row;
@@ -27,11 +26,10 @@ header nav {
 
   align-items: center;
 
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 nav p {
-  color: rgb(220, 100, 100);
   font-size: 22px;
   font-weight: bold;
   margin-top: 17px;
@@ -44,7 +42,7 @@ nav a {
 }
 
 nav a:hover {
-  color:rgb(220, 100, 100);
+  border-bottom: 3px solid rgb(220, 100, 100);
 }
 
 header .searchBox {
@@ -57,7 +55,8 @@ header .searchBox {
 }
 
 header .searchBox input {
-  color: whitesmoke;
+  color: #f8f8f8;
+
   width: 100%;
   max-width: 300px;
 
@@ -72,7 +71,13 @@ header .searchBox input {
   justify-content: center;
   
   background: transparent;
-  border: 1.5px solid grey;
+  border: 0;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+header .searchBox input:focus {
+  border: 0;
+  border-bottom: 2px solid rgb(220, 100, 100);;
 }
 
 ::placeholder {

@@ -1,7 +1,7 @@
 
   import { useEffect, useState } from 'react';
 
-  import { theatersController } from '../../controllers/moviesController/theatersController';
+  import { airingTodaySeriesController } from '../../controllers/seriesController/AiringTodayController';
 
   import { Cards } from '../../view/card';
 
@@ -25,23 +25,23 @@
   
   Moment.globalLocale = "pt-br";
 
-  export const Theaters = ( ) => {
+  export const AiringToday = ( ) => {
   useEffect( ( ) => {
     getData( );    
-  }, [] );
+  }, [ ] );
 
-  const [ movies , setMovies ] =  useState  < [ ] > ( [ ] );
+  const [ series , setSeries ] =  useState  < [ ] > ( [ ] );
 
   const getData = async ( ) => {
-    const data = await theatersController( );
-    setMovies( data );
-  }
-  
+    const data = await airingTodaySeriesController( );
+    setSeries( data );
+  };
+
 return (
     <>
-      <Swiper
+    <Swiper
           resizeObserver={ false }
-          autoplay={{ delay: 2000, disableOnInteraction: false }}
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
           slidesPerView={ 'auto' }
           spaceBetween={ 0 }
           pagination={{ clickable: true }}
@@ -50,25 +50,27 @@ return (
           className="mySwiper"
         >
 
-          <h1> Nos Cinemas </h1>
-
-          { movies?.map( ( movie: movieTypes ) => {
+          { series.map( ( serie: movieTypes ) => {
             return (   
-              <SwiperSlide key={ movie.id }> 
-              <section key={ movie.id }>                
-                <Cards
-                  key={ movie.id }
-                  id={ movie.id } 
-                  title={ movie.title }
-                  first_air_date={movie.first_air_date}
-                  release_date={ movie.release_date }
-                  poster_path={ movie.poster_path }
-                  vote_average={ movie.vote_average }
-                /> 
-              </section>
+              <SwiperSlide key={ serie.id }> 
+                <section key={ serie.id }>                
+                  <Cards
+                    key={ serie.id }
+                    id={ serie.id } 
+
+                    title={ serie.title }
+                    name={ serie.name }
+
+                    release_date={ serie.release_date }
+                    first_air_date={ serie.first_air_date }
+
+                    poster_path={ serie.poster_path }
+                    vote_average={ serie.vote_average }
+                  /> 
+                </section>
               </SwiperSlide>
           )})}
-      </Swiper>
+    </Swiper>
     </>
   );
-};
+}

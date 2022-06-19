@@ -28,13 +28,24 @@ section:hover {
  .swiper {
   width: 100%;
 
-  height: auto;
+  height: 470px;
+  display: flex;
   
   -webkit-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
   -moz-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
   box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
+}
 
-  margin-bottom: 10px;
+.swiper h1 {
+  display: flex;
+  left: 1.5rem;
+  top: 0.75rem;
+
+  z-index: 9999;
+
+  font-size: 1.50rem;
+  position: absolute;
+  color: rgb(220, 100, 100);
 }
 
 .swiper-slide {

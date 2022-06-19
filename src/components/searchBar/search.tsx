@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 // view
-import { Movies } from '../../view/cardMovies';
+import { Cards } from '../../view/card';
 
 // slide
 import { Autoplay, Navigation, Pagination } from 'swiper';
@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { SearchController } from '../../controllers/moviesController/searchController';
 
 // types
-import movieTypes from '../../models/movie';
+import cardTypes from '../../models/cards';
 
 import '../../styles/search.css';
 
@@ -30,16 +30,19 @@ export const Search = ( ) => {
   };
 
   async function getData ( ) {
+      if( input.length === 0 ) {
+        setMovies( [ ] );
+      }
+
       if( input.length >= 3 ) {
         const data = await SearchController( input );
-        setMovies( data! );
-        return data; 
+        setMovies( data );
       }
   };
 
   return (      
     <div className="searchContainer">
-       <input        
+       <input
         onChange={ ( e ) => handleChange( e ) }
         type="text" 
         alt="Search" 
@@ -58,17 +61,18 @@ export const Search = ( ) => {
         className="mySwiper"
       >
        
-        { movies.map( ( movie: movieTypes ) => {
+        { movies.map( ( card: cardTypes ) => {
           return (   
-            <SwiperSlide>           
-              <section key={movie.id}>
-                <Movies
-                  key={ movie.id }
-                  id={ movie.id }
-                  title={ movie.title }
-                  release_date={ movie.release_date }
-                  poster_path={ movie.poster_path }
-                  vote_average={ movie.vote_average }
+            <SwiperSlide key={ card.id }>           
+              <section key={card.id}>
+                <Cards
+                  key={ card.id }
+                  id={ card.id }
+                  title={ card.title }
+                  first_air_date={card.first_air_date}
+                  release_date={ card.release_date }
+                  poster_path={ card.poster_path }
+                  vote_average={ card.vote_average }
                 />
               </section>
             </SwiperSlide>

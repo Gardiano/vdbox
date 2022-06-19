@@ -7,16 +7,17 @@ const GK = process.env.REACT_APP_MAK;
 // movies endpoints
 export const getMovieToOverlayComponent = async ( ) => {
     try { 
-      const response = await api.get( `search/movie?api_key=${GK}&query=$top-gun&language=pt-BR` );
+      const response = await api.get( `search/movie?api_key=${ GK }&query=$top-gun&language=pt-BR` );
         return response.data.results;
-    } catch ( e ) {
+    } catch ( e: any ) {
         console.log( e );
     };
 };
 
 export const getTheaters = async ( ) => {
     try {
-        const response = await api.get(`/movie/now_playing?api_key=${GK}&language=pt-BR&page=1`);
+        const response = await api.get(`/movie/now_playing?api_key=${ GK }&language=pt-BR&page=1`);
+        console.log(response.data.results)
         return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -25,7 +26,7 @@ export const getTheaters = async ( ) => {
 
 export const getTrendings = async ( ) => {
     try {
-        const response = await api.get(`/trending/movie/day?api_key=${GK}&language=pt-BR&page=1`);
+        const response = await api.get(`/trending/movie/day?api_key=${ GK }&language=pt-BR&page=1`);
         return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -34,7 +35,7 @@ export const getTrendings = async ( ) => {
 
 export const getTopRated = async ( ) => {
     try {
-        const response = await api.get(`/movie/top_rated?api_key=${GK}&language=pt-BR&page=2`);
+        const response = await api.get(`/movie/top_rated?api_key=${ GK }&language=pt-BR&page=2`);
         return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -84,8 +85,46 @@ export const getActors = async ( movieId : string ) => {
 // search movie endpoint
 export const getMovieByName = async ( movie: string ) => {
     try { 
-      const response = await api.get( `search/movie?api_key=${GK}&query=$${ movie }&language=pt-BR` );
+      const response = await api.get( `search/movie?api_key=${ GK }&query=$${ movie }&language=pt-BR` );
         return response.data.results;          
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+// series endpoints
+export const getPopularSeries = async ( ) => {
+    try { 
+      const response = await api.get( `/tv/popular?api_key=${ GK }&language=pt-BR&page=1` );
+        return response.data.results;        
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+export const getTopRatedSeries = async ( ) => {
+    try { 
+      const response = await api.get( `/tv/top_rated?api_key=${ GK }&language=pt-BR&page=1` );
+        return response.data.results;        
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+export const getTvOnTheAirSeries = async ( ) => {
+    try { 
+      const response = await api.get( `/tv/on_the_air?api_key=${ GK }&language=pt-BR&page=1` );
+      return response.data.results;
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+export const getAiringTodaySeries = async ( ) => {
+    try { 
+      const response = await api.get( `/tv/airing_today?api_key=${ GK }&language=pt-BR&page=1` );
+      console.log( response.data.results );
+      return response.data.results;
     } catch ( e ) {
         console.log( e );
     };

@@ -16,9 +16,10 @@ export const Header = ( ) => {
     <header style={ location == '/movies' ? ( { background: bg.secondary } ) : ( { background: bg.primary } ) }>
 
       <nav className="navbar">
-        <p style={ location == '/movies' ? ( { color: 'white' } ) : ( { color: '#FF5757' } ) }> 
+        <p style={ location == '/movies' ? ( { color: 'white' } ) : ( { color: '#FF5357' } ) }> 
           VideoBox 
         </p>
+        
         <Link to="/" > Home </Link>
         <Link to="/series" > Series </Link>
         <Link to="/movies" > Filmes </Link>

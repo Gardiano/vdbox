@@ -3,9 +3,9 @@
 
   import { trendingsController } from '../../controllers/moviesController/trendingController';
 
-  import { Movies } from '../../view/cardMovies';
+  import { Cards } from '../../view/card';
 
-  import movieTypes from '../../models/movie';
+  import movieTypes from '../../models/cards';
 
   // Import Swiper React components
   import { Swiper, SwiperSlide } from "swiper/react";
@@ -46,15 +46,18 @@ return (
         navigation={true}
         className="mySwiper"
       >
+
+        <h1> Trending </h1>
        
         { movies.map( ( movie: movieTypes ) => {
           return (   
             <SwiperSlide key={ movie.id }>           
               <section key={ movie.id }>
-                <Movies
+                <Cards
                   key={ movie.id }
                   id={ movie.id } 
                   title={ movie.title }
+                  first_air_date={ movie.first_air_date }
                   release_date={ movie.release_date }
                   poster_path={ movie.poster_path }
                   vote_average={ movie.vote_average }

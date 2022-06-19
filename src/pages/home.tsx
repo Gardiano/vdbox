@@ -1,15 +1,21 @@
-
-  import { MovieList } from '../components/movies/movieList';
-
+  
   import { Overlay } from '../components/movies/overlay';
+  import { MovieList } from '../components/movies/movieList';
+  import { SeriesList } from '../components/series/seriesList';
 
-  import '../styles/home.css';
+  import { useEffect } from 'react';
 
   export const Home = ( ) => {
+
+    useEffect(() => {
+    }, [ Overlay, MovieList, SeriesList])
     return (
-        <main>
+     <>
+        
           <Overlay />
           <MovieList />
-        </main>
+          <SeriesList />
+        
+     </>
       );
   };
