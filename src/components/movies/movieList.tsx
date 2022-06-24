@@ -9,7 +9,7 @@ import { Popular } from './popular';
 import '../../styles/card/cardNavBar.css';
 import '../../styles/medias/cardNavBar.css';
 
-import '../../styles/movies/movie.css';
+import '../../styles/card/cards.css';
 import '../../styles/medias/movie.css';
 
 export const MovieList = ( ) => {

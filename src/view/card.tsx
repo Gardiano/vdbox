@@ -10,7 +10,7 @@ import pic from '../assets/pic.svg';
 import movieTypes from "../models/cards";
 
 import '../styles/card/cards.css';
-import '../styles/medias/movies.css';
+import '../styles/medias/cards.css';
 
 import Moment from "react-moment";
 import "moment/locale/pt-br";
@@ -19,7 +19,7 @@ Moment.globalLocale = "pt-br";
 
 export const Cards = ( { id, title, name, poster_path, release_date, vote_average, first_air_date } : movieTypes ) => {
 
-  const  [ bgPath ] = useState< string > ( 'https://image.tmdb.org/t/p/w500/' );
+  const [ bgPath ] = useState< string > ( 'https://image.tmdb.org/t/p/w500/' );
 
   return (
     <div className="cardList" key={ id } >

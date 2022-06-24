@@ -8,7 +8,8 @@
   export const Home = ( ) => {
 
     useEffect(() => {
-    }, [ Overlay, MovieList, SeriesList])
+    }, [ ])
+
     return (
      <>
       <Overlay />

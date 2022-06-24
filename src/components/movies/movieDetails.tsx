@@ -8,14 +8,14 @@
   import actorsTypes from '../../models/actors';
   import traillerTypes from '../../models/trailler';
 
-  import '../../styles/card/cards.css';
+  import '../../styles/movies/movie.css';
   import '../../styles/medias/movie.css';
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
   Moment.globalLocale = "pt-br";
 
-  export const MovieDetails = () => {
+  export const MovieDetails = ( ) => {
     
     useEffect( ( ) => {
       window.scrollTo( 0 , 0 );
@@ -24,7 +24,7 @@
 
     const movieId = useParams( );
 
-    const [ movie, setMovie ] = useState <movieTypes> ( );
+    const [ movie, setMovie ] = useState <movieTypes> ( Object );
 
     const [ trailler, setTrailler ] = useState < traillerTypes [ ] > ( [ ] );
 
@@ -42,71 +42,57 @@
         const traillers = await TraillersController( movieId.id as string );
         const credits   = await GetActorsController( movieId.id as string );
 
-        setMovie( data ); setTrailler( traillers ); setCredits ( credits );
+        setMovie( data! ); setTrailler( traillers ); setCredits ( credits );
       } catch ( e ) {
         console.log( e );
       }
     };
 
     return (
-      <div className="MovieContainer" key={ movie?.id } style={ { backgroundImage: `linear-Gradient(${gradient}), url(${bgPath+movie?.backdrop_path})` } }>
-        <div className="details">
+      <div className='movieContainer' key={ movie.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
+         
+         <div className='details'>
 
-          <div className="pic">
-            <img src={ bgPath + movie?.poster_path } alt="image" />
-
-              <div className="trailler">
-                <iframe
-                  src={ youTubePath + trailler[0] }           
-                  allowFullScreen={ true }
-                  title="trailler"
-                />
-              </div>
+          <div className='poster'>
+            <img src={`${ bgPath+movie.poster_path }`} />
           </div>
 
-          <div className="description">
-            <p> { movie?.title } </p>
-            
-            <div className="genres">
-              { movie?.genres?.map( ( genres: movieTypes ) => {
-                return (
-                  <span> { genres.name } </span>
-                );
-              })}
+            <div className='movieDetails'>
+              <h4> { movie.title } </h4>
+
+              <div> generos </div>
+
+              <i> { movie.tagline } </i>
+
+              <span> { movie.overview } </span>
+
             </div>
 
-            <h4> Lançamento:  { `${' '}`}
-              <Moment locale="pt-br"format="DD/MM/YYYY" date={ movie?.release_date } > </Moment> 
-            </h4> 
-
-            <div className="sinopse">
-                <i> { movie?.tagline } </i>
-                <p> { movie?.overview } </p> 
+            <div className="rating">
+              <ul>
+                <li> <p> { movie.vote_average } </p> </li>
+                <li> <p> 18 + </p> </li>
+                <li> <p> { movie.vote_count } votos </p> </li>
+              </ul>
             </div>
-              
-          </div>
 
-          <div className="rating">
-            <ul>
-              <li> <p> { movie?.vote_average } </p> </li>
-              <li> <p> 18 + </p> </li>
-              <li> <p> { movie?.vote_count } votos </p> </li>
-            </ul>
-            
-            <div className="casting">
-                { credits?.map( ( actors: actorsTypes ) => {
-                  return (                      
-                    <span>                        
-                      <img src={ bgPath + actors?.profile_path } alt="ator/atriz"></img>                                               
-                      <p> <BsFillPersonCheckFill className="icons" /> { actors?.original_name } </p>                       
-                      <p> <BsFillPersonBadgeFill className="icons" /> { actors?.character } </p>
-                    </span>
-                  )
-                })}
-            </div>
-            
-          </div>
-        </div>
+          
+
+         </div>
       </div>
     );
   };
+
+
+
+
+
+
+
+{/* <div className="rating">
+  <ul>
+    <li> <p> { movie?.vote_average } </p> </li>
+    <li> <p> 18 + </p> </li>
+    <li> <p> { movie?.vote_count } votos </p> </li>
+  </ul>
+</div> */}
