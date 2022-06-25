@@ -30,7 +30,7 @@
     getData( );    
   }, [ ] );
 
-  const [ series , setSeries ] =  useState  < [ ] > ( [ ] );
+  const [ series , setSeries ] =  useState< [ ] > ( [ ] );
 
   const getData = async ( ) => {
     const data = await airingTodaySeriesController( );
@@ -39,13 +39,13 @@
 
 return (
     <>
-    <Swiper
+      <Swiper
           resizeObserver={ false }
           autoplay={{ delay: 2500, disableOnInteraction: false }}
           slidesPerView={ 'auto' }
           spaceBetween={ 0 }
           pagination={{ clickable: true }}
-          modules={[ Autoplay, Pagination, Navigation]}
+          modules={[ Autoplay, Pagination, Navigation ]}
           navigation={ true }
           className="mySwiper"
         >

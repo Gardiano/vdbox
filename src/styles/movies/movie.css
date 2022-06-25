@@ -1,12 +1,36 @@
 
+.wrapper {
+  width: 100%;
+  height: 100%;
+
+  margin: 0 auto;
+  display: block;
+
+  flex-direction: column;
+}
+
+.wrapper .actors {
+  color: #f8f8f8;
+
+  width: 100%;
+  max-width: auto;
+  height: 300px;
+  
+  display: flex;
+  margin: 0 auto 5rem;
+  padding: 1.25rem;
+
+  border: 1px solid salmon;
+}
 
 .movieContainer {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 
   display: flex;
+  margin: auto;
 
-  background-size: 100% 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -15,10 +39,10 @@
   color: #f8f8f8;
 
   width: 100%;
-  max-width: 1500px;
-  height: 700px;
+  max-width: 1400px;
+  height: 100%;
 
-  margin:auto;
+  margin: 5rem auto;
   display: flex;
 
   align-items: center;
@@ -37,27 +61,21 @@
   display: flex;
 
   padding: 10px;
-
-
-  border-radius: .90rem;
 }
 
 .movieContainer .details .movieDetails {
   color: #f8f8f8;
   width: 100%;
- 
   
   display: flex;
   flex-direction: column;
- 
-  padding: 20px;
 }
 
 .movieContainer .details .movieDetails h4 {
   color: #f8f8f8;
+  
   width: 100%;
   height: 70px;
-  
 
   margin: 0 auto;
 
@@ -65,31 +83,84 @@
   align-items: center;
 }
 
-.movieContainer .details .movieDetails div {
+.movieContainer .details .movieDetails h3 {
+  color: #f8f8f8;
+  font-size: 1rem;
+
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+
+  margin: 0 auto 1rem;
+
+  text-align: center;
+  align-items: center;
+}
+
+.movieContainer .details .movieDetails h2 {
+  color: #f8f8f8;
+  font-size: 1rem;
+
+  width: 100%;
+  max-width: 20rem;
+
+  margin: 0 auto 1rem;
+
+  text-align: center;
+  align-items: center;
+}
+
+.movieContainer .details .movieDetails .genres {
+  width: auto;
+
   display: flex;
-  margin: 0 auto;
+  margin:  auto;
+
+  flex-direction: row;
+
+  gap: 1rem;
+
+  align-items: center;
 
   justify-content: center;
 }
 
-.movieContainer .details .movieDetails i {
-  width: 100%;
+.movieContainer .details .movieDetails b {
+ color: rgb(202, 202, 202);
+
+ width: auto;
  
+ 
+ padding: 10px;
+ text-align: center;
+
+ border-radius: 5px;
+ border: 2px solid grey;
+}
+
+.movieContainer .details .movieDetails u {
+  color: #f8f8f8b3;
+
+  width: 100%;
+
+  max-width: 900px;
   height: auto;
 
   display: flex;
-  margin: 1.25rem auto;
-  padding: 0.75rem;
+  margin: 2.5rem auto 1rem;
 
   font-style: italic;
 
   font-size: 1.10rem;
 
   align-items: center;
+  text-align: center;
   justify-content: center;
 }
 
 .movieContainer .details .movieDetails span {
+
+  max-width: 750px;
   display: block;
   margin: 1.25rem auto;
 
@@ -111,6 +182,8 @@
   margin: 0;
 
   flex-direction: column;
+
+  padding-bottom: 5rem;
 }
 
 .movieContainer .details .rating ul {    
@@ -125,7 +198,11 @@
 
 .movieContainer .details .rating li p {
   color: white;
-  margin: auto;
+
+  margin: 10px auto 0;
+
+  text-align: center;
+
   font-family: 'Inter', sans-serif;
 }
 
@@ -133,10 +210,17 @@
   width: 200px;
   height: 250px;
 
-  display: flex;    
+  display: flex;
+  margin: 0 auto;
 
-  font-size: 5rem;
+  padding-top: 40px;
+  
+  text-align: center;
+  flex-direction: column;
+
+  font-size: 100px;
   font-weight: 100; 
+
   background: #F8686D;
 }
 
@@ -144,12 +228,15 @@
   width: 50%;
   height: 100px;
 
+  
   display: inline-flex;
   align-items: center;
 
   font-size: 16px;
   font-weight: 400; 
-  background: #FF5757;    
+  background: #FF5757;  
+  
+  color: green;
 }
 
 .movieContainer .details .rating li:nth-child( 3 ) {
@@ -164,90 +251,3 @@
   background: #DB444C;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* main .MovieContainer .rating { 
-  width: 100%;
-  max-width: 245px;  
-  height: 350px;
-
-  display: block;
-  margin: 0;
-
-  flex-direction: column;
-}
-
-main .MovieContainer .rating ul {    
-  width: auto;
-
-  display: block;
-  margin: 0 auto;
-  padding: 0; 
-  
-  list-style: none;
-}
-
-main .MovieContainer .rating li p {
-  color: white;
-  margin: auto;
-  font-family: 'Inter', sans-serif;
-}
-
-main .MovieContainer .rating li:nth-child( 1 ) {
-  width: 245px;
-  height: 250px;
-
-  display: flex;    
-
-  font-size: 8rem;
-  font-weight: 100; 
-  background: #F8686D;
-}
-
-main .MovieContainer .rating li:nth-child( 2 ) {
-  width: 50%;
-  height: 100px;
-
-  display: inline-flex;
-  align-items: center;
-
-  font-size: 16px;
-  font-weight: 400; 
-  background: #FF5757;    
-}
-
-main .MovieContainer .rating li:nth-child( 3 ) {
-  width: 50%;
-  height: 100px;
-
-  display: inline-flex;
-  align-items: center;
-
-  font-size: 16px;
-  font-weight: 400; 
-  background: #DB444C;
-} */

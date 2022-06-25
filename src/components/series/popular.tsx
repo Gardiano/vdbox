@@ -27,10 +27,10 @@
 
   export const Popular = ( ) => {
   useEffect( ( ) => {
-    getData( );    
+    getData( );
   }, [ ] );
 
-  const [ series , setSeries ] =  useState  < [ ] > ( [ ] );
+  const [ series , setSeries ] =  useState< [ ] > ( [ ] );
 
   const getData = async ( ) => {
         const data = await popularSeriesController( );
@@ -45,7 +45,7 @@ return (
           slidesPerView={ 'auto' }
           spaceBetween={ 0 }
           pagination={{ clickable: true }}
-          modules={[ Autoplay, Pagination, Navigation]}
+          modules={[ Autoplay, Pagination, Navigation ]}
           navigation={ true }
           className="mySwiper"
         >

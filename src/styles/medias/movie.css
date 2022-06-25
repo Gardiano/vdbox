@@ -1,10 +1,19 @@
 
 @media screen and ( max-width: 900px ) {
+
+  body .movieContainer {
+    margin: 0 auto;
+  }
+
    body .movieContainer .details {
-        margin: 31.25rem auto;
-        display: flex;
-        flex-direction: column;
-      }
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+   }
+
+  body .movieContainer .details .poster img {
+    height: 400px;
+  }
 }
 
 
