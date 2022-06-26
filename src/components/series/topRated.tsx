@@ -49,6 +49,8 @@ return (
           navigation={ true }
           className="mySwiper"
         >
+          
+          <h1> Mais Votados </h1>
 
           { series.map( ( serie: movieTypes ) => {
             return (   

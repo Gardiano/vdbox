@@ -3,13 +3,15 @@
 
   body .movieContainer {
     margin: 0 auto;
+    background-size: 100% 70%;
+    background-position: top;
   }
 
-   body .movieContainer .details {
+  body .movieContainer .details {
     margin: 5rem auto;
     display: flex;
     flex-direction: column;
-   }
+  }
 
   body .movieContainer .details .poster img {
     height: 400px;

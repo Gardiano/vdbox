@@ -34,6 +34,8 @@ section:hover {
   -webkit-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
   -moz-box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
   box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
+
+  margin-bottom: 40px;
 }
 
 .swiper h1 {

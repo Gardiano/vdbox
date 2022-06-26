@@ -50,6 +50,8 @@ return (
           className="mySwiper"
         >
 
+          <h1> Hoje </h1>
+
           { series.map( ( serie: movieTypes ) => {
             return (   
               <SwiperSlide key={ serie.id }> 

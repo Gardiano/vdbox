@@ -3,6 +3,8 @@
   import { useParams } from 'react-router';
   import { MovieByIdController, TraillersController, GetActorsController } from '../../controllers/moviesController/movieDetailsController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
+  
+  import person from '../../assets/person.svg';
 
   import movieTypes from '../../models/cards'
   import actorsTypes from '../../models/actors';
@@ -41,8 +43,6 @@
         const data      = await MovieByIdController( movieId.id as string );
         const traillers = await TraillersController( movieId.id as string );
         const credits   = await GetActorsController( movieId.id as string );
-
-        console.log ( data );
 
         setMovie( data! ); setTrailler( traillers ); setCredits ( credits );
       } catch ( e ) {
@@ -97,23 +97,22 @@
         </div>
 
         <div className='actors'>
-          actors;
+            { credits.map( ( actor: actorsTypes ) => {
+              return (
+                <div key={actor.id}>
+                  { actor.profile_path == undefined ? 
+                    ( <img src={ person } alt={ 'empty person' } /> ) 
+                      : 
+                    ( <img src={ bgPath + actor.profile_path } /> )
+                  }
+                  
+                  <p> <BsFillPersonCheckFill /> { actor.original_name } </p>
+                  <p> <BsFillPersonBadgeFill /> { actor.character } </p>
+                </div>
+              )
+            })}
         </div>
-        
+
       </div>
-    );
-  };
-
-
-
-
-
-
-
-{/* <div className="rating">
-  <ul>
-    <li> <p> { movie?.vote_average } </p> </li>
-    <li> <p> 18 + </p> </li>
-    <li> <p> { movie?.vote_count } votos </p> </li>
-  </ul>
-</div> */}
+    )
+  }

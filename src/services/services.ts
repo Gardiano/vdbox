@@ -27,7 +27,6 @@ export const getMovieToOverlayComponent = async ( ) => {
 export const getTheaters = async ( ) => {
     try {
         const response = await api.get(`/movie/now_playing?api_key=${ GK }&language=pt-BR&page=1`);
-        console.log(response.data.results)
         return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -123,7 +122,6 @@ export const getTvOnTheAirSeries = async ( ) => {
 export const getAiringTodaySeries = async ( ) => {
     try { 
       const response = await api.get( `/tv/airing_today?api_key=${ GK }&language=pt-BR&page=1` );
-      console.log( response.data.results );
       return response.data.results;
     } catch ( e ) {
         console.log( e );
