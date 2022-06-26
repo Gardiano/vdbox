@@ -1,5 +1,5 @@
 
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Header } from './components/navbar/header';
 import { MenuMobile } from './components/navbar/menuMobile';
 import { AppRoutes }  from './routes';
@@ -7,7 +7,6 @@ import { AppRoutes }  from './routes';
 import './styles/global.css';
 
 export const App = ( ) => {
-
   const [ size, setSize ] = useState( 0 );
 
   function useWindowSize( ) { 
@@ -30,6 +29,7 @@ export const App = ( ) => {
 
   return (
     <>
+    {}
       { size >= 800 ? ( <Header /> ) : ( <MenuMobile /> ) }
       <AppRoutes /> 
     </>

@@ -51,7 +51,7 @@ export const Cards = ( { id, title, name, poster_path, release_date, vote_averag
             // series date
             <p> <Moment locale="pt-br" format="YYYY" date={ first_air_date } > </Moment> </p>
         )}
-            <p> { vote_average } <BsFillStarFill className="star" /> </p>
+            <p> { vote_average!.toPrecision( 2 ) } <BsFillStarFill className="star" /> </p>
       </div>
     </div>
   );

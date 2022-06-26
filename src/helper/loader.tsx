@@ -1,13 +1,14 @@
 
-import '../styles/loader.css';
+import '../styles/loaders/loader.css';
 
-import gif from '../assets/loader.gif'
+import loader from '../assets/load.svg';
 
-export const LoaderGif: any = () => {
+export const Loader = ( ) => {
+
   return (
     <div className="loader">
-    <img src={ gif } />
-  </div>
-  )
-
+      <h1> VDBOX </h1>
+      <img src={ loader } />
+    </div>
+  );
 };

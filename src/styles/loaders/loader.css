@@ -1,22 +1,34 @@
 
 .loader {
   width: 100%;
-  
-  height: 200px;
+  height: 99.8vh;
 
   margin: auto;
-  display: block;
+  display: flex;
 
-  border: 1px solid red;
+  z-index: 9999;
+  
+  align-items: center;
+  flex-direction: column;
+  background: #0f1316;
+  justify-content: center;
+}
+
+.loader h1 {
+  color: #F8686D;
+  margin: 0 auto 10px;
+  display: block;
 }
 
 .loader img {
-  width: 100%;
-  max-width: 100px;
-  height: 100px;
+  color: grey;
 
-  margin: auto;
-  display: block;
+  width: 150px;
+ 
+  height: 50px;
 
-  border: 1px solid red;
+  margin: 0 auto;
+  display: flex;
+
+  border-radius: 0rem;
 }
