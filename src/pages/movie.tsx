@@ -6,7 +6,7 @@
 
   export const Movie = ( ) => {
     return (
-        <main>        
+        <main>
           <MovieDetails />
         </main>
       );

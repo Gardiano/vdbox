@@ -287,6 +287,49 @@
   color: #F8686D;
 }
 
+.wrapper .trailler {
+width: 100%;
+max-width: 450px;
+height: 300px;
+
+display: flex;
+margin: 2rem auto 2.50rem;
+
+align-items: center;
+}
+
+.wrapper .trailler iframe {
+  width: 100%;
+  max-width: 440px;
+  height: 290px;
+
+  display: block;
+  margin: auto;
+
+  border: 2px solid #F8686D;
+}
+
+.wrapper .trailler .traillerSvg {
+  margin: auto ;
+  display: block;
+  color: #F8686D;
+}
+
+.wrapper .trailler .traillerSvg p {
+  color: #F8686D;
+  text-align: center;
+}
+
+.wrapper .trailler .traillerSvg img {
+  width: 100%;
+  max-width: 400px;
+  height: 300px;
+
+  margin: auto;
+
+  border-bottom: 1px solid #F8686D;
+}
+
 .wrapper .actors::-webkit-scrollbar {
   width: 12px; 
   height: 7px;            /* width of the entire scrollbar */

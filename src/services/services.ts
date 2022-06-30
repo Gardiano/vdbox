@@ -127,3 +127,22 @@ export const getAiringTodaySeries = async ( ) => {
         console.log( e );
     };
 };
+
+// serie details 
+export const getSerieById = async ( serieId: string ) => {
+    try { 
+      const response = await api.get( `/tv/${ serieId }?api_key=${ GK }&language=pt-BR` );
+      return response.data;
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+export const getEpisodeGroup = async ( serieId: string, season: number ) => {
+    try { 
+      const response = await api.get( `/tv/${ serieId }/season/${ season }?api_key=${ GK }&language=pt-BR` );
+      return response.data;
+    } catch ( e ) {
+        console.log( e );
+    };
+};

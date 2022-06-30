@@ -23,4 +23,8 @@ export default interface movieTypes {
 
   first_air_date: string
   release_date: string
+
+  number_of_seasons?: number
+  seasons?: []
+  season_number?: number
 };

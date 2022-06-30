@@ -1,7 +1,7 @@
   
   import { useEffect, useState } from 'react';  
   import { useParams } from 'react-router';
-  import { MovieByIdController, TraillersController, GetActorsController } from '../../controllers/moviesController/movieDetailsController';
+  import { SerieByIdController, EpisodeGroupsController } from '../../controllers/seriesController/SerieDetailsController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
   
   import { Loader } from '../../helper/loader';
@@ -9,30 +9,34 @@
   import person from '../../assets/person.svg';
   import traillerFig from '../../assets/trailler.svg';
 
-  import movieTypes from '../../models/cards'
+  import cardTypes from '../../models/cards'
   import actorsTypes from '../../models/actors';
   import traillerTypes from '../../models/trailler';
 
-  import '../../styles/movies/movie.css';
-  import '../../styles/medias/movie.css';
+  import '../../styles/series/serie.css';
+  import '../../styles/medias/serie.css';
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
   
   Moment.globalLocale = "pt-br";
 
-  export const MovieDetails = ( ) => {
+  export const SerieDetails = ( ) => {
     
     useEffect( ( ) => {
       window.scrollTo( 0 , 0 );
       getData( );
     }, [ ] );
 
-    const movieId = useParams( );
+    const serieId = useParams( );
 
     const [ hasBeenLoaded, setHasBeenLoaded ] = useState < boolean > ( false );
 
-    const [ movie, setMovie ] = useState < movieTypes > ( Object );
+    const [ serie, setSerie ] = useState < cardTypes > ( Object );
+
+    const [ seasons, setSeasons ] = useState < number > ( 0 );
+
+    const [ episodes, setEpisodes ] = useState < any > ( );
 
     const [ trailler, setTrailler ] = useState < traillerTypes [ ] > ( [ ] );
 
@@ -46,64 +50,83 @@
 
     const getData = async ( ) => {
       try {
-        const data      = await MovieByIdController( movieId.id as string );
-        const traillers = await TraillersController( movieId.id as string );
-        const credits   = await GetActorsController( movieId.id as string );
-        console.log(traillers)
-        setMovie( data! ); setTrailler( traillers! ); setCredits( credits! );
-
-        // loader state
+        const data = await SerieByIdController( serieId.id as string );
+        setSerie( data! );
         setHasBeenLoaded( true );
       } catch ( e ) {
         console.log( e );
       }
     };
 
+    const getSeasonsAndEpisodes = async ( seasonState: number ) => {
+      setSeasons( seasonState );
+      const episodes = await EpisodeGroupsController ( serieId.id as string, seasonState );
+      setEpisodes( episodes ); 
+      console.log('season: ', seasonState)
+    };
+
     return (
       <>
         { hasBeenLoaded === true ? (
           <div className='wrapper'>
-            
-            <div className='movieContainer' key={ movie?.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
+            <div className='serieContainer' key={ serie?.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+serie.backdrop_path } )` } }>
               <div className='details'>
+
                   <div className='poster'>
-                    <img src={`${ bgPath+movie.poster_path }`} />
+                    <img src={`${ bgPath+serie.poster_path }`} />
                   </div>
 
                   <div className='movieDetails'>
-                    <h4> { movie.title } </h4>
+                    <h4> { serie.name } </h4>
                     
-                    <h2> Lançamento: <Moment locale="pt-br"format="DD/MM/YYYY" date={ movie.release_date } /> </h2>
+                    <h2> Lançamento: <Moment locale="pt-br"format="DD/MM/YYYY" date={ serie.first_air_date } /> </h2>
 
-                    {movie.runtime === 0 ? ( null ) : ( <h3> { movie.runtime } min </h3> )}
+                    { serie.number_of_seasons === 0 ? 
+                      ( null ) :
+                      ( <h3> { serie.number_of_seasons } Temporadas </h3> )}
 
                     <div className='genres'>  
-                      { movie.genres?.map( ( gens: movieTypes ) => {
+                      { serie.genres?.map( ( gens: cardTypes ) => {
                           return ( <b key={ gens.id }> { gens.name } </b> ) })}
                     </div>
 
-                    <u> { movie.tagline } </u>
+                    <u> { serie.tagline } </u>
 
-                    { movie.overview === '' ? 
+                    { serie.overview === '' ? 
                         ( <span> Sinopse Indisponível </span> ) 
                       : 
-                        ( <span> { movie.overview } </span> )
-                    }
+                        ( <span> { serie.overview } </span> )}
                   </div>
 
                   <div className="rating">
                     <ul>
                       <li> 
-                        <p> { movie.vote_average?.toPrecision( 2 ) } </p> 
-                        <BsFillStarFill style={{ color: 'rgb(255, 255, 47)', fontSize: '25px', margin:'0 auto' }} /> 
+                        <p> { serie.vote_average?.toPrecision( 2 ) } </p> <BsFillStarFill style={{ color: 'rgb(255, 255, 47)', fontSize: '25px', margin:'0 auto' }} /> 
                       </li>
 
-                      <li>  <p> <BsFillHandThumbsUpFill style={{color: 'rgb(131, 210, 131)' }} /> </p> </li>
+                      <li> 
+                        <p> <BsFillHandThumbsUpFill style={{color: 'rgb(131, 210, 131)' }} /> </p>
+                      </li>
                       
-                      <li> <p> { movie.vote_count } </p> </li>
+                      <li> 
+                        <p> { serie.vote_count } </p> 
+                      </li>
                     </ul>
                   </div>
               </div>
+            </div>
+           
+            <div className='seasonNavBar'>
+            <h4> TEMPORADAS </h4>
+              {serie.seasons?.map( ( season: cardTypes ) => {
+                return (
+                  <div key={ season.id } >
+                    <button onClick={ ( ) => getSeasonsAndEpisodes( season.season_number! ) } > 
+                      {season.season_number} 
+                    </button>
+                  </div>
+                );
+              })}
             </div>
 
             <div className='actors'>
@@ -123,12 +146,12 @@
                 })}
             </div>
 
-            <div className='trailler' >
+            <div className='trailler'>
               { trailler.length ? ( 
                   <iframe 
                     src={ `${ youTubePath + trailler[0] }` }
                     allowFullScreen
-                    title={ movie.title } >
+                    title={ serie.title } >
                   </iframe>
                  ) : (
                   <div className='traillerSvg'>

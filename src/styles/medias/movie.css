@@ -3,7 +3,7 @@
 
   body .movieContainer {
     margin: 0 auto;
-    background-size: 100% 70%;
+    background-size: 100% 65%;
     background-position: top;
   }
 
@@ -18,8 +18,59 @@
   }
 }
 
+@media screen and ( max-width: 418px ) {
 
+  body .movieContainer .details .poster img {
+    width: 220px;
+    height: 300px;
+    margin-top: 10px;
+    border-radius: 20px;
+  }
 
+  body .movieContainer .details .rating {
+    height: 200px;
+    border-radius: 10px;
+  }
 
+  body .movieContainer .details .rating li:nth-child( 1 ) {
+    font-size: 50px;
 
+    height: 110px;
+    padding-top: 0px;
 
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  body .movieContainer .details .rating li:nth-child( 2 ) {
+    height: 80px;
+    border-bottom-left-radius: 10px;
+  }
+
+  body .movieContainer .details .rating li:nth-child( 3 ) {
+    height: 80px;
+    border-bottom-right-radius: 10px;
+  }
+
+  body .wrapper .actors {
+    height: 315px;
+    margin-bottom: 1rem;
+  }
+
+  body .wrapper .actors div {
+    height: 200px;
+  }
+
+  body .wrapper .actors div img {
+    border-radius: 20px;
+  }
+
+  body .wrapper .trailler {
+    max-width: 250px;
+    margin-bottom: 5rem;
+  }
+
+  body .wrapper .trailler iframe {
+    margin-top: 3rem;
+  }
+}
