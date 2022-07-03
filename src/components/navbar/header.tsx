@@ -7,23 +7,13 @@ import { Link } from 'react-router-dom';
 import '../../styles/navBar/header.css';
 
 export const Header = ( ) => {
-
-  const location = useLocation( ).pathname;
-
-  const bg = { primary: 'transparent', secondary: '#FF5757' };
-
   return (
-    <header style={ location == '/movies' ? ( { background: bg.secondary } ) : ( { background: bg.primary } ) }>
-
+    <header>
       <nav className="navbar">
-        <p style={ location == '/movies' ? ( { color: 'white' } ) : ( { color: '#FF5357' } ) }> 
-          VideoBox 
-        </p>
-        
+        <p> VideoBox </p>
         <Link to="/" > Home </Link>
-        <Link to="/series" > Series </Link>
         <Link to="/movies" > Filmes </Link>
-        <Link to="/Trending" > Traillers </Link>
+        <Link to="/series" > Series </Link>
       </nav>
 
       <div className="searchBox">

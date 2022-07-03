@@ -1,76 +1,123 @@
 
-@media screen and ( max-width: 900px ) {
+@media screen and ( max-width: 500px ) {
+  
+  body .serieContainer .details .poster img {
+    width: 220px;
+    height: 300px;
+    margin-top: 10px;
+    border-radius: 20px;
+  }
 
-    body .serieContainer {
-      margin: 0 auto;
-      background-size: 100% 65%;
-      background-position: top;
-    }
-  
-    body .serieContainer .details {
-      margin: 5rem auto;
-      display: flex;
-      flex-direction: column;
-    }
-  
-    body .serieContainer .details .poster img {
-      height: 400px;
-    }
+  body .serieContainer .details .rating {
+    height: 200px;
+    border-radius: 10px;
   }
-  
-  @media screen and ( max-width: 418px ) {
-  
-    body .serieContainer .details .poster img {
-      width: 220px;
-      height: 300px;
-      margin-top: 10px;
-      border-radius: 20px;
-    }
-  
-    body .serieContainer .details .rating {
-      height: 200px;
-      border-radius: 10px;
-    }
-  
-    body .serieContainer .details .rating li:nth-child( 1 ) {
-      font-size: 50px;
-  
-      height: 110px;
-      padding-top: 0px;
-  
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-    }
-  
-    body .serieContainer .details .rating li:nth-child( 2 ) {
-      height: 80px;
-      border-bottom-left-radius: 10px;
-    }
-  
-    body .serieContainer .details .rating li:nth-child( 3 ) {
-      height: 80px;
-      border-bottom-right-radius: 10px;
-    }
-  
-    body .wrapper .actors {
-      height: 315px;
-      margin-bottom: 1rem;
-    }
-  
-    body .wrapper .actors div {
-      height: 200px;
-    }
-  
-    body .wrapper .actors div img {
-      border-radius: 20px;
-    }
-  
-    body .wrapper .trailler {
-      max-width: 250px;
-      margin-bottom: 5rem;
-    }
-  
-    body .wrapper .trailler iframe {
-      margin-top: 3rem;
-    }
+
+  body .serieContainer .details .rating li:nth-child( 1 ) {
+    font-size: 50px;
+
+    height: 110px;
+    padding-top: 0px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
+
+  body .serieContainer .details .rating li:nth-child( 2 ) {
+    height: 80px;
+    border-bottom-left-radius: 10px;
+  }
+
+  body .serieContainer .details .rating li:nth-child( 3 ) {
+    height: 80px;
+    border-bottom-right-radius: 10px;
+  }
+
+  body .wrapper .slideEpisodes .mySliderEpisodes {
+    width: 100%;
+    height: auto!important;
+  }
+
+  body .wrapper .slideEpisodes .mySliderEpisodes .swiper-wrapper {
+    width: 100%;
+  }
+
+  #root .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes img {
+    height: 100px!important;
+  }
+
+  body .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes label {
+    font-size: 14px;
+  }
+
+  body .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes p {
+    font-size: 12px;
+  }
+
+  #root .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-prev {
+    height: 40px;
+    width: 40px;
+
+    margin-top: -4.5rem;
+    font-size: 12px;
+    
+    background: #0d1013;
+
+    border-radius: 20px;
+  }
+
+  #root .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-prev::after {
+    font-size: 12px;
+  }
+
+  #root .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-next {
+    height: 40px;
+    width: 40px;
+    
+    margin-top: -4.5rem;
+    font-size: 12px;
+    
+    background: #0d1013;
+
+    border-radius: 20px;
+  }
+
+  #root .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-next::after {
+    font-size: 12px;
+  }
+
+  #root .swiper-button-prev::after {
+   color: #fff;
+  }
+
+  #root .swiper-button-next {
+    margin-top: -5.5rem;
+  }
+
+  #root .swiper-button-next::after {
+    color: #fff;
+  }
+}
+
+@media screen and ( max-width: 900px ) {
+  body .serieContainer {
+    margin: 0 auto;
+    background-size: 100% 65%;
+    background-position: top;
+  }
+
+  body .serieContainer .details {
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body .serieContainer .details .poster img {
+    height: 400px;
+  }
+}
+
+
+
+  
+ 

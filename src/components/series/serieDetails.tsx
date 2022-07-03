@@ -2,23 +2,24 @@
   import { useEffect, useState } from 'react';  
   import { useParams } from 'react-router';
   import { SerieByIdController, EpisodeGroupsController } from '../../controllers/seriesController/SerieDetailsController';
-  import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
+ 
+  import { Swiper, SwiperSlide } from 'swiper/react';
+  import EpisodesTypes from '../../models/episodes';
+  import { Autoplay, Navigation, Pagination } from 'swiper';
+
+  import { BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
   
   import { Loader } from '../../helper/loader';
-
-  import person from '../../assets/person.svg';
   import traillerFig from '../../assets/trailler.svg';
 
-  import cardTypes from '../../models/cards'
-  import actorsTypes from '../../models/actors';
-  import traillerTypes from '../../models/trailler';
+  import cardTypes from '../../models/cards';
+  import episodeTypes from '../../models/episodes';
 
   import '../../styles/series/serie.css';
   import '../../styles/medias/serie.css';
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
-  
   Moment.globalLocale = "pt-br";
 
   export const SerieDetails = ( ) => {
@@ -34,23 +35,20 @@
 
     const [ serie, setSerie ] = useState < cardTypes > ( Object );
 
-    const [ seasons, setSeasons ] = useState < number > ( 0 );
+    const [ seasons, setSeasons ] = useState < number > ( );
 
-    const [ episodes, setEpisodes ] = useState < any > ( );
+    const [ episodes, setEpisodes ] = useState < episodeTypes > ( );
 
-    const [ trailler, setTrailler ] = useState < traillerTypes [ ] > ( [ ] );
-
-    const [ credits, setCredits ] = useState < actorsTypes [ ] > ( [ ] );
+    const [ hasEpisodes, setHasEpisodes ] = useState < boolean > ( false );
 
     const [ bgPath ] = useState < string > ( 'https://image.tmdb.org/t/p/w500' );
-
-    const [ youTubePath ] = useState < string > ( 'https://www.youtube.com/embed/' );
 
     const [ gradient ] = useState < string > ( '0deg,#020202 0,rgba(2,2,2,.96) 10%,rgba(2,2,2,.9) 22%,rgba(2,2,2,.66) 38%,rgba(2,2,2,.61) 58%,rgba(0,0,21,.76) 100%' )
 
     const getData = async ( ) => {
       try {
         const data = await SerieByIdController( serieId.id as string );
+        console.log('seriebyId', data)
         setSerie( data! );
         setHasBeenLoaded( true );
       } catch ( e ) {
@@ -61,8 +59,9 @@
     const getSeasonsAndEpisodes = async ( seasonState: number ) => {
       setSeasons( seasonState );
       const episodes = await EpisodeGroupsController ( serieId.id as string, seasonState );
-      setEpisodes( episodes ); 
-      console.log('season: ', seasonState)
+      setEpisodes( episodes );
+      setHasEpisodes( true );
+      console.log( ' episodes ' , episodes );
     };
 
     return (
@@ -116,50 +115,47 @@
               </div>
             </div>
            
-            <div className='seasonNavBar'>
             <h4> TEMPORADAS </h4>
+            <div className='seasonNavBar'>
               {serie.seasons?.map( ( season: cardTypes ) => {
                 return (
                   <div key={ season.id } >
                     <button onClick={ ( ) => getSeasonsAndEpisodes( season.season_number! ) } > 
-                      {season.season_number} 
+                      { season.season_number } 
                     </button>
                   </div>
                 );
               })}
             </div>
-
-            <div className='actors'>
-                { credits?.map( ( actor: actorsTypes ) => {
-                  return (
-                    <div key={actor?.id}>
-                      { actor?.profile_path == undefined ? 
-                        ( <img src={ person } alt={ 'empty person' } /> ) 
-                          : 
-                        ( <img src={ bgPath + actor.profile_path } /> )
-                      }
-                      
-                      <p> <BsFillPersonCheckFill /> { actor?.original_name } </p>
-                      <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
-                    </div>
-                  )
-                })}
-            </div>
-
-            <div className='trailler'>
-              { trailler.length ? ( 
-                  <iframe 
-                    src={ `${ youTubePath + trailler[0] }` }
-                    allowFullScreen
-                    title={ serie.title } >
-                  </iframe>
-                 ) : (
-                  <div className='traillerSvg'>
-                    <p> TRAILLER INDISPONÍVEL </p>
-                    <img src={ traillerFig } />
-                  </div>
-                 )}
-            </div>
+           
+            { hasEpisodes == true ? ( 
+              <div className='slideEpisodes'>
+               <h4> SEASON { episodes?.season_number } </h4>
+                <Swiper
+                  resizeObserver={ false }
+                  autoplay={ true }
+                  slidesPerView={ 'auto' }
+                  spaceBetween={ 0 }
+                  pagination={ { clickable: true } }
+                  modules={ [ Autoplay, Pagination, Navigation ] }
+                  navigation={ true }
+                  className="mySliderEpisodes"
+                >
+                  
+                  { episodes?.episodes?.map( ( ep: EpisodesTypes ) => {
+                      return (
+                        <SwiperSlide key={ ep.id } > 
+                          <div className='episodes'>
+                              { ep.still_path == null ? ( <img src={ traillerFig } /> ) 
+                                  : ( <img src={ bgPath + ep.still_path } /> ) }
+                              <p> Episódio: { ep.episode_number } </p>
+                              <label> { ep.name } </label>
+                          </div>
+                        </SwiperSlide>
+                  )})}
+                </Swiper>
+              </div>
+             ) : ( null ) }
 
           </div> ) : 
           ( <Loader /> )

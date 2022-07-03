@@ -19,13 +19,13 @@ Moment.globalLocale = "pt-br";
 
 export const Cards = ( { id, title, name, poster_path, release_date, vote_average, first_air_date } : movieTypes ) => {
 
-  const [ bgPath ] = useState< string > ( 'https://image.tmdb.org/t/p/w500/' );
+const [ bgPath ] = useState< string > ( 'https://image.tmdb.org/t/p/w500/' );
 
   return (
     <div className="cardList" key={ id } >
       { title ? (
         <Link to={`/movie/${ id }`}>
-            <i> { title } </i>
+          <i> { title } </i>
           { poster_path == undefined ? ( 
             <img src={ `${ pic }` } alt={ `${ title }` } /> 
             ) : ( 
@@ -38,7 +38,7 @@ export const Cards = ( { id, title, name, poster_path, release_date, vote_averag
           { poster_path == undefined ? ( 
               <img src={ `${pic}` } alt={ `${ title }` } /> 
               ) : ( 
-              <img src={ `${ bgPath + poster_path }`} alt={ `${ name }` } /> 
+              <img src={ `${ bgPath + poster_path }` } alt={ `${ name }` } /> 
           )}
         </Link>
       )}
@@ -51,7 +51,7 @@ export const Cards = ( { id, title, name, poster_path, release_date, vote_averag
             // series date
             <p> <Moment locale="pt-br" format="YYYY" date={ first_air_date } > </Moment> </p>
         )}
-            <p> { vote_average!.toPrecision( 2 ) } <BsFillStarFill className="star" /> </p>
+            <p> { vote_average?.toPrecision( 2 ) } <BsFillStarFill className="star" /> </p>
       </div>
     </div>
   );

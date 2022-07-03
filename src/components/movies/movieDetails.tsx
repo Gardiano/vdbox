@@ -9,7 +9,7 @@
   import person from '../../assets/person.svg';
   import traillerFig from '../../assets/trailler.svg';
 
-  import movieTypes from '../../models/cards'
+  import cardsTypes from '../../models/cards'
   import actorsTypes from '../../models/actors';
   import traillerTypes from '../../models/trailler';
 
@@ -18,6 +18,7 @@
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
+import ActorsTypes from '../../models/actors';
   
   Moment.globalLocale = "pt-br";
 
@@ -32,11 +33,11 @@
 
     const [ hasBeenLoaded, setHasBeenLoaded ] = useState < boolean > ( false );
 
-    const [ movie, setMovie ] = useState < movieTypes > ( Object );
+    const [ movie, setMovie ] = useState < cardsTypes > ( Object );
 
     const [ trailler, setTrailler ] = useState < traillerTypes [ ] > ( [ ] );
 
-    const [ credits, setCredits ] = useState < actorsTypes [ ] > ( [ ] );
+    const [ credits, setCredits ] = useState < ActorsTypes [ ] > ( [ ] );
 
     const [ bgPath ] = useState < string > ( 'https://image.tmdb.org/t/p/w500' );
 
@@ -49,7 +50,7 @@
         const data      = await MovieByIdController( movieId.id as string );
         const traillers = await TraillersController( movieId.id as string );
         const credits   = await GetActorsController( movieId.id as string );
-        console.log(traillers)
+      
         setMovie( data! ); setTrailler( traillers! ); setCredits( credits! );
 
         // loader state
@@ -78,7 +79,7 @@
                     {movie.runtime === 0 ? ( null ) : ( <h3> { movie.runtime } min </h3> )}
 
                     <div className='genres'>  
-                      { movie.genres?.map( ( gens: movieTypes ) => {
+                      { movie.genres?.map( ( gens: cardsTypes ) => {
                           return ( <b key={ gens.id }> { gens.name } </b> ) })}
                     </div>
 
@@ -107,17 +108,16 @@
             </div>
 
             <div className='actors'>
-                { credits?.map( ( actor: actorsTypes ) => {
+                { credits?.map( ( actor: ActorsTypes ) => {
                   return (
-                    <div key={actor?.id}>
+                    <div key={ actor?.id } >
                       { actor?.profile_path == undefined ? 
                         ( <img src={ person } alt={ 'empty person' } /> ) 
                           : 
-                        ( <img src={ bgPath + actor.profile_path } /> )
+                        ( <img src={ bgPath + actor?.profile_path } /> )
                       }
-                      
-                      <p> <BsFillPersonCheckFill /> { actor?.original_name } </p>
                       <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
+                      <label> <BsFillPersonCheckFill /> { actor?.original_name } </label>
                     </div>
                   )
                 })}

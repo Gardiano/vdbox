@@ -235,23 +235,20 @@
   }
 
   .wrapper .seasonNavBar {
-   width: 100;
-    max-width: 1400px;
-    height: 100px;
+    width: calc( 100% - 60px );
+    
+    height: auto;
 
     gap: 20px;
 
     display: flex;
-    margin: auto;
+    margin: 3rem auto 4rem;
     flex-direction: row;
 
     align-items: center;
-    justify-content: flex-start;
-  }
-
-  .wrapper .seasonNavBar h4 {
-    width: 150px;
-    margin: 0;
+    flex-wrap: wrap;
+   
+    justify-content: center;
   }
 
   .wrapper .seasonNavBar button {
@@ -273,114 +270,135 @@
     background: #F8686D;
     border: 4px solid #DB444C;
   }
-  
-  .wrapper .actors {
-    color: #f8f8f8;
-  
-    width: auto;
-    max-width: 1200px;
+
+  .wrapper .slideEpisodes {
+    width: 100%;
+    
     height: auto;
+
+    display: flex;
+   
+    margin: 0 auto 3rem;
+
+    flex-direction: row;
+
+    flex-wrap: wrap;
+  }
+
+  .wrapper .slideEpisodes .mySliderEpisodes {
+    width: calc( 100% - 60px );
+    height: 380px;
+    display: flex;
+    margin: auto;
+ 
+    flex-direction: row;
+  }
+
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-wrapper  {
+    width:  calc( 100% - 60px );
+    margin: auto;
+  }
   
-    gap: 20px;
-    padding-bottom: 20px;
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide {
+    display: block;
+  }
+
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes {
+    display: flex;
+    margin: auto;
+
+    flex-direction: column;
+
+    padding: 10px;
+  }
+
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes img {
+    width: 220px;
+    height: 180px;
+
+    display: flex;
+
+    border-radius: 10px;
+  }
+
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes label {
+    color: #f8f8f8;
+  }
+
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes p {
+    color: grey;
+  }
+
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-prev {
+    width: 35px;
+    height: 100px;
+    
+    font-size: 0px;
+    display: flex;
+  
+    margin-left: -0.65rem;
+    margin-top: -4.5rem;
+    
+    opacity: 0.7;
+    background: #0d1013;
+    border-radius: 0px 50px 50px 0px;
+  }
+  
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-prev:hover {
+    opacity: 1;
+    background: #0d1013;
+  }
+  
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-prev::after {
+    color: #f8f8f8;
+    width: 30px;
+    height: 50px;
     
     display: flex;
-    margin: 0 auto 5rem;
-  
-    flex-direction: row;
-  
-    overflow-x: scroll;
-  }
-  
-  .wrapper .actors div {
-    width: 500px;
-    height: auto;
-  
-    display: block;
   
     text-align: center;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 15px;
+  }
+  
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-next {
+    width: 35px;
+    height: 100px;
     
-    padding: 10px;
-  
-    transition: all 0.5s;
-  
-    background: #0f1316; 
+    font-size: 30px;
+    display: flex;
+    margin-right: -0.7rem;
+    margin-top: -4.5rem;
     
-    border-bottom: 2px solid #F8686D;
+    opacity: 0.7;
+    background: #0d1013;
+    border-radius: 50px 0px 0px 50px;
   }
   
-  .wrapper .actors div:hover {
-    -moz-transform: scale( 1.03 );
-    -webkit-transform: scale( 1.03 );
-    transform: scale( 1.03 );
-  }
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-next::after {
+    color: #f8f8f8;
+    width: 30px;
+    height: 50px;
+    
+    display: flex;
   
-  .wrapper .actors img {
-    width: 138px;
-    height: 175px;
-  
-    padding: 15px;
-  }
-  
-  .wrapper .actors div svg {
-    font-size: 1.15rem;
-    color: #F8686D;
-  }
-  
-  .wrapper .trailler {
-  width: 100%;
-  max-width: 450px;
-  height: 300px;
-  
-  display: flex;
-  margin: 2rem auto 2.50rem;
-  
-  align-items: center;
-  }
-  
-  .wrapper .trailler iframe {
-    width: 100%;
-    max-width: 440px;
-    height: 290px;
-  
-    display: block;
-    margin: auto;
-  
-    border: 2px solid #F8686D;
-  }
-  
-  .wrapper .trailler .traillerSvg {
-    margin: auto ;
-    display: block;
-    color: #F8686D;
-  }
-  
-  .wrapper .trailler .traillerSvg p {
-    color: #F8686D;
     text-align: center;
+    align-items: center;
+    justify-content: center;
+  
+    font-size: 15px;
   }
   
-  .wrapper .trailler .traillerSvg img {
-    width: 100%;
-    max-width: 400px;
-    height: 300px;
-  
-    margin: auto;
-  
-    border-bottom: 1px solid #F8686D;
+  .wrapper .slideEpisodes .mySliderEpisodes .swiper-button-next:hover {
+    opacity: 1;
+    background: #f8686dec;
+    background: #0d1013;
   }
-  
-  .wrapper .actors::-webkit-scrollbar {
-    width: 12px; 
-    height: 7px;            /* width of the entire scrollbar */
-  }
-  
-  .wrapper .actors::-webkit-scrollbar-track {
-    background: #0f1316; 
-  }
-  
-  .wrapper .actors::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-  
-    background: #F8686D;
+
+  #root > main > div > div.slideEpisodes > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    height: 15px;
+    bottom: 0;
+    display: none;
   }

@@ -1,16 +1,18 @@
+import ActorsTypes from "./actors"
+import EpisodesTypes from "./episodes"
 
 export default interface movieTypes {
-  id: string
+  id?: string
 
   overview?: string
 
-  title: string
+  title?: string
   serie_name?: string
   name?: string
 
   runtime?: any
 
-  genres?: [],
+  genres?: [ ],
 
   tagline?: string
 
@@ -18,13 +20,15 @@ export default interface movieTypes {
   backdrop_path?: string
 
   vote_count?: number
-  vote_average?: number
+  vote_average?: number | any
   populatiry?: number
 
-  first_air_date: string
-  release_date: string
+  first_air_date?: string
+  release_date?: string
 
   number_of_seasons?: number
-  seasons?: []
+  seasons?: [ ]
   season_number?: number
-};
+
+  still_path?: string
+}

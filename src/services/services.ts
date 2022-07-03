@@ -14,6 +14,8 @@ export const getMovieByName = async ( movie: string ) => {
     };
 };
 
+// search series endpoint
+
 // movies endpoints
 export const getMovieToOverlayComponent = async ( ) => {
     try { 
@@ -94,7 +96,7 @@ export const getActors = async ( movieId : string ) => {
 // series endpoints
 export const getPopularSeries = async ( ) => {
     try { 
-      const response = await api.get( `/tv/popular?api_key=${ GK }&language=pt-BR&page=1` );
+      const response = await api.get( `/tv/popular?api_key=${ GK }&language=en-US&page=1` );
         return response.data.results;        
     } catch ( e ) {
         console.log( e );
@@ -103,7 +105,7 @@ export const getPopularSeries = async ( ) => {
 
 export const getTopRatedSeries = async ( ) => {
     try { 
-      const response = await api.get( `/tv/top_rated?api_key=${ GK }&language=pt-BR&page=1` );
+      const response = await api.get( `/tv/top_rated?api_key=${ GK }&language=en-US&page=1` );
         return response.data.results;        
     } catch ( e ) {
         console.log( e );
@@ -112,7 +114,7 @@ export const getTopRatedSeries = async ( ) => {
 
 export const getTvOnTheAirSeries = async ( ) => {
     try { 
-      const response = await api.get( `/tv/on_the_air?api_key=${ GK }&language=pt-BR&page=1` );
+      const response = await api.get( `/tv/on_the_air?api_key=${ GK }&language=en-US&page=1` );
       return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -121,7 +123,7 @@ export const getTvOnTheAirSeries = async ( ) => {
 
 export const getAiringTodaySeries = async ( ) => {
     try { 
-      const response = await api.get( `/tv/airing_today?api_key=${ GK }&language=pt-BR&page=1` );
+      const response = await api.get( `/tv/airing_today?api_key=${ GK }&language=en-US&page=1` );
       return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -146,3 +148,16 @@ export const getEpisodeGroup = async ( serieId: string, season: number ) => {
         console.log( e );
     };
 };
+
+export const getActorsByEpisodes = async ( serieId: string, season: number, episode_number: number ) => {
+    try { 
+      const response = await api.get( `/tv/${ serieId }/season/${ season }/episode/${ episode_number }/credits?api_key=${ GK }&language=pt-BR` );   
+      return response.data;
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+
+
+

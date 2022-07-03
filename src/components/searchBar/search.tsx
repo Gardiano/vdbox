@@ -50,34 +50,36 @@ export const Search = ( ) => {
         value={ input || '' }
        />
     
-    <Swiper
-        resizeObserver={ false }
-        autoplay={{ delay: 5000, disableOnInteraction: false }}
-        slidesPerView={ 'auto' }
-        spaceBetween={ 0 }
-        pagination={{ clickable: true }}
-        modules={[ Autoplay, Pagination, Navigation ]}
-        navigation={ true }
-        className="mySwiper"
-      >
-       
-        { movies.map( ( card: cardTypes ) => {
-          return (   
-            <SwiperSlide key={ card.id }>           
-              <section key={card.id}>
-                <Cards
-                  key={ card.id }
-                  id={ card.id }
-                  title={ card.title }
-                  first_air_date={card.first_air_date}
-                  release_date={ card.release_date }
-                  poster_path={ card.poster_path }
-                  vote_average={ card.vote_average }
-                />
-              </section>
-            </SwiperSlide>
-          )})}
-    </Swiper>
+    { input?.length > 3 ? (
+      <Swiper
+          resizeObserver={ false }
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          slidesPerView={ 'auto' }
+          spaceBetween={ 0 }
+          pagination={{ clickable: true }}
+          modules={[ Autoplay, Pagination, Navigation ]}
+          navigation={ true }
+          className="mySwiper"
+        >
+        
+          { movies.map( ( card: cardTypes ) => {
+            return (   
+              <SwiperSlide key={ card.id }>           
+                <section key={ card.id }>
+                  <Cards
+                    key={ card.id }
+                    id={ card.id }
+                    title={ card.title }
+                    first_air_date={card.first_air_date}
+                    release_date={ card.release_date }
+                    poster_path={ card.poster_path }
+                    vote_average={ card.vote_average }
+                  />
+                </section>
+              </SwiperSlide>
+            )})}
+      </Swiper> ) 
+      : ( null ) }
     </div>
   );
 };
