@@ -7,7 +7,7 @@ const GK = process.env.REACT_APP_MAK;
 // search movie endpoint
 export const getMovieByName = async ( movie: string ) => {
     try { 
-      const response = await api.get( `search/movie?api_key=${ GK }&query=$${ movie }&language=pt-BR` );
+      const response = await api.get( `search/multi?api_key=${ GK }&query=$${ movie }&language=pt-BR` );
         return response.data.results;          
     } catch ( e ) {
         console.log( e );

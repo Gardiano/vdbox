@@ -14,8 +14,6 @@ export const MenuMobile = ( ) => {
 
   const [ sizePage ] = useState < number > ( window.innerWidth );
 
-  const bg = { primary: 'transparent', secondary: '#FF5757' };
-
   const openMenuMobile = (  ) => {
     setOpenMenu( true );
   }

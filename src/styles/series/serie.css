@@ -322,10 +322,12 @@
   }
 
   .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes label {
+    font-size: 1rem;
     color: #f8f8f8;
   }
 
   .wrapper .slideEpisodes .mySliderEpisodes .swiper-slide .episodes p {
+    font-size: 1rem;
     color: grey;
   }
 
@@ -396,7 +398,7 @@
     background: #f8686dec;
     background: #0d1013;
   }
-
+  
   #root > main > div > div.slideEpisodes > div > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
     height: 15px;
     bottom: 0;

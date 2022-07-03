@@ -20,6 +20,7 @@
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
+import { Link } from 'react-router-dom';
   Moment.globalLocale = "pt-br";
 
   export const SerieDetails = ( ) => {
@@ -146,13 +147,18 @@
                       return (
                         <SwiperSlide key={ ep.id } > 
                           <div className='episodes'>
-                              { ep.still_path == null ? ( <img src={ traillerFig } /> ) 
-                                  : ( <img src={ bgPath + ep.still_path } /> ) }
-                              <p> Episódio: { ep.episode_number } </p>
-                              <label> { ep.name } </label>
+                              { ep.still_path == null ? (
+                                  <Link to={`/series/${serieId.id}/season/${seasons}/episode/${ep.episode_number}`} > 
+                                    <img src={ traillerFig } />
+                                  </Link> ) :
+                                ( <Link to={`/series/${serieId.id}/season/${seasons}/episode/${ep.episode_number}`} > 
+                                    <img src={ bgPath + ep.still_path } /> 
+                                  </Link> ) }
+                                  <p> Episódio: { ep.episode_number } </p>
+                                  <label> { ep.name } </label>
                           </div>
                         </SwiperSlide>
-                  )})}
+                      )})}
                 </Swiper>
               </div>
              ) : ( null ) }

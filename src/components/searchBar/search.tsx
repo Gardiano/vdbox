@@ -50,7 +50,7 @@ export const Search = ( ) => {
         value={ input || '' }
        />
     
-    { input?.length > 3 ? (
+    { input?.length >= 3 ? (
       <Swiper
           resizeObserver={ false }
           autoplay={{ delay: 5000, disableOnInteraction: false }}
