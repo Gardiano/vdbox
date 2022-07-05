@@ -235,7 +235,7 @@
   background: #DB444C;
 }
 
-.wrapper .actors {
+#root .wrapper .myActorsSlider {
   color: #f8f8f8;
 
   width: auto;
@@ -243,15 +243,45 @@
   height: auto;
 
   gap: 20px;
-  padding-bottom: 20px;
   
   display: flex;
   margin: 0 auto 5rem;
 
   flex-direction: row;
 
-  overflow-x: scroll;
+  box-shadow: none;
 }
+
+#root .wrapper .myActorsSlider .swiper-slide {
+  align-items: unset;
+  margin-top: 0;
+}
+
+#root .wrapper .myActorsSlider .swiper-wrapper {
+  height: auto;
+}
+
+#root .wrapper .myActorsSlider .swiper-button-prev {
+  width: 35px;
+  height: 75px;
+
+  margin-top:  -10rem;
+}
+
+#root .wrapper .myActorsSlider .swiper-button-prev::after {
+ font-size: 18px;
+}
+
+#root .wrapper .myActorsSlider .swiper-button-next {
+  width: 35px;
+  height: 75px;
+
+  margin-top:  -10rem;
+}
+
+#root .wrapper .myActorsSlider .swiper-button-next::after {
+  font-size: 18px;
+ }
 
 .wrapper .actors div {
   width: 500px;
@@ -280,7 +310,9 @@
   width: 138px;
   height: 175px;
 
-  padding: 15px;
+
+
+  border-radius: 10px;
 }
 
 .wrapper .actors label {

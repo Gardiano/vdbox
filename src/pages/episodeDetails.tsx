@@ -1,6 +1,6 @@
 
 
-  import { EpisodeDetail } from '../components/series/episodeDetail';
+  import { EpisodeDetail } from '../components/series/episodeDetails';
 
   import '../styles/pages/home.css';
 

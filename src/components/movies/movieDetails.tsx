@@ -4,22 +4,28 @@
   import { MovieByIdController, TraillersController, GetActorsController } from '../../controllers/moviesController/movieDetailsController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
   
+  import { Swiper, SwiperSlide } from 'swiper/react';
+  import { Autoplay, Navigation, Pagination } from 'swiper';
+
   import { Loader } from '../../helper/loader';
 
   import person from '../../assets/person.svg';
   import traillerFig from '../../assets/trailler.svg';
 
-  import cardsTypes from '../../models/cards'
-  import actorsTypes from '../../models/actors';
+  import cardsTypes from '../../models/cards';
+  import ActorsTypes from '../../models/actors';
   import traillerTypes from '../../models/trailler';
 
   import '../../styles/movies/movie.css';
   import '../../styles/medias/movie.css';
+
+    // Import Swiper styles
+    import "swiper/css";
+    import "swiper/css/pagination";
+    import "swiper/css/navigation";
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
-import ActorsTypes from '../../models/actors';
-  
   Moment.globalLocale = "pt-br";
 
   export const MovieDetails = ( ) => {
@@ -64,7 +70,6 @@ import ActorsTypes from '../../models/actors';
       <>
         { hasBeenLoaded === true ? (
           <div className='wrapper'>
-            
             <div className='movieContainer' key={ movie?.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
               <div className='details'>
                   <div className='poster'>
@@ -106,22 +111,33 @@ import ActorsTypes from '../../models/actors';
                   </div>
               </div>
             </div>
-
-            <div className='actors'>
+            <h4> ATORES </h4>
+              <Swiper
+                resizeObserver={ false }
+                autoplay={ true }
+                slidesPerView={ 'auto' }
+                spaceBetween={ 0 }
+                pagination={ { clickable: true } }
+                modules={ [ Autoplay , Pagination , Navigation ] }
+                navigation={ true }
+                className="myActorsSlider"
+              >
+                
                 { credits?.map( ( actor: ActorsTypes ) => {
                   return (
-                    <div key={ actor?.id } >
-                      { actor?.profile_path == undefined ? 
-                        ( <img src={ person } alt={ 'empty person' } /> ) 
-                          : 
-                        ( <img src={ bgPath + actor?.profile_path } /> )
-                      }
-                      <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
-                      <label> <BsFillPersonCheckFill /> { actor?.original_name } </label>
-                    </div>
-                  )
+                    <SwiperSlide key={ movie.id }> 
+                      <div className='actors' key={ actor?.id } >
+                          { actor?.profile_path == undefined ? 
+                            ( <img src={ person } alt={ 'empty person' } /> ) 
+                              : 
+                            ( <img src={ bgPath + actor?.profile_path } /> ) }
+                          <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
+                          <label> <BsFillPersonCheckFill /> { actor?.original_name } </label>
+                      </div>
+                    </SwiperSlide>
+                    );
                 })}
-            </div>
+              </Swiper>
 
             <div className='trailler' >
               { trailler.length ? ( 

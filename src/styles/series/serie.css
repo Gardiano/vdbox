@@ -295,7 +295,7 @@
   }
 
   .wrapper .slideEpisodes .mySliderEpisodes .swiper-wrapper  {
-    width:  calc( 100% - 60px );
+    width:  calc( 105% - 60px );
     margin: auto;
   }
   

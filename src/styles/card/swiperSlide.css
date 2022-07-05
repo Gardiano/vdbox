@@ -1,10 +1,11 @@
 
-section {
+body section {
   width: 100%;
   max-width: 250px;
   height: auto;
 
   display: flex;
+  margin: auto;
 
   flex-direction: row;
 
@@ -18,14 +19,14 @@ section {
   transition: all 0.2s ease-in-out;
 }
 
-section:hover {
+body section:hover {
   -moz-transform: scale( 1.1 );
   -webkit-transform: scale( 1.1 );
   transform: scale( 1.025 );
 }
 
 /* swiper css */
- .swiper {
+ body .swiper {
   width: 100%;
 
   height: 470px;
@@ -36,9 +37,10 @@ section:hover {
   box-shadow: inset -82px 5px 0px -13px rgba(205, 51, 51, 0.400);
 
   margin-bottom: 40px;
+  /* justify-content: center; */
 }
 
-.swiper h1 {
+body .swiper h1 {
   display: flex;
   left: 1.5rem;
   top: 0.75rem;
@@ -50,7 +52,7 @@ section:hover {
   color: rgb(220, 100, 100);
 }
 
- body .swiper-slide {
+body .swiper-slide {
   width: 320px;
   height: 400px;
   text-align: center;
@@ -77,7 +79,7 @@ section:hover {
   margin-right: 15px;
 }
 
-.swiper-slide img {
+body .swiper-slide img {
   width: 230px;
   height: 345px;
 
@@ -108,7 +110,7 @@ body .swiper-slide .swiper-slide-active {
   margin-right: 0;
 }
 
-.swiper-button-prev {
+body .swiper-button-prev {
   width: 65px;
   height: 100px;
   
@@ -123,12 +125,12 @@ body .swiper-slide .swiper-slide-active {
   border-radius: 0px 50px 50px 0px;
 }
 
-.swiper-button-prev:hover {
+body .swiper-button-prev:hover {
   opacity: 1;
   background: #0d1013;
 }
 
-.swiper-button-prev::after {
+body .swiper-button-prev::after {
   color: #f8f8f8;
   width: 30px;
   height: 50px;
@@ -142,7 +144,7 @@ body .swiper-slide .swiper-slide-active {
   font-size: 21px;
 }
 
-.swiper-button-next {
+body .swiper-button-next {
   width: 65px;
   height: 100px;
   
@@ -156,7 +158,7 @@ body .swiper-slide .swiper-slide-active {
   border-radius: 50px 0px 0px 50px;
 }
 
-.swiper-button-next::after {
+body .swiper-button-next::after {
   color: #f8f8f8;
   width: 30px;
   height: 50px;
@@ -170,7 +172,7 @@ body .swiper-slide .swiper-slide-active {
   font-size: 21px;
 }
 
-.swiper-button-next:hover {
+body .swiper-button-next:hover {
   opacity: 1;
   background: #f8686dec;
   background: #0d1013;

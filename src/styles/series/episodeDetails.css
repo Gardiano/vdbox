@@ -1,0 +1,29 @@
+
+.episodeDetailContainer {
+    background-size: 1200px 750px;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.episodeDetailContainer .details {
+    flex-direction: column;
+}
+
+.episodeDetailContainer .details .poster {
+    width: 300px;
+    height: 200px;
+    margin-top: 4rem;
+    border-radius: 5px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+.episodeDetailContainer .details .poster img {
+    width: 100%;
+    max-width: 250px;
+    height: 300px;
+    padding: 0;
+    border-radius: 5px;
+}

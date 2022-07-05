@@ -149,6 +149,15 @@ export const getEpisodeGroup = async ( serieId: string, season: number ) => {
     };
 };
 
+export const getEpisodeDetail = async ( serieId: string, season: string, episode_number: string ) => {
+    try { 
+      const response = await api.get( `/tv/${ serieId }/season/${ season }/episode/${ episode_number }?api_key=${ GK }&language=pt-BR` );
+      return response.data;
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
 export const getActorsByEpisodes = async ( serieId: string, season: number, episode_number: number ) => {
     try { 
       const response = await api.get( `/tv/${ serieId }/season/${ season }/episode/${ episode_number }/credits?api_key=${ GK }&language=pt-BR` );   

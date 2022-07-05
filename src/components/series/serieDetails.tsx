@@ -1,6 +1,7 @@
   
   import { useEffect, useState } from 'react';  
   import { useParams } from 'react-router';
+  import { Link } from 'react-router-dom';
   import { SerieByIdController, EpisodeGroupsController } from '../../controllers/seriesController/SerieDetailsController';
  
   import { Swiper, SwiperSlide } from 'swiper/react';
@@ -20,7 +21,7 @@
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
-import { Link } from 'react-router-dom';
+
   Moment.globalLocale = "pt-br";
 
   export const SerieDetails = ( ) => {
@@ -44,12 +45,12 @@ import { Link } from 'react-router-dom';
 
     const [ bgPath ] = useState < string > ( 'https://image.tmdb.org/t/p/w500' );
 
-    const [ gradient ] = useState < string > ( '0deg,#020202 0,rgba(2,2,2,.96) 10%,rgba(2,2,2,.9) 22%,rgba(2,2,2,.66) 38%,rgba(2,2,2,.61) 58%,rgba(0,0,21,.76) 100%' )
-
+    const [ gradient ] = useState < string > ( '0deg,#020202 0,rgba(2,2,2,.96) 10%,rgba(2,2,2,.9) 22%,rgba(2,2,2,.66) 38%,rgba(2,2,2,.61) 58%,rgba(0,0,21,.76) 100%' );
+    
     const getData = async ( ) => {
       try {
         const data = await SerieByIdController( serieId.id as string );
-        console.log('seriebyId', data)
+        console.log( data )
         setSerie( data! );
         setHasBeenLoaded( true );
       } catch ( e ) {
@@ -60,9 +61,9 @@ import { Link } from 'react-router-dom';
     const getSeasonsAndEpisodes = async ( seasonState: number ) => {
       setSeasons( seasonState );
       const episodes = await EpisodeGroupsController ( serieId.id as string, seasonState );
+      console.log(episodes)
       setEpisodes( episodes );
       setHasEpisodes( true );
-      console.log( ' episodes ' , episodes );
     };
 
     return (
@@ -131,7 +132,9 @@ import { Link } from 'react-router-dom';
            
             { hasEpisodes == true ? ( 
               <div className='slideEpisodes'>
+
                <h4> SEASON { episodes?.season_number } </h4>
+
                 <Swiper
                   resizeObserver={ false }
                   autoplay={ true }
@@ -146,24 +149,23 @@ import { Link } from 'react-router-dom';
                   { episodes?.episodes?.map( ( ep: EpisodesTypes ) => {
                       return (
                         <SwiperSlide key={ ep.id } > 
-                          <div className='episodes'>
+                            <div className='episodes'>
                               { ep.still_path == null ? (
-                                  <Link to={`/series/${serieId.id}/season/${seasons}/episode/${ep.episode_number}`} > 
+                                  <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} > 
                                     <img src={ traillerFig } />
                                   </Link> ) :
-                                ( <Link to={`/series/${serieId.id}/season/${seasons}/episode/${ep.episode_number}`} > 
+                                ( <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} > 
                                     <img src={ bgPath + ep.still_path } /> 
-                                  </Link> ) }
-                                  <p> Episódio: { ep.episode_number } </p>
+                                  </Link> )
+                              }   <p> Episódio: { ep.episode_number } </p>
                                   <label> { ep.name } </label>
-                          </div>
+                            </div>
                         </SwiperSlide>
                       )})}
                 </Swiper>
               </div>
              ) : ( null ) }
-
-          </div> ) : 
+          </div> ) :
           ( <Loader /> )
         }
       </>
