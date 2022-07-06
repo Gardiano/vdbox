@@ -12,9 +12,9 @@
 
   position: fixed;
   top: 0;
-  
-  background: #000000d9;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.079);
+
+  background: transparent;
+  transition: all 1s ease-in-out;
 }
 
 header nav {

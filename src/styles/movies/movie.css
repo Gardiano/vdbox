@@ -253,6 +253,7 @@
 }
 
 #root .wrapper .myActorsSlider .swiper-slide {
+  width: unset;
   align-items: unset;
   margin-top: 0;
 }
@@ -283,7 +284,7 @@
   font-size: 18px;
  }
 
-.wrapper .actors div {
+.wrapper .myActorsSlider  .actors div {
   width: 500px;
   height: auto;
 
@@ -300,30 +301,28 @@
   border-bottom: 2px solid #F8686D;
 }
 
-.wrapper .actors div:hover {
+.wrapper .myActorsSlider  .actors div:hover {
   -moz-transform: scale( 1.03 );
   -webkit-transform: scale( 1.03 );
   transform: scale( 1.03 );
 }
 
-.wrapper .actors img {
+.wrapper .myActorsSlider .actors img {
   width: 138px;
   height: 175px;
-
-
-
+  
   border-radius: 10px;
 }
 
-.wrapper .actors label {
+.wrapper .myActorsSlider .actors label {
   color: #b0b0b0;
 }
 
-.wrapper .actors p {
+.wrapper .myActorsSlider .actors p {
   font-size: 1.1rem;
 }
 
-.wrapper .actors div svg {
+.wrapper .myActorsSlider .actors svg {
   font-size: 1.15rem;
   color: #F8686D;
 }

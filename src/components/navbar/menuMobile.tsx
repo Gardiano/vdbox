@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router';
 import { AiOutlineMenuUnfold, AiOutlineSearch, AiOutlineCloseSquare } from "react-icons/ai";
@@ -8,7 +8,9 @@ import '../../styles/navBar/menuMobile.css';
 
 export const MenuMobile = ( ) => {
 
-  const location = useLocation( ).pathname;
+  useEffect ( ( ) => {
+    window.addEventListener( 'scroll' , changeBackgroundWhenScrollDown );
+  }, [ ] );
 
   const [ openMenu, setOpenMenu ] = useState< boolean > ( false );
 
@@ -16,17 +18,25 @@ export const MenuMobile = ( ) => {
 
   const openMenuMobile = (  ) => {
     setOpenMenu( true );
-  }
+  };
 
   const closeMenuMobile = (  ) => {
     setOpenMenu( false );
-  }
+  };
+
+  const [ backgroundColor, setBackgroundColor ] = useState < string > ( ' transparent ' );
+
+  
+  const changeBackgroundWhenScrollDown = ( ) => {
+   const bg = window.scrollY > 40 ? ( setBackgroundColor( '#000000d9' ) ) : ( setBackgroundColor( 'transparent' ) );
+    return bg;
+  };
 
   return (
     <>
     { sizePage < 800 ? (
       <div className="mobileContainer" style={ sizePage > 800 ? ( { display: 'none' } ) : ( { display: 'flex' } ) }>
-        <header >
+        <header style={ { background: backgroundColor } } >
             <p> VideoBox </p>
             <div className="searchBox">
                 <input type="text" placeholder="  Ex: Batman" />

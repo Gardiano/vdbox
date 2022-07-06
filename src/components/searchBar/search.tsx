@@ -30,11 +30,11 @@ export const Search = ( ) => {
   };
 
   async function getData ( ) {
-      if( input.length === 0 ) {
+      if( input?.length === 0 ) {
         setMovies( [ ] );
       }
 
-      if( input.length >= 3 ) {
+      if( input?.length >= 3 ) {
         const data = await SearchController( input );
         setMovies( data );
       }

@@ -1,5 +1,4 @@
-import ActorsTypes from "./actors"
-import EpisodesTypes from "./episodes"
+
 
 export default interface movieTypes {
   id?: string

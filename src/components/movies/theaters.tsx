@@ -33,7 +33,7 @@
   const [ movies , setMovies ] =  useState  < [ ] > ( [ ] );
 
   const getData = async ( ) => {
-    const data = await theatersController( );
+    const data = await theatersController( 1 );
     setMovies( data );
   }
   

@@ -5,7 +5,7 @@ body section {
   height: auto;
 
   display: flex;
-  margin: auto;
+  margin: 0;
 
   flex-direction: row;
 
@@ -40,6 +40,11 @@ body section:hover {
   /* justify-content: center; */
 }
 
+body .swiper .swiper-wrapper {
+  width: auto;
+  margin: auto;
+}
+
 body .swiper h1 {
   display: flex;
   left: 1.5rem;
@@ -54,6 +59,7 @@ body .swiper h1 {
 
 body .swiper-slide {
   width: 320px;
+  width: 250px;
   height: 400px;
   text-align: center;
   font-size: 18px;

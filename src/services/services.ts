@@ -13,7 +13,6 @@ export const getMovieByName = async ( movie: string ) => {
         console.log( e );
     };
 };
-
 // search series endpoint
 
 // movies endpoints
@@ -26,9 +25,9 @@ export const getMovieToOverlayComponent = async ( ) => {
     };
 };
 
-export const getTheaters = async ( ) => {
+export const getTheaters = async ( page : number ) => {
     try {
-        const response = await api.get(`/movie/now_playing?api_key=${ GK }&language=pt-BR&page=1`);
+        const response = await api.get(`/movie/now_playing?api_key=${ GK }&language=pt-BR&page=${ page }`);
         return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -94,9 +93,9 @@ export const getActors = async ( movieId : string ) => {
 };
 
 // series endpoints
-export const getPopularSeries = async ( ) => {
+export const getPopularSeries = async ( page: number = 1 ) => {
     try { 
-      const response = await api.get( `/tv/popular?api_key=${ GK }&language=en-US&page=1` );
+      const response = await api.get( `/tv/popular?api_key=${ GK }&language=en-US&page=${ page }` );
         return response.data.results;        
     } catch ( e ) {
         console.log( e );
