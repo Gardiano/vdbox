@@ -1,44 +1,121 @@
 
+.MoviesContainer .searchContainer {
+    width: calc( 100% - 60px );
+    height: auto;
+
+    display: block;
+    margin: 8rem auto 5rem;
+}
+
+.MoviesContainer .searchContainer input {
+    color: #b0b0b0;   
+    font-size: 22px;
+
+    width: calc( 100% - 60px );    
+    max-width: 1400px;
+    height: 70px;
+
+    outline: 0;
+    border: 0;
+
+    display: flex;
+    margin: 30px auto;
+    
+    text-align: center; 
+    
+    border-radius: 2px;
+    background: #020202;
+    box-sizing: border-box;
+    border-bottom: 3px solid rgba(205 51 51 / 40%);
+}
+
+.MoviesContainer .searchContainer input::-webkit-input-placeholder {
+    font-size: 20px;
+    color: #b0b0b0;
+}
+  
+.MoviesContainer .searchContainer input:-ms-input-placeholder {
+    font-size: 20px;
+    color: #b0b0b0;
+}
+  
+.MoviesContainer .searchContainer input::placeholder {
+text-align: center;
+font-size: 20px;
+color: #b0b0b0;
+}
+
+.MoviesContainer .searchList {
+    width: calc( 100% - 28rem );
+    max-height: 300px;
+
+    display: flex;
+    margin: auto;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    padding: 10px;
+
+    z-index: 9999;
+    position: absolute;
+
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    overflow-y: scroll;
+
+    background:#020202b0;
+    transition: all 5s ease-in-out;
+    backdrop-filter: blur( 0.313rem );
+    
+}
 
 .MoviesContainer {
   width: calc( 100% - 60px );
   height: auto;
 
   display: flex;
-  margin: auto;
+  margin: 0 auto 8rem;
 
   flex-direction: row;
   flex-wrap: wrap;
 
+  align-items: center;
+
   justify-content: center;
-
-
 }
 
-.MoviesContainer div {
-    width: 250px;
+.MoviesContainer .movieList {
+    width: 300px;
+    height: auto;
   
-
     display: flex;
 
     padding-bottom: 20px;
 
     flex-direction: column;
+
     align-items: center;
+    justify-content: center;
+
+    transition: all 1.5s ease-in-out;
+
 }
 
-.MoviesContainer img {
-    width: 100%;
-    max-width: 250px;
+.MoviesContainer .movieList img {
+    width: 250px;
     height: 300px;
 
     border-radius: 5px;
 }
 
-.MoviesContainer label {
+.MoviesContainer .movieList label {
     color: #f8f8f8;
 
-    font-size: 14px;
+    font-size: 1rem;
 
     margin-top: 15px;
 
@@ -51,7 +128,7 @@
     font-size: 1.25rem;
 
     width: 100%;
-    max-width: 300px;
+    max-width: 50px;
     height: 50px;
 
     display: block;
@@ -62,8 +139,20 @@
     outline: 0;
     cursor: pointer;
 
-    border: transparent;
-    border-radius: 10px;
+    position: fixed;
 
-    background: rgb(188, 78, 78);
+    bottom: 0;
+    right: 0;
+    margin-right: 2rem;
+
+    border: transparent;
+    border-radius: 5rem;
+
+    background: #DB444C;
 }
+
+.loadMoreMovies:hover {
+    max-width: 55px;
+    height: 55px;
+}
+

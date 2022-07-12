@@ -1,7 +1,7 @@
 
   import { getTheaters } from '../../services/services';
 
-  export const theatersController = async ( page: number ) => {
-    const data = await getTheaters( page );
+  export const theatersController = async ( ) => {
+    const data = await getTheaters( );
       return data;
   };

@@ -1,13 +1,14 @@
 
 import { Routes, Route } from 'react-router-dom';
-import { Search } from './components/searchBar/search';
 
 import { Home } from "./pages/home";
 import { Movie } from "./pages/movie";
 import { Movies } from './pages/movies';
 import { Serie } from './pages/serie';
+
 import { EpisodeDetailsPage } from './pages/episodeDetails';
 
+import { SearchContextProvider } from './context/searchContext';
 
 export const AppRoutes = ( ) => {
   return (

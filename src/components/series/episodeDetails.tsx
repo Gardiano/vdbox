@@ -41,51 +41,51 @@
 
     return (
      <>
-     { hasBeenLoaded === true ? (
-          <div className='wrapper'>
-            <div className='serieContainer episodeDetailContainer' key={ episodeDetail?.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath + episodeDetail.still_path } )` } }>
-              <div className='details'>
+        { hasBeenLoaded === true ? (
+              <div className='wrapper'>
+                <div className='serieContainer episodeDetailContainer' key={ episodeDetail?.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath + episodeDetail.still_path } )` } }>
+                  <div className='details'>
 
-                  <div className='poster' style={ { backgroundImage: ` url( ${ bgPath + episodeDetail.still_path } ) ` } }>
-                    {/* <img src={ `${ bgPath + episodeDetail.still_path }` } /> */}
+                      <div className='poster' style={ { backgroundImage: ` url( ${ bgPath + episodeDetail.still_path } ) ` } }>
+                        {/* <img src={ `${ bgPath + episodeDetail.still_path }` } /> */}
+                      </div>
+
+                      <div className='movieDetails'>
+                        <h4> { episodeDetail.name } </h4>
+                        
+                        <h2> Lançamento: <Moment locale="pt-br"format="DD/MM/YYYY" date={ episodeDetail.first_air_date } /> </h2>
+
+                        <h2> Episódio { episodeDetail.episode_number } </h2>
+
+                        <h2> Duração: { episodeDetail.runtime } min </h2>
+
+                          { episodeDetail.overview === '' ? 
+                              ( <span> Sinopse Indisponível </span> ) 
+                            : 
+                              ( <span> { episodeDetail.overview } </span> )
+                          }
+                      </div>
+
+                      <div className="rating">
+                        <ul>
+                          <li> 
+                            <p> { episodeDetail.vote_average?.toPrecision( 2 ) } </p> <BsFillStarFill style={ { color: 'rgb(255, 255, 47)', fontSize: '25px', margin:'0 auto' } } /> 
+                          </li>
+
+                          <li> 
+                            <p> <BsFillHandThumbsUpFill style={ { color: 'rgb(131, 210, 131)' } } /> </p>
+                          </li>
+                          
+                          <li> 
+                            <p> { episodeDetail.vote_count } </p> 
+                          </li>
+                        </ul>
+                      </div>
                   </div>
-
-                  <div className='movieDetails'>
-                    <h4> { episodeDetail.name } </h4>
-                    
-                    <h2> Lançamento: <Moment locale="pt-br"format="DD/MM/YYYY" date={ episodeDetail.first_air_date } /> </h2>
-
-                    <h2> Episódio { episodeDetail.episode_number } </h2>
-
-                    <h2> Duração: { episodeDetail.runtime } min </h2>
-
-                      { episodeDetail.overview === '' ? 
-                          ( <span> Sinopse Indisponível </span> ) 
-                        : 
-                          ( <span> { episodeDetail.overview } </span> )
-                      }
-                  </div>
-
-                  <div className="rating">
-                    <ul>
-                      <li> 
-                        <p> { episodeDetail.vote_average?.toPrecision( 2 ) } </p> <BsFillStarFill style={ { color: 'rgb(255, 255, 47)', fontSize: '25px', margin:'0 auto' } } /> 
-                      </li>
-
-                      <li> 
-                        <p> <BsFillHandThumbsUpFill style={ { color: 'rgb(131, 210, 131)' } } /> </p>
-                      </li>
-                      
-                      <li> 
-                        <p> { episodeDetail.vote_count } </p> 
-                      </li>
-                    </ul>
-                  </div>
-              </div>
-            </div>
-          </div> ) : 
-          ( <Loader /> )
-     };
+                </div>
+              </div> ) : 
+              ( <Loader /> )
+        };
      </>
     );
   }

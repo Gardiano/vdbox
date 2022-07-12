@@ -19,10 +19,10 @@
   import '../../styles/movies/movie.css';
   import '../../styles/medias/movie.css';
 
-    // Import Swiper styles
-    import "swiper/css";
-    import "swiper/css/pagination";
-    import "swiper/css/navigation";
+  // Import Swiper styles
+  import "swiper/css";
+  import "swiper/css/pagination";
+  import "swiper/css/navigation";
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";

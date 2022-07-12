@@ -1,15 +1,15 @@
 
 import { useEffect, useState } from 'react';
 
+// controller
+import { SearchController } from '../../controllers/moviesController/searchController';
+
 // view
 import { Cards } from '../../view/card';
 
 // slide
 import { Autoplay, Navigation, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// controller
-import { SearchController } from '../../controllers/moviesController/searchController';
 
 // types
 import cardTypes from '../../models/cards';
@@ -18,7 +18,7 @@ import '../../styles/search/search.css';
 
 export const Search = ( ) => {
 
-  const [ input, setInput ] = useState< any > (  );
+  const [ input, setInput ] = useState ( '' );
   const [ movies, setMovies ] = useState< [ ] > ( [ ] );
 
   useEffect( ( ) => {
@@ -29,28 +29,28 @@ export const Search = ( ) => {
     setInput( e.target.value );
   };
 
-  async function getData ( ) {
+   const getData = async ( ) => {
       if( input?.length === 0 ) {
         setMovies( [ ] );
       }
 
-      if( input?.length >= 3 ) {
+      if( input?.length >= 1 ) {
         const data = await SearchController( input );
-        setMovies( data );
+            setMovies( data );
       }
   };
 
-  return (      
+  return (
     <div className="searchContainer">
        <input
         onChange={ ( e ) => handleChange( e ) }
         type="text" 
-        alt="Search" 
-        placeholder="Procure seu filme favorito" 
+        alt="Search"
+        placeholder="Procure seu filme favorito"
         value={ input || '' }
        />
     
-    { input?.length >= 3 ? (
+    { input?.length >= 1 ? (
       <Swiper
           resizeObserver={ false }
           autoplay={{ delay: 5000, disableOnInteraction: false }}
@@ -59,7 +59,7 @@ export const Search = ( ) => {
           pagination={{ clickable: true }}
           modules={[ Autoplay, Pagination, Navigation ]}
           navigation={ true }
-          className="mySwiper"
+          className="mySearchSwiper"
         >
         
           { movies.map( ( card: cardTypes ) => {

@@ -4,6 +4,8 @@ import { Header } from './components/navbar/header';
 import { MenuMobile } from './components/navbar/menuMobile';
 import { AppRoutes }  from './routes';
 
+import { SearchContextProvider } from './context/searchContext';
+
 import './styles/global.css';
 
 export const App = ( ) => {
@@ -29,9 +31,11 @@ export const App = ( ) => {
 
   return (
     <>
-    {}
       { size >= 800 ? ( <Header /> ) : ( <MenuMobile /> ) }
-      <AppRoutes /> 
+      <SearchContextProvider>
+        <AppRoutes />
+      </SearchContextProvider>
+        
     </>
   );
 };

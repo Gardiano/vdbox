@@ -4,18 +4,29 @@ import api from './baseUrl';
 // .env
 const GK = process.env.REACT_APP_MAK;
 
-// search movie endpoint
-export const getMovieByName = async ( movie: string ) => {
-    try { 
-      const response = await api.get( `search/multi?api_key=${ GK }&query=$${ movie }&language=pt-BR` );
+// multi search endpoint ( movie, series, actors )
+export const multiSearch = async ( search: string ) => {
+    try {
+      const response = await api.get( `search/multi?api_key=${ GK }&query=${ encodeURIComponent( search ) }&language=pt-BR&page=1&include_adult=false` );
         return response.data.results;          
     } catch ( e ) {
         console.log( e );
     };
 };
+
+// search movie endpoint
+export const getMovieByName = async ( movie: string ) => {
+    try {
+      const response = await api.get( `search/movie?api_key=${ GK }&query=${ encodeURIComponent( movie ) }&language=pt-BR` );
+        return response.data.results;          
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
 // search series endpoint
 
-// movies endpoints
+// movie endpoints
 export const getMovieToOverlayComponent = async ( ) => {
     try { 
       const response = await api.get( `search/movie?api_key=${ GK }&query=$top-gun&language=pt-BR` );
@@ -25,9 +36,9 @@ export const getMovieToOverlayComponent = async ( ) => {
     };
 };
 
-export const getTheaters = async ( page : number ) => {
+export const getTheaters = async ( ) => {
     try {
-        const response = await api.get(`/movie/now_playing?api_key=${ GK }&language=pt-BR&page=${ page }`);
+        const response = await api.get(`/movie/now_playing?api_key=${ GK }&language=pt-BR&page=1`);
         return response.data.results;
     } catch ( e ) {
         console.log( e );
@@ -55,6 +66,15 @@ export const getTopRated = async ( ) => {
 export const getPopular = async ( ) => {
     try { 
         const response = await api.get( `/movie/popular?api_key=${ GK }&language=pt-BR&page=1` );
+        return response.data.results;
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+export const getDataForMoviesPage = async ( page: number ) => {
+    try { 
+        const response = await api.get( `search/movie?api_key=${ GK }&query=a&language=pt-BR&page=${ page }&include_adult=false` );
         return response.data.results;
     } catch ( e ) {
         console.log( e );
