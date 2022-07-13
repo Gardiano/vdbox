@@ -21,14 +21,13 @@
 
   export const Movies = ( ) => {
 
-    // context
-    const { values, setValues } = useSearch( );
-
     useEffect( ( ) => {
       getData( );
     }, [ ] );
 
     const [ movies , setMovies ] = useState< movieTypes[ ] > ( [ ] );
+
+    const [ input , setInput ] = useState<string>( '' );
 
     const [ moviesFromSearch , setMoviesFromSearch ] = useState< movieTypes[ ] > ( [ ] );
 
@@ -40,19 +39,19 @@
 
     useEffect( ( ) => {
         getDataFromInput( );
-      }, [ values ] );
+      }, [ input ] );
 
     const handleChange = ( e: any ) => {
-          e.target.value == ' ' || e.target.value.length === 0 ? ( setValues( '' ) ) : ( setValues( e.target.value ) );
+          e.target.value == ' ' || e.target.value.length === 0 ? ( setInput( '' ) ) : ( setInput( e.target.value ) );
         };
 
     const getDataFromInput = async ( ) => {
-        if( values?.length === 0 ) {
+        if( input?.length === 0 ) {
           setMoviesFromSearch( [ ] );
         }
   
-        if( values?.length >= 1 ) {
-          const data = await SearchController( values );
+        if( input?.length >= 1 ) {
+          const data = await SearchController( input );
             setHasBeenLoaded( true )
               setMoviesFromSearch( data );
         }
@@ -81,10 +80,10 @@
                             type="text" 
                             alt="Search"
                             placeholder="Procure seu filme favorito"
-                            value={ values || '' }
+                            value={ input || '' }
                         />
 
-                          { values?.length >= 1 ? (
+                          { input?.length >= 1 ? (
                              <>
                               <Swiper
                                     resizeObserver={ false }
@@ -99,11 +98,10 @@
                                   
                                     { moviesFromSearch.map( ( card: movieTypes ) => {
                                       return (   
-                                        <SwiperSlide key={ card.id }>
-                                          <section key={ card.id }>
+                                        <SwiperSlide key={card.id}>
+                                          <section >
                                             <Cards
-                                              key={ card.id }
-                                              id={ card.id }
+                                              id={card.id}
                                               title={ card.title }
                                               first_air_date={card.first_air_date}
                                               release_date={ card.release_date }
@@ -121,8 +119,8 @@
                         return (
                           <div key={movie.id}>
                               { hasBeenLoaded === true ? (
-                                  <div className='movieList' key={ movie.id } 
-                                  style={ values?.length >= 1 ? ({opacity: '0.05'}) : ({ background: '#020202b0', opacity: '1'}) } >
+                                  <div className='movieList' 
+                                  style={ input?.length >= 1 ? ({opacity: '0.05'}) : ({ background: '#020202b0', opacity: '1'}) } >
                                       <Link to={ `/movie/${ movie.id }` }>
                                           <img src={ bgPath + movie.poster_path }  />
                                       </Link>

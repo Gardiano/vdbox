@@ -1,6 +1,7 @@
   
   import { useEffect, useState } from 'react';  
   import { useParams } from 'react-router';
+  
   import { MovieByIdController, TraillersController, GetActorsController } from '../../controllers/moviesController/movieDetailsController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
   
@@ -57,7 +58,7 @@
       
         setMovie( data! ); setTrailler( traillers! ); setCredits( credits! );
 
-        // loader state
+        // <Loader /> state;
         setHasBeenLoaded( true );
       } catch ( e ) {
         console.log( e );
@@ -68,7 +69,7 @@
       <>
         { hasBeenLoaded === true ? (
           <div className='wrapper'>
-            <div className='movieContainer' key={ movie?.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
+            <div className='movieContainer' style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
               <div className='details'>
                   <div className='poster'>
                     <img src={`${ bgPath+movie.poster_path }`} />
@@ -125,8 +126,8 @@
                 
                 { credits?.map( ( actor: ActorsTypes ) => {
                   return (
-                    <SwiperSlide key={ movie.id }> 
-                      <div className='actors' key={ actor?.id } >
+                    <SwiperSlide key={ actor?.id }> 
+                      <div className='actors'>
                           { actor?.profile_path == undefined ? 
                             ( <img src={ person } alt={ 'empty person' } /> ) 
                               : 
@@ -141,7 +142,7 @@
 
             <div className='trailler' >
               { trailler.length ? ( 
-                  <iframe 
+                  <iframe
                     src={ `${ youTubePath + trailler[0] }` }
                     allowFullScreen
                     title={ movie.title } >
@@ -154,8 +155,7 @@
                  )}
             </div>
 
-          </div> ) : 
-          ( <Loader /> )
+          </div> ) : ( <Loader /> )
         }
       </>
     );

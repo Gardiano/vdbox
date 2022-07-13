@@ -19,7 +19,7 @@ export default interface movieTypes {
   backdrop_path?: string
 
   vote_count?: number
-  vote_average?: number | any
+  vote_average?: number 
   populatiry?: number
 
   first_air_date?: string
@@ -36,6 +36,4 @@ export default interface movieTypes {
   media_type?: string
 
   profile_path?: string
-
-  known_for?: [ ]
 }

@@ -1,7 +1,9 @@
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Link } from 'react-router-dom';
+
+import useOnClickOutside from "../../hooks/useOutsideClick";
 
 import { MultiSearchController } from '../../controllers/moviesController/MultiSearchController';
 
@@ -16,20 +18,18 @@ import '../../styles/navBar/header.css';
 
 export const Header = ( ) => {
 
+  // search hook
   const { values, setValues } = useSearch( );
- 
 
-  useEffect ( ( ) => {
-    window.addEventListener( 'scroll' , changeBackgroundWhenScrollDown );
-  }, [ ] );
+  const ref = useRef<HTMLDivElement>( null );  
 
   useEffect( ( ) => {
-    getData( );
-  }, [ values ] );
+     window.addEventListener( 'scroll' , changeBackgroundWhenScrollDown );
+  }, [ ] );
 
   const [ itsOpen, setItsOpen ] = useState< boolean > ( false );
 
-  const [ data , setData ] = useState< movieTypes[ ] > ( [ ] );
+  const [ data, setData ] = useState< movieTypes[ ] > ( [ ] );
 
   const [ bgPath ] = useState < string > ( 'https://image.tmdb.org/t/p/w500' );
 
@@ -41,19 +41,35 @@ export const Header = ( ) => {
     e.target.value == ' ' || e.target.value.length === 0 ? ( setValues( '' ) ) : ( setValues( e.target.value ) );
   };
 
+  const handleClickOutside = ( ) => {
+    if ( itsOpen ) {
+      setItsOpen( false );
+    }
+  };
+  
+  useOnClickOutside( ref, handleClickOutside );
+
   const changeBackgroundWhenScrollDown = ( ) => {
    const bg = window.scrollY > 40 ? ( setBackgroundColor( '#000000d9' ) ) : ( setBackgroundColor( 'transparent' ) );
     return bg;
   };
 
-  const getData = async ( ) => {
-    try {
-      const data = await MultiSearchController( values );
-      setData ( data );
-    } catch( e: any ) {
-      console.log( e )
-    }
-  }
+  const getData = useCallback( ( e: any ) => {
+    e.preventDefault( );
+
+    const fetchData = async ( ) => {
+      try {
+        const data = await MultiSearchController( values );
+          setItsOpen ( true );
+          setData( data );
+      } catch( e: any ) {
+        console.log( e )
+      } finally { setValues ( '' ) }
+    };
+
+    fetchData( );
+   
+  }, [ data, values ] );
 
   return (
     <>
@@ -72,35 +88,33 @@ export const Header = ( ) => {
              alt="Search"
              placeholder="Ex: O Poderoso Chefão"
              value={ values || '' }
-          /> <button> <AiOutlineSearch /> </button>
+          /> <button onClick={ ( e ) =>  getData( e ) }> <AiOutlineSearch /> </button>
 
-          { values?.length >= 1 &&  
-            <div className='searchResultsContainer'>
-              <div>
+          { itsOpen ? (
+            <div className='searchResultsContainer' ref={ ref }>
+              <div >
                 { data?.map ( ( itens: movieTypes ) => {
                   return (
-                    <div key={ itens.id } 
-                    style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+itens.backdrop_path } )` } }
-                    >
+                    <div key={ itens.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+itens.backdrop_path } )` } }>
                         { itens.media_type === 'movie' ? (
-                          <Link to={  `${ `/movie/${itens?.id}` }` }>
+                          <Link to={ `/movie/${itens?.id }` }>
                             <p> { itens.title || itens.name || itens.original_title } </p>
                           </Link>
                         ) : itens.media_type === 'tv' ? (
-                          <Link to={ `${ `/series/${ itens?.id }` }` }>
+                          <Link to={ `/series/${ itens?.id }` }>
                             <p> { itens.title || itens.name || itens.original_title } </p>
                           </Link>
-                        ) : itens.media_type === 'person' ? ( 
-                          <Link to={ `${ `/series/${ itens?.id }` }` }>
+                        ) : itens.media_type === 'person' ? (
+                          <Link to={ `/series/${ itens?.id }` }>
                             <p> { itens.title || itens.name || itens.original_title } </p>
                           </Link>
-                          ) : ( null ) }
+                        ) : ( null ) }
                     </div>
                   );
                 })}
               </div>
-            </div> 
-          }
+            </div> ) : ( null )
+            }
         </div>
       </header>
     </>

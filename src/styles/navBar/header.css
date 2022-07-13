@@ -129,11 +129,11 @@ header .searchBox .searchResultsContainer {
 
 header .searchBox .searchResultsContainer div {
   width: 100%;
-  max-width: 300px;
+  max-width: 375px;
   height: auto;
 
   display: flex;
-  margin:  1rem auto;
+  margin:  0.5rem auto 0;
 
   text-align: center;
   flex-direction: column;
@@ -141,11 +141,9 @@ header .searchBox .searchResultsContainer div {
   border-radius: 2px;
   
   background-size: 450px 70px;
-  background-position: center;
   background-repeat: no-repeat;
 
   border-bottom: 2px solid rgba(250, 128, 114, 0.294);
-
 }
 
 header .searchBox .searchResultsContainer div a {
