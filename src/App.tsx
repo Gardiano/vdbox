@@ -31,11 +31,10 @@ export const App = ( ) => {
 
   return (
     <>
-      { size >= 800 ? ( <Header /> ) : ( <MenuMobile /> ) }
-      <SearchContextProvider>
+     <SearchContextProvider>
+        { size >= 800 ? ( <Header /> ) : ( <MenuMobile /> ) }
         <AppRoutes />
       </SearchContextProvider>
-        
     </>
   );
 };

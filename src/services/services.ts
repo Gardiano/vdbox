@@ -5,12 +5,12 @@ import api from './baseUrl';
 const GK = process.env.REACT_APP_MAK;
 
 // multi search endpoint ( movie, series, actors )
-export const multiSearch = async ( search: string ) => {
+export const multiSearch = async ( search: string = 'batman' ) => {
     try {
       const response = await api.get( `search/multi?api_key=${ GK }&query=${ encodeURIComponent( search ) }&language=pt-BR&page=1&include_adult=false` );
         return response.data.results;          
     } catch ( e ) {
-        console.log( e );
+        return;
     };
 };
 

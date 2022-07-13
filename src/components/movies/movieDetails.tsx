@@ -29,13 +29,11 @@
   Moment.globalLocale = "pt-br";
 
   export const MovieDetails = ( ) => {
-    
+    const movieId = useParams( );
     useEffect( ( ) => {
       window.scrollTo( 0 , 0 );
-      getData( );
-    }, [ ] );
-
-    const movieId = useParams( );
+        getData( );
+    }, [ movieId.id ] );
 
     const [ hasBeenLoaded, setHasBeenLoaded ] = useState < boolean > ( false );
 
@@ -63,7 +61,7 @@
         setHasBeenLoaded( true );
       } catch ( e ) {
         console.log( e );
-      }
+      };
     };
 
     return (
@@ -111,7 +109,9 @@
                   </div>
               </div>
             </div>
-            <h4> ATORES </h4>
+
+              <h4> ATORES </h4>
+
               <Swiper
                 resizeObserver={ false }
                 autoplay={ true }

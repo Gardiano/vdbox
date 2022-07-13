@@ -31,7 +31,7 @@
     const [ movies , setMovies ] = useState< movieTypes[ ] > ( [ ] );
 
     const [ moviesFromSearch , setMoviesFromSearch ] = useState< movieTypes[ ] > ( [ ] );
-    let pages = 1;
+
     const [ page, setPage ] = useState< number > ( 1 );
 
     const [ hasBeenLoaded, setHasBeenLoaded ] = useState < boolean > ( false );
@@ -43,7 +43,7 @@
       }, [ values ] );
 
     const handleChange = ( e: any ) => {
-          e.target.value == ' ' ? ( console.log( '.' ) ) : ( setValues( e.target.value ) );
+          e.target.value == ' ' || e.target.value.length === 0 ? ( setValues( '' ) ) : ( setValues( e.target.value ) );
         };
 
     const getDataFromInput = async ( ) => {
@@ -59,7 +59,7 @@
     }; 
 
     const getData = async ( ) => {
-        const data = await MoviesPageController( pages );
+        const data = await MoviesPageController( page );
             setHasBeenLoaded( true );
                 setMovies( data );
     };

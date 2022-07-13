@@ -30,4 +30,12 @@ export default interface movieTypes {
   season_number?: number
 
   still_path?: string
+
+  original_title?: string
+
+  media_type?: string
+
+  profile_path?: string
+
+  known_for?: [ ]
 }

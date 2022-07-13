@@ -14,7 +14,7 @@ export const SearchContext = createContext( {} as SearchContextTypes );
 
 export function SearchContextProvider( props: SearchContextProviderProps ) {
     
-    const [ values, setValues ] = useState < any > ( );
+    const [ values, setValues ] = useState < string > ( '' );
 
     return (
         <SearchContext.Provider value={ { values, setValues } } >

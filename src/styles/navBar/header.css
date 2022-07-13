@@ -106,12 +106,11 @@ header .searchBox button {
 }
 
 header .searchBox .searchResultsContainer {
-
-  width: 25%;
-  
-  height: auto;
+  width: 425px;
+  height: 300px;
 
   display: flex;
+  margin: 0.1rem auto;
 
   position: fixed;
 
@@ -120,22 +119,39 @@ header .searchBox .searchResultsContainer {
   top: 70px;
 
   justify-content: center;
- 
-  background:grey;
+
+  border: 0;
+  border-radius: 5px;
+
+  overflow-y: scroll;
+  background:#020202b0;
 }
 
 header .searchBox .searchResultsContainer div {
   width: 100%;
-  height: 100%;
+  max-width: 300px;
+  height: auto;
 
   display: flex;
-  margin: auto;
+  margin:  1rem auto;
 
   text-align: center;
-
   flex-direction: column;
-  border: 1px solid red;
-  background:#020202b0;
-  backdrop-filter: blur( 0.313rem );
-  transition: all 2s ease-in-out;
+  
+  border-radius: 2px;
+  
+  background-size: 450px 70px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-bottom: 2px solid rgba(250, 128, 114, 0.294);
+
+}
+
+header .searchBox .searchResultsContainer div a {
+  text-decoration: none;
+}
+
+header .searchBox .searchResultsContainer div p {
+  font-size: 1rem;
 }
