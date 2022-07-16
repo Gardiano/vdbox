@@ -1,3 +1,4 @@
+import { Map } from "typescript"
 
 
 export default interface movieTypes {

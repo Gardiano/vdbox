@@ -52,6 +52,93 @@
   
     justify-content: center;
   }
+
+  header .searchBox .inputBox .searchIcon {
+    color: #f8f8f8;
+    font-size: 16px;
+  
+    width: 100%;
+    max-width: 30px;
+    height: 20px;
+  
+    line-height: 1.8;
+  
+    outline: 0;
+  
+    margin-left: -2rem;
+  
+    border: transparent;
+    border-radius: 2px;
+
+   
+  }
+  
+  header .searchBox .searchResultsContainer {
+    width: 320px;
+    height: auto;
+  
+    display: flex;
+    margin: auto;
+  
+    position: fixed;
+  
+    z-index: 9998;
+  
+    top: 70px;
+  
+    justify-content: center;
+  
+    border: 0;
+  
+    border-radius: 5px;
+  
+    overflow-y: scroll;
+    background:#020202b0;
+    border: 1px solid red;
+  }
+  
+  header .searchBox .searchResultsContainer div {
+    width: 100%;
+    max-width: 270px;
+  
+    height: 100%;
+    max-height: 200px;
+  
+    display: flex;
+    margin: auto;
+    padding: 5px;
+  
+    text-align: center;
+    align-items: center;
+  
+    flex-direction: column;
+  }
+  
+  header .searchBox .searchResultsContainer div a {
+    text-decoration: none;
+  }
+  
+  header .searchBox .searchResultsContainer div p {
+    color: #f8f8f8cf;
+    font-size: 0.90rem;
+  }
+  
+  header .searchBox .searchResultsContainer div span {
+    color: #f8f8f8a0;
+    height: 10px;
+    
+    font-weight: 300;
+    font-size: 0.80rem;
+  }
+  
+  header .searchBox .searchResultsContainer b {
+    color: #f8f8f8a0;
+    height: 10px;
+    
+    font-weight: 300;
+    padding: 20px;
+    font-size: 0.80rem;
+  }
   
   header .searchBox input {
     color: whitesmoke;

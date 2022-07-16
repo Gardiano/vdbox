@@ -27,7 +27,7 @@ header nav {
 
   align-items: center;
 
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 nav p {
@@ -55,28 +55,36 @@ header .searchBox {
   justify-content: center;
 }
 
-header .searchBox input {
+header .searchBox .inputBox {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
+}
+
+header .searchBox .inputBox input {
   color: #f8f8f8;
 
   width: 100%;
-  max-width: 300px;
+  max-width: 314px;
 
   display: flex; 
 
+  padding: 5px;
   outline: 0;
-
-  align-content: center;
-  align-items: center;
+  border: 0;
 
   border-radius: 2px;
   justify-content: center;
   
   background: transparent;
-  border: 0;
   border-bottom: 1px solid #d5d5d5;
 }
 
-header .searchBox input:focus {
+header .searchBox .inputBox input:focus {
   border: 0;
   border-bottom: 2px solid rgb(220, 100, 100);;
 }
@@ -86,31 +94,30 @@ header .searchBox input:focus {
   opacity: 1;
 }
 
-header .searchBox button {
+header .searchBox .inputBox .searchIcon {
   color: #f8f8f8;
   font-size: 16px;
-  width: 100%;
-  max-width: 70px;
-  height: 30px;
 
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 100%;
+  max-width: 30px;
+  height: 20px;
+
   line-height: 1.8;
 
   outline: 0;
-  cursor: pointer;
+
+  margin-left: -2rem;
 
   border: transparent;
   border-radius: 2px;
-  background: rgb(188, 78, 78);
 }
 
 header .searchBox .searchResultsContainer {
-  width: 425px;
-  height: 300px;
+  width: 320px;
+  height: auto;
 
   display: flex;
-  margin: 0.1rem auto;
+  margin: auto;
 
   position: fixed;
 
@@ -121,6 +128,7 @@ header .searchBox .searchResultsContainer {
   justify-content: center;
 
   border: 0;
+
   border-radius: 5px;
 
   overflow-y: scroll;
@@ -129,21 +137,19 @@ header .searchBox .searchResultsContainer {
 
 header .searchBox .searchResultsContainer div {
   width: 100%;
-  max-width: 375px;
-  height: auto;
+  max-width: 270px;
+
+  height: 100%;
+  max-height: 200px;
 
   display: flex;
-  margin:  0.5rem auto 0;
+  margin: auto;
+  padding: 5px;
 
   text-align: center;
-  flex-direction: column;
-  
-  border-radius: 2px;
-  
-  background-size: 450px 70px;
-  background-repeat: no-repeat;
+  align-items: center;
 
-  border-bottom: 2px solid rgba(250, 128, 114, 0.294);
+  flex-direction: column;
 }
 
 header .searchBox .searchResultsContainer div a {
@@ -151,5 +157,39 @@ header .searchBox .searchResultsContainer div a {
 }
 
 header .searchBox .searchResultsContainer div p {
-  font-size: 1rem;
+  color: #f8f8f8cf;
+
+  font-size: 0.90rem;
+}
+
+header .searchBox .searchResultsContainer div span {
+  color: #f8f8f8a0;
+  height: 10px;
+  
+  font-weight: 300;
+  font-size: 0.80rem;
+}
+
+header .searchBox .searchResultsContainer b {
+  color: #f8f8f8a0;
+  height: 10px;
+  
+  font-weight: 300;
+  padding: 20px;
+  font-size: 0.80rem;
+}
+
+/* scroll bar css */
+header .searchBox .searchResultsContainer::-webkit-scrollbar {
+  width: 3px;
+}
+
+header .searchBox .searchResultsContainer::-webkit-scrollbar-track {
+  background: black;
+}
+
+header .searchBox .searchResultsContainer::-webkit-scrollbar-thumb {
+  background-color:rgba(250, 128, 114);
+
+ padding: 5px;
 }

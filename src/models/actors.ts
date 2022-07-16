@@ -18,6 +18,4 @@ export default interface ActorsTypes {
     title: string
     first_air_date: string
     release_date: string
-
-    
 }

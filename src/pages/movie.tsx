@@ -1,5 +1,4 @@
 
-
   import { MovieDetails } from '../components/movies/movieDetails';
 
   import '../styles/pages/home.css';

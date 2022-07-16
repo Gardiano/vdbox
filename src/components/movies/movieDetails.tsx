@@ -68,8 +68,9 @@
     return (
       <>
         { hasBeenLoaded === true ? (
-          <div className='wrapper'>
-            <div className='movieContainer' style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
+          <div className='wrapper' >
+            <div className='movieContainer' 
+              style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
               <div className='details'>
                   <div className='poster'>
                     <img src={`${ bgPath+movie.poster_path }`} />

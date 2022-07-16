@@ -33,7 +33,7 @@ export const App = ( ) => {
     <>
      <SearchContextProvider>
         { size >= 800 ? ( <Header /> ) : ( <MenuMobile /> ) }
-        <AppRoutes />
+          <AppRoutes />
       </SearchContextProvider>
     </>
   );
