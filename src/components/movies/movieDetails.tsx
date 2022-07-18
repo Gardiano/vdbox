@@ -27,6 +27,7 @@
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
+import { Link } from 'react-router-dom';
   Moment.globalLocale = "pt-br";
 
   export const MovieDetails = ( ) => {
@@ -55,6 +56,8 @@
         const data      = await MovieByIdController( movieId.id as string );
         const traillers = await TraillersController( movieId.id as string );
         const credits   = await GetActorsController( movieId.id as string );
+
+        console.log(credits)
       
         setMovie( data! ); setTrailler( traillers! ); setCredits( credits! );
 
@@ -129,12 +132,12 @@
                   return (
                     <SwiperSlide key={ actor?.id }> 
                       <div className='actors'>
-                          { actor?.profile_path == undefined ? 
-                            ( <img src={ person } alt={ 'empty person' } /> ) 
-                              : 
-                            ( <img src={ bgPath + actor?.profile_path } /> ) }
-                          <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
-                          <label> <BsFillPersonCheckFill /> { actor?.original_name } </label>
+                            { actor?.profile_path == undefined ? 
+                              ( <Link to={`/person/${actor?.id}`}> <img src={ person } alt={ 'empty person' } /> </Link> ) 
+                                : 
+                              ( <Link to={`/person/${actor?.id}`} > <img src={ bgPath + actor?.profile_path } /> </Link> ) }
+                            <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
+                            <label> <BsFillPersonCheckFill /> { actor?.original_name } </label>
                       </div>
                     </SwiperSlide>
                     );

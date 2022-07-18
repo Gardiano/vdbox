@@ -1,6 +1,7 @@
   
   import { useEffect, useState } from 'react';
   import { useParams } from 'react-router';
+  import { useSearch } from '../../hooks/useSearchContext';
   import { Link } from 'react-router-dom';
   import { SerieByIdController, EpisodeGroupsController } from '../../controllers/seriesController/SerieDetailsController';
  
@@ -28,6 +29,9 @@
     
     const serieId = useParams( );
 
+    const { setValues } = useSearch( );
+    
+
     useEffect( ( ) => {
       window.scrollTo( 0 , 0 );
       getData( );
@@ -46,7 +50,7 @@
     const [ bgPath ] = useState < string > ( 'https://image.tmdb.org/t/p/w500' );
 
     const [ gradient ] = useState < string > ( '0deg,#020202 0,rgba(2,2,2,.96) 10%,rgba(2,2,2,.9) 22%,rgba(2,2,2,.66) 38%,rgba(2,2,2,.61) 58%,rgba(0,0,21,.76) 100%' );
-    
+
     const getData = async ( ) => {
       try {
         const data = await SerieByIdController( serieId.id as string );
@@ -65,6 +69,10 @@
       setEpisodes( episodes );
       setHasEpisodes( true );
     };
+
+    const  clearSearchWhenClickingOnACard = ( ) => {
+      setValues( '' );
+    }
 
     return (
       <>
@@ -151,10 +159,14 @@
                         <SwiperSlide key={ ep.id } > 
                             <div className='episodes'>
                               { ep.still_path == null ? (
-                                  <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} > 
+                                  <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} 
+                                        onClick={ clearSearchWhenClickingOnACard }
+                                  > 
                                     <img src={ traillerFig } />
                                   </Link> ) :
-                                ( <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} > 
+                                ( <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} 
+                                        onClick={ clearSearchWhenClickingOnACard }
+                                  > 
                                     <img src={ bgPath + ep.still_path } /> 
                                   </Link> )
                               }   <p> Episódio: { ep.episode_number } </p>

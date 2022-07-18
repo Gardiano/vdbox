@@ -112,6 +112,24 @@ header .searchBox .inputBox .searchIcon {
   border-radius: 2px;
 }
 
+header .searchBox .inputBox .closeIcon {
+  color: #f8f8f8;
+  font-size: 14px;
+
+  width: 100%;
+  max-width: 30px;
+  height: 20px;
+
+  line-height: 1.8;
+
+  outline: 0;
+
+  margin-left: -2rem;
+
+  border: transparent;
+  border-radius: 2px;
+}
+
 header .searchBox .searchResultsContainer {
   width: 320px;
   height: auto;
@@ -124,15 +142,15 @@ header .searchBox .searchResultsContainer {
   z-index: 9998;
 
   top: 70px;
-
-  justify-content: center;
-
   border: 0;
 
   border-radius: 5px;
 
   overflow-y: scroll;
+
   background:#020202b0;
+
+  justify-content: center;
 }
 
 header .searchBox .searchResultsContainer div {
@@ -143,40 +161,45 @@ header .searchBox .searchResultsContainer div {
   max-height: 200px;
 
   display: flex;
-  margin: auto;
+  margin: 10px auto;
   padding: 5px;
-
-  text-align: center;
-  align-items: center;
 
   flex-direction: column;
 }
 
 header .searchBox .searchResultsContainer div a {
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
-header .searchBox .searchResultsContainer div p {
+header .searchBox .searchResultsContainer div label {
   color: #f8f8f8cf;
+  width: 100%;
 
-  font-size: 0.90rem;
-}
+  line-height: 1.1;
 
-header .searchBox .searchResultsContainer div span {
-  color: #f8f8f8a0;
-  height: 10px;
-  
-  font-weight: 300;
-  font-size: 0.80rem;
+  font-size: 15px;
+
+  cursor: pointer;
 }
 
 header .searchBox .searchResultsContainer b {
   color: #f8f8f8a0;
+
   height: 10px;
-  
+
+  margin: auto;
+  display: block;
+
   font-weight: 300;
+
   padding: 20px;
-  font-size: 0.80rem;
+  
+  line-height: 0;
+
+  font-size: 14px;
 }
 
 /* scroll bar css */

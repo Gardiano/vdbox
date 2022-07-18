@@ -9,7 +9,8 @@ import { SearchResult } from './searchResult';
 
 import { useSearch } from '../../hooks/useSearchContext';
 
-import { AiOutlineMenuUnfold, AiOutlineSearch, AiOutlineCloseSquare } from "react-icons/ai";
+import { AiOutlineMenuUnfold, AiOutlineSearch, AiOutlineCloseSquare, AiOutlineClose } from "react-icons/ai";
+import { BiCameraMovie } from "react-icons/bi";
 
 import useOnClickOutside from '../../hooks/useOutsideClick';
 
@@ -25,7 +26,7 @@ export const MenuMobile = ( ) => {
    const ref = useRef<HTMLDivElement>( null ); 
 
    useEffect ( ( ) => {
-      getData();
+      getData( );
       window.addEventListener( 'scroll' , changeBackgroundWhenScrollDown );
    }, [ values ] );
 
@@ -46,7 +47,7 @@ export const MenuMobile = ( ) => {
   };
   
   const changeBackgroundWhenScrollDown = ( ) => {
-   const bg = window.scrollY > 40 ? ( setBackgroundColor( '#000000d9' ) ) : ( setBackgroundColor( 'transparent' ) );
+   const bg = window.scrollY > 20 ? ( setBackgroundColor( '#000000d9' ) ) : ( setBackgroundColor( 'transparent' ) );
     return bg;
   };
 
@@ -78,8 +79,8 @@ export const MenuMobile = ( ) => {
       { sizePage < 800 ? (
         <div className="mobileContainer" style={ sizePage > 800 ? ( { display: 'none' } ) : ( { display: 'flex' } ) }>
         
-          <header style={ { background: backgroundColor } }  className='MenuMobile'>
-              <p> VideoBox </p>
+          <header style={ { background: backgroundColor } } className='MenuMobile'>
+              <Link to='/' > <BiCameraMovie className='mobileLogoIcon' /> </Link>
               <div className="searchBox">
                 <div className='inputBox'>
                   <input
@@ -88,19 +89,13 @@ export const MenuMobile = ( ) => {
                     alt="Search"
                     placeholder="Ex: Batman"
                     value={ values || '' }
-                  /> 
-              
-                  <AiOutlineSearch className='searchIcon' /> 
-                </div>
+                  />
 
-               { itsOpen ? (
-                  <>
-                    { values.length >= 1 ? (
-                      <div className='searchResultsContainer' ref={ ref }>
-                        <SearchResult arr={ data } ref={ ref } />
-                      </div> ) : ( null ) }
-                  </>
-                ) : ( null ) }
+                  { values.length > 0 ?
+                    ( <AiOutlineClose className='closeIcon' /> )
+                      :
+                    ( <AiOutlineSearch className='searchIcon' /> ) }
+                </div>
               </div>
 
               <button onClick={ openMenuMobile }> 
@@ -108,18 +103,27 @@ export const MenuMobile = ( ) => {
               </button>
           </header>
 
+          
+            { itsOpen ? (
+              <>
+                { values.length >= 1 ? (
+                  <div className='searchResultsContainer' ref={ ref }>
+                    <SearchResult arr={ data } ref={ ref } />
+                  </div> ) : ( null ) }
+              </>
+            ) : ( null ) }
+
           { openMenu !== false ? (
               <nav className="navbar">        
                   <Link to="/" onClick={ ( ) => setOpenMenu( false ) } > Home </Link>
-                  <Link to="/movies" onClick={ ( ) => setOpenMenu( false ) }  > Filmes </Link>
-                  <Link to="/series" onClick={ ( ) => setOpenMenu( false ) }  > Series </Link>
+                  <Link to="/movies" onClick={ ( ) => setOpenMenu( false ) } > Filmes </Link>
+                  <Link to="/series" onClick={ ( ) => setOpenMenu( false ) } > Series </Link>
                   <button onClick={ closeMenuMobile }> <AiOutlineCloseSquare /> </button>
                   <h1> VideoBox </h1>
               </nav>
-          ) : ( null )}
+          ) : ( null ) }
           </div> ) : ( null )
       }
     </>
-    
   );
 }

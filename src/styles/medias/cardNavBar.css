@@ -60,7 +60,7 @@
    
     .cardNavBar button {
      width: 100%;
-
+      height: 45px;
      max-width: 140px;
      margin: 0;
    }

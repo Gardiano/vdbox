@@ -2,6 +2,7 @@
   
   import { useEffect, useState } from 'react';
   import { useParams } from 'react-router';
+  import { useSearch } from '../../hooks/useSearchContext';
   import { EpisodeDetailController } from '../../controllers/seriesController/EpisodeDetailController';
   import { Loader } from '../../helper/loader';
   import { BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
@@ -9,7 +10,6 @@
   import '../../styles/series/serie.css';
   import '../../styles/series/episodeDetails.css';
   import '../../styles/medias/serie.css';
-
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
@@ -37,7 +37,7 @@
         console.log( 'ep', data );
         setHasBeenLoaded( true );
         setEpisodeDetail( data );
-      }
+    }
 
     return (
      <>

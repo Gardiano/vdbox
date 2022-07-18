@@ -127,10 +127,14 @@
   }
 
   /* swiper css */
-  .swiper {
+  body .swiper {
     height: 300px!important;
     box-shadow: inset  -32px 5px 0px -13px rgba(0, 0, 0, 0)!important;
     margin-right: 15px!important;
+  }
+
+  .swiper-pagination-bullet {
+    margin: 2px!important;
   }
 
   /* slide */
@@ -159,7 +163,7 @@
   }
 
   #root .swiper-button-next {
-  margin-top: -5.5rem;
+  margin-top: -5.5rem!important;
   }
 
   #root .swiper-button-next::after {

@@ -18,4 +18,14 @@ export default interface ActorsTypes {
     title: string
     first_air_date: string
     release_date: string
+
+    // person
+
+    biography: string
+    birthday: string
+    deathday: string
+    gender: number
+    homepage: string
+    imdb_id: string
+    place_of_birth: string
 }

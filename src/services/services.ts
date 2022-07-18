@@ -112,6 +112,15 @@ export const getActors = async ( movieId : string ) => {
       };
 };
 
+export const getPersons = async ( personId : string ) => {
+    try {
+      const response = await api.get( `/person/${ personId }?api_key=${ GK }&language=pt-BR` );
+        return response.data;
+      } catch ( e ) {
+          console.log( e );
+      };
+};
+
 // series endpoints
 export const getPopularSeries = async ( page: number = 1 ) => {
     try { 

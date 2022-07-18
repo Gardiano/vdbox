@@ -7,4 +7,5 @@ export default interface searchResultTypes {
     name: string
     original_title: string
     backdrop_path: string
+    poster_path: string
 };

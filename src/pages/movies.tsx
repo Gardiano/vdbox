@@ -9,8 +9,6 @@
 
   import { MoviesPageController } from '../controllers/moviesController/MoviesController';
   import { SearchController } from '../controllers/moviesController/searchController';
-  
-  import { useSearch } from '../hooks/useSearchContext';
 
   import { Loader } from '../helper/loader';
 
@@ -86,18 +84,18 @@
                           { input?.length >= 1 ? (
                              <>
                               <Swiper
-                                    resizeObserver={ false }
-                                    autoplay={{ delay: 5000, disableOnInteraction: false }}
-                                    slidesPerView={ 'auto' }
-                                    spaceBetween={ 0 }
-                                    pagination={{ clickable: true }}
-                                    modules={[ Autoplay, Pagination, Navigation ]}
-                                    navigation={ true }
-                                    className="mySearchSwiper"
-                                  >
+                                  resizeObserver={ false }
+                                  autoplay={{ delay: 5000, disableOnInteraction: false }}
+                                  slidesPerView={ 'auto' }
+                                  spaceBetween={ 0 }
+                                  pagination={{ clickable: true }}
+                                  modules={[ Autoplay, Pagination, Navigation ]}
+                                  navigation={ true }
+                                  className="mySearchSwiper"
+                              >
                                   
                                     { moviesFromSearch.map( ( card: movieTypes ) => {
-                                      return (   
+                                      return (
                                         <SwiperSlide key={card.id}>
                                           <section >
                                             <Cards

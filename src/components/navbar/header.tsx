@@ -56,6 +56,7 @@ export const Header = ( ) => {
       const data = await MultiSearchController( values );
           setItsOpen ( true );
             setData( data );
+              console.log( data )
     } catch( e: any ) {
       console.log( e )
    }

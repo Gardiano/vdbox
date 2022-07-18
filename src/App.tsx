@@ -13,7 +13,7 @@ export const App = ( ) => {
 
   function useWindowSize( ) { 
     
-    useLayoutEffect( (  ) => {
+    useLayoutEffect( ( ) => {
 
       function updateSize() {
         setSize(  window.innerWidth );
@@ -31,9 +31,9 @@ export const App = ( ) => {
 
   return (
     <>
-     <SearchContextProvider>
-        { size >= 800 ? ( <Header /> ) : ( <MenuMobile /> ) }
-          <AppRoutes />
+      <SearchContextProvider>
+          { size >= 800 ? ( <Header /> ) : ( <MenuMobile /> ) }
+            <AppRoutes />
       </SearchContextProvider>
     </>
   );

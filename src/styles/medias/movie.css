@@ -18,7 +18,49 @@
   }
 }
 
-@media screen and ( max-width: 418px ) {
+@media screen and ( max-width: 501px ) {
+
+  #root .swiper {
+    box-shadow: none!important;
+  }
+
+  #root .myActorsSlider .swiper-button-next {
+    width: 35px;
+    height: 75px;
+    margin-top: -7rem!important;
+}
+
+  #root .myActorsSlider .swiper-button-prev {
+    width: 35px;
+    height: 75px;
+    margin-top: -7rem!important;
+}
+
+ #root .wrapper .myActorsSlider .actors img {
+    padding: 10px;
+    width: 130px!important;
+    height: 155px!important;
+    
+    border-radius: 20px!important;
+  }
+
+  .swiper-pagination {
+    display: none!important;
+  }
+
+  body .wrapper .trailler {
+    max-width: 250px;
+    margin-bottom: 5rem;
+  }
+
+  body .wrapper .trailler iframe {
+    margin-top: 3rem;
+  }
+}
+
+
+
+/* @media screen and ( max-width: 418px ) {
 
   body .movieContainer .details .poster img {
     width: 220px;
@@ -73,4 +115,4 @@
   body .wrapper .trailler iframe {
     margin-top: 3rem;
   }
-}
+} */
