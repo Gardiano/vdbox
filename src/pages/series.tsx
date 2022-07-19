@@ -20,7 +20,7 @@
   import '../styles/search/search.css';
 
   export const Series = ( ) => {
-    
+
     useEffect( ( ) => {
       getData( );
     }, [ ] );
@@ -39,6 +39,7 @@
 
     useEffect( ( ) => {
         getDataFromInput( );
+        console.log('build');
       }, [ input ] );
 
     const handleChange = ( e: any ) => {
