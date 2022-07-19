@@ -7,9 +7,10 @@ import { Movies } from './pages/movies';
 import { Serie } from './pages/serie';
 import { Series } from './pages/series';
 
-import { ErrorPage } from './helper/errorPage';
+
 import { EpisodeDetailsPage } from './pages/episodeDetail';
 import { ActorsDetailPage } from './pages/actorsDetail';
+import { ErrorPage } from './helper/errorPage';
 
 export const AppRoutes = ( ) => {
   return (
