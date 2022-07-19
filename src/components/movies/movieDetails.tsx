@@ -1,4 +1,4 @@
-  
+    // eslint-disable-next-line spaced-comment
   import { useEffect, useState } from 'react';  
 
   import { useParams } from 'react-router';
@@ -15,7 +15,10 @@
 
   import { Loader } from '../../helper/loader';
 
+ //@ts-ignore
   import person from '../../assets/person.svg';
+
+  //@ts-ignore
   import traillerFig from '../../assets/trailler.svg';
 
   import cardsTypes from '../../models/cards';
@@ -65,12 +68,8 @@
         const data      = await MovieByIdController( movieId.id as string );
         const traillers = await TraillersController( movieId.id as string );
         const credits   = await GetActorsController( movieId.id as string );
-
-        console.log(credits)
       
         setMovie( data! ); setTrailler( traillers! ); setCredits( credits! );
-
-        // <Loader /> state;
         setHasBeenLoaded( true );
       } catch ( e ) {
         console.log( e );
@@ -142,7 +141,7 @@
                     <SwiperSlide key={ actor?.id }> 
                       <div className='actors'>
                             { actor?.profile_path == undefined ? 
-                              ( <Link to={ `/person/${actor?.id}` } onClick={ ( ) => setValues( '' ) } > <img src={ person } alt={ 'empty person' } /> </Link> ) 
+                              ( <Link to={ `/person/${actor?.id}` } onClick={ ( ) => setValues( '' ) } > <img src={ person } /> </Link> ) 
                                 : 
                               ( <Link to={ `/person/${actor?.id}` } onClick={ ( ) => setValues( '' ) } > <img src={ bgPath + actor?.profile_path } /> </Link> ) }
                             <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
