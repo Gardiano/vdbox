@@ -78,8 +78,8 @@ export const Search = ( ) => {
                 </section>
               </SwiperSlide>
             )})}
-      </Swiper> ) 
-      : ( null ) }
+      </Swiper> )
+    : ( null ) }
     </div>
   );
 };

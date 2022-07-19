@@ -1,0 +1,64 @@
+
+@media screen and ( max-width: 675px ) {
+
+    .SeriesContainer .searchContainer {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .SeriesContainer .searchContainer input {
+        background: #221616e0;
+        height: 50px;
+    }
+
+    .SeriesContainer .searchContainer input::placeholder {
+        font-size: 1.16rem;
+    }
+
+    .SeriesContainer .movieList img {
+        width: 220px;
+        height: 300px;
+    }
+
+    .SeriesContainer .movieList label {
+        font-size: 1.25rem;
+    }
+
+    #root .loadMoreMovies {
+        max-width: 40px;
+        height: 40px;
+    }
+
+    #root .loadMoreMovies:hover {
+        max-width: 38px;
+        height: 38px;
+    }
+}
+
+@media screen and ( max-width: 415px ) {
+
+    .SeriesContainer .searchContainer {
+        max-width: 300px;
+        margin-bottom: 0;
+    }
+
+    .SeriesContainer .searchContainer
+    input::placeholder {
+        font-size: 1rem;
+    }
+
+    .SeriesContainer .movieList img {
+        width: 180px;
+        height: 240px;
+    }
+
+    .loadMoreMovies {
+        max-width: 30px;
+        height: 30px;
+    }
+
+    .loadMoreMovies:hover {
+        max-width: 50px;
+        height: 50px;
+    }
+}

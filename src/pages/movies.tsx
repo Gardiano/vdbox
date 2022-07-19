@@ -15,6 +15,7 @@
   import movieTypes from '../models/cards';
   
   import '../styles/pages/movies.css';
+  import '../styles/medias/movies.css';
   import '../styles/search/search.css';
 
   export const Movies = ( ) => {
@@ -37,23 +38,23 @@
 
     useEffect( ( ) => {
         getDataFromInput( );
-      }, [ input ] );
+    }, [ input ] );
 
     const handleChange = ( e: any ) => {
-          e.target.value == ' ' || e.target.value.length === 0 ? ( setInput( '' ) ) : ( setInput( e.target.value ) );
-        };
+        e.target.value == ' ' || e.target.value.length === 0 ? ( setInput( '' ) ) : ( setInput( e.target.value ) );
+    };
 
     const getDataFromInput = async ( ) => {
-        if( input?.length === 0 ) {
+      if( input?.length === 0 ) {
           setMoviesFromSearch( [ ] );
-        }
+      }
   
         if( input?.length >= 1 ) {
           const data = await SearchController( input );
             setHasBeenLoaded( true )
               setMoviesFromSearch( data );
-        }
-    }; 
+      }
+    };
 
     const getData = async ( ) => {
         const data = await MoviesPageController( page );
@@ -63,8 +64,8 @@
 
     const getMoreData = async ( ) => {
         setPage ( page + 1 );
-        const moreMovies = await MoviesPageController( page + 1 );
-          setMovies( [ ...movies, ...moreMovies ] );
+          const moreMovies = await MoviesPageController( page + 1 );
+            setMovies( [ ...movies, ...moreMovies ] );
     };
     
     return (
@@ -134,7 +135,7 @@
                     +
                 </button>
             </>
-            ) : ( <Loader /> )}
+          ) : ( <Loader /> ) }
         </>
     );
   };

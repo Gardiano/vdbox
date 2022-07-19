@@ -5,7 +5,7 @@ import api from './baseUrl';
 const GK = process.env.REACT_APP_MAK;
 
 // multi search endpoint ( movie, series, actors )
-export const multiSearch = async ( search: string = 'batman' ) => {
+export const multiSearch = async ( search: string ) => {
     try {
       const response = await api.get( `search/multi?api_key=${ GK }&query=${ encodeURIComponent( search ) }&language=pt-BR&page=1&include_adult=false` );
         return response.data.results;          
@@ -25,6 +25,14 @@ export const getMovieByName = async ( movie: string ) => {
 };
 
 // search series endpoint
+export const getSerieByName = async ( serie: string ) => {
+    try {
+      const response = await api.get( `search/tv?api_key=${ GK }&query=${ encodeURIComponent( serie ) }&language=pt-BR` );
+        return response.data.results;
+    } catch ( e ) {
+        console.log( e );
+    };
+};
 
 // movie endpoints
 export const getMovieToOverlayComponent = async ( ) => {
@@ -112,15 +120,6 @@ export const getActors = async ( movieId : string ) => {
       };
 };
 
-export const getPersons = async ( personId : string ) => {
-    try {
-      const response = await api.get( `/person/${ personId }?api_key=${ GK }&language=pt-BR` );
-        return response.data;
-      } catch ( e ) {
-          console.log( e );
-      };
-};
-
 // series endpoints
 export const getPopularSeries = async ( page: number = 1 ) => {
     try { 
@@ -153,6 +152,15 @@ export const getAiringTodaySeries = async ( ) => {
     try { 
       const response = await api.get( `/tv/airing_today?api_key=${ GK }&language=en-US&page=1` );
       return response.data.results;
+    } catch ( e ) {
+        console.log( e );
+    };
+};
+
+export const getDataForSeriesPage = async ( page: number ) => {
+    try { 
+        const response = await api.get( `search/tv?api_key=${ GK }&query=a&language=pt-BR&page=${ page }&include_adult=false` );
+        return response.data.results;
     } catch ( e ) {
         console.log( e );
     };
@@ -195,6 +203,12 @@ export const getActorsByEpisodes = async ( serieId: string, season: number, epis
     };
 };
 
-
-
-
+// person endpoint
+export const getPersons = async ( personId : string ) => {
+    try {
+      const response = await api.get( `/person/${ personId }?api_key=${ GK }&language=pt-BR` );
+        return response.data;
+      } catch ( e ) {
+          console.log( e );
+      };
+};

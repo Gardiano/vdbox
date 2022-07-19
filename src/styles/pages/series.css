@@ -1,5 +1,5 @@
 
-.MoviesContainer .searchContainer {
+.SeriesContainer .searchContainer {
     width: calc( 100% - 60px );
     height: auto;
 
@@ -7,7 +7,7 @@
     margin: 8rem auto 5rem;
 }
 
-.MoviesContainer .searchContainer input {
+.SeriesContainer .searchContainer input {
     color: #b0b0b0;   
     font-size: 22px;
 
@@ -30,23 +30,23 @@
     border-bottom: 3px solid rgba(205 51 51 / 40%);
 }
 
-.MoviesContainer .searchContainer input::-webkit-input-placeholder {
+.SeriesContainer .searchContainer input::-webkit-input-placeholder {
     font-size: 20px;
     color: #b0b0b0;
 }
   
-.MoviesContainer .searchContainer input:-ms-input-placeholder {
+.SeriesContainer .searchContainer input:-ms-input-placeholder {
     font-size: 20px;
     color: #b0b0b0;
 }
   
-.MoviesContainer .searchContainer input::placeholder {
+.SeriesContainer .searchContainer input::placeholder {
 text-align: center;
 font-size: 20px;
 color: #b0b0b0;
 }
 
-.MoviesContainer .searchList {
+.SeriesContainer .searchList {
     width: calc( 100% - 28rem );
     max-height: 300px;
 
@@ -74,7 +74,7 @@ color: #b0b0b0;
     
 }
 
-.MoviesContainer {
+.SeriesContainer {
   width: calc( 100% - 60px );
   height: auto;
 
@@ -89,7 +89,7 @@ color: #b0b0b0;
   justify-content: center;
 }
 
-.MoviesContainer .movieList {
+.SeriesContainer .movieList {
     width: 300px;
     height: auto;
   
@@ -106,14 +106,14 @@ color: #b0b0b0;
 
 }
 
-.MoviesContainer .movieList img {
+.SeriesContainer .movieList img {
     width: 250px;
     height: 300px;
 
     border-radius: 5px;
 }
 
-.MoviesContainer .movieList label {
+.SeriesContainer .movieList label {
     color: #f8f8f8;
 
     font-size: 1rem;
@@ -156,3 +156,4 @@ color: #b0b0b0;
     max-width: 55px;
     height: 55px;
 }
+

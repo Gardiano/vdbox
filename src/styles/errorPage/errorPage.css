@@ -1,0 +1,43 @@
+
+.errorPage {
+    width: 100%;
+    height: 99.8vh;
+  
+    margin: auto;
+    display: flex;
+  
+    z-index: 9999;
+    
+    align-items: center;
+    flex-direction: column;
+    background: #0f1316;
+    justify-content: center;
+  }
+  
+  .errorPage h1 {
+    color: #F8686D;
+    margin: 0 auto 10px;
+    display: block;
+  }
+
+  .errorPage p {
+    color: #f8f8f8;
+    font-weight: 900;
+  }
+
+  .errorPage a {
+    text-decoration: none;
+  }
+  
+  .errorPage img {
+    color: grey;
+  
+    width: 150px;
+   
+    height: 50px;
+  
+    margin: 0 auto;
+    display: flex;
+  
+    border-radius: 0rem;
+  }

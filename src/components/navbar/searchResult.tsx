@@ -9,7 +9,7 @@ import searchResultTypes from '../../models/searchResult';
 
 export const SearchResult = ( { arr } : any ) => {
 
-  const { setItsOpen } = useSearch( );
+  const { setValues, setItsOpen } = useSearch( );
 
   const [ bgPath ] = useState< string > ( 'https://image.tmdb.org/t/p/w500/' );
     
@@ -43,7 +43,7 @@ export const SearchResult = ( { arr } : any ) => {
             { arr?.length === 0 ? ( <b> Título indisponível... </b> ) : (
               arr?.map( ( itens: searchResultTypes ) => {
                 return (
-                    <div key={ itens?.id }>
+                    <div key={ itens?.id } onClick={ ( ) => setValues('') } >
                         <>
                           { linkContent( itens.id, itens.media_type, itens.title, itens.name, itens.original_title, itens.backdrop_path, itens.poster_path ) }
                         </>

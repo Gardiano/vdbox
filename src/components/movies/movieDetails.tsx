@@ -1,6 +1,11 @@
   
   import { useEffect, useState } from 'react';  
+
   import { useParams } from 'react-router';
+
+  import { useSearch } from '../../hooks/useSearchContext';
+
+  import { Link } from 'react-router-dom';
   
   import { MovieByIdController, TraillersController, GetActorsController } from '../../controllers/moviesController/movieDetailsController';
   import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
@@ -27,11 +32,15 @@
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
-import { Link } from 'react-router-dom';
+
   Moment.globalLocale = "pt-br";
 
   export const MovieDetails = ( ) => {
+
     const movieId = useParams( );
+
+    const { setValues } = useSearch( );
+
     useEffect( ( ) => {
       window.scrollTo( 0 , 0 );
         getData( );
@@ -73,7 +82,7 @@ import { Link } from 'react-router-dom';
         { hasBeenLoaded === true ? (
           <div className='wrapper' >
             <div className='movieContainer' 
-              style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } }>
+              style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath+movie.backdrop_path } )` } } >
               <div className='details'>
                   <div className='poster'>
                     <img src={`${ bgPath+movie.poster_path }`} />
@@ -133,9 +142,9 @@ import { Link } from 'react-router-dom';
                     <SwiperSlide key={ actor?.id }> 
                       <div className='actors'>
                             { actor?.profile_path == undefined ? 
-                              ( <Link to={`/person/${actor?.id}`}> <img src={ person } alt={ 'empty person' } /> </Link> ) 
+                              ( <Link to={ `/person/${actor?.id}` } onClick={ ( ) => setValues( '' ) } > <img src={ person } alt={ 'empty person' } /> </Link> ) 
                                 : 
-                              ( <Link to={`/person/${actor?.id}`} > <img src={ bgPath + actor?.profile_path } /> </Link> ) }
+                              ( <Link to={ `/person/${actor?.id}` } onClick={ ( ) => setValues( '' ) } > <img src={ bgPath + actor?.profile_path } /> </Link> ) }
                             <p> <BsFillPersonBadgeFill /> { actor?.character } </p>
                             <label> <BsFillPersonCheckFill /> { actor?.original_name } </label>
                       </div>
@@ -156,7 +165,7 @@ import { Link } from 'react-router-dom';
                     <p> TRAILLER INDISPONÍVEL </p>
                     <img src={ traillerFig } />
                   </div>
-                 )}
+              )}
             </div>
 
           </div> ) : ( <Loader /> )

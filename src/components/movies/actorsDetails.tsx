@@ -53,8 +53,8 @@
     return (
       <>
         { hasBeenLoaded === true ? (
-            <div className='wrapper'>
-              <div className='actorsContainer'>
+            <div className='ActorsWrapper' >
+              <div className='actorsContainer' >
                   <div className='poster'>
                       {actors?.profile_path != undefined ? (
                         <img src={`${ bgPath+actors?.profile_path }`} />
