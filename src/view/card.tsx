@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { BsFillStarFill } from 'react-icons/bs';
 
 import { useSearch } from '../hooks/useSearchContext';
-
+//@ts-ignore
 import pic from '../assets/pic.svg';
 
 import movieTypes from "../models/cards";

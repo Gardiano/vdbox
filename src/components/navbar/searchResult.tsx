@@ -10,8 +10,6 @@ import searchResultTypes from '../../models/searchResult';
 export const SearchResult = ( { arr } : any ) => {
 
   const { setValues, setItsOpen } = useSearch( );
-
-  const [ bgPath ] = useState< string > ( 'https://image.tmdb.org/t/p/w500/' );
     
   const linkContent = ( id: string, media_type: string, title: string, name: string, original_title: string, backdrop_path: string, poster_path: string ) => {
        return (

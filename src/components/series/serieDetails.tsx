@@ -11,7 +11,9 @@
 
   import { BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
   
+
   import { Loader } from '../../helper/loader';
+  //@ts-ignore
   import traillerFig from '../../assets/trailler.svg';
 
   import cardTypes from '../../models/cards';

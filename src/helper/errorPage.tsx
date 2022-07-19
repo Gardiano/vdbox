@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 
 import '../styles/errorPage/errorPage.css';
-
+//@ts-ignore
 import loader from '../assets/load.svg';
 
 export const ErrorPage = ( ) => {

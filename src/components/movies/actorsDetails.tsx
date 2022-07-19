@@ -10,8 +10,9 @@
 
   import { Loader } from '../../helper/loader';
 
+  //@ts-ignore
   import person from '../../assets/person.svg';
-
+//@ts-ignore
   import ActorsTypes from '../../models/actors';
 
   import '../../styles/movies/actors.css';
