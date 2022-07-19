@@ -8,6 +8,7 @@
   import '../../styles/movies/overlay.css';
   import '../../styles/medias/overlay.css';
 
+  //@ts-ignore
   import wp from '../../assets/topgun.jpg';
 
   export const Overlay = () => {
@@ -25,7 +26,7 @@
 
   const getData = async ( ) => {
     const data = await OverLayController( );
-      setMovie( data );
+      setMovie( data! );
   };
   
   return (
