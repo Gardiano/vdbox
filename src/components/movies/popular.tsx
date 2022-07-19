@@ -1,7 +1,7 @@
 
   import { useEffect, useState } from 'react';
 
-  import { PopularMoviesController } from '../../controllers/moviesController/PopularController';
+  import { PopularMoviesController } from '../../controllers/moviesController/popularController';
 
   import { Cards } from '../../view/card';
 
