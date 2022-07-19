@@ -1,7 +1,7 @@
 
   import { useEffect, useState } from 'react';
 
-  import { PopularController } from '../../controllers/moviesController/PopularController';
+  import { PopularMoviesController } from '../../controllers/moviesController/PopularController';
 
   import { Cards } from '../../view/card';
 
@@ -31,7 +31,7 @@
   const [ movies , setMovies ] = useState < [ ] > ( [ ] );
 
   const getData = async () => {
-    const data = await PopularController();
+    const data = await PopularMoviesController( );
     setMovies( data );
   };
   

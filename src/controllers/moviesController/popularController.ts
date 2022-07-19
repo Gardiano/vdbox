@@ -1,7 +1,7 @@
 
   import { getPopular } from '../../services/services';
 
-  export const PopularController = async ( ) => {
+  export const PopularMoviesController = async ( ) => {
     const data = await getPopular( );
       return data;
   };
