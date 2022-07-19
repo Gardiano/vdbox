@@ -147,12 +147,12 @@
 
                 <Swiper
                   resizeObserver={ false }
-                  autoplay={ true }
+                  autoplay={ false }
                   slidesPerView={ 'auto' }
                   spaceBetween={ 0 }
                   pagination={ { clickable: true } }
-                  modules={ [ Autoplay, Pagination, Navigation ] }
-                  navigation={ true }
+                  modules={ [ Autoplay, Pagination ] }
+                  navigation={ false }
                   className="mySliderEpisodes"
                 >
                   
@@ -163,7 +163,7 @@
                               { ep.still_path == null ? (
                                   <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} 
                                         onClick={ clearSearchWhenClickingOnACard }
-                                  > 
+                                  >
                                     <img src={ traillerFig } />
                                   </Link> ) :
                                 ( <Link to={`/series/${ serieId.id }/season/${ seasons }/episode/${ ep.episode_number }`} 

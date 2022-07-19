@@ -9,7 +9,7 @@ import { SearchResult } from './searchResult';
 
 import { useSearch } from '../../hooks/useSearchContext';
 
-import { AiOutlineMenuUnfold, AiOutlineSearch, AiOutlineCloseSquare, AiOutlineClose } from "react-icons/ai";
+import { AiOutlineMenuUnfold, AiOutlineSearch, AiFillCloseCircle, AiOutlineClose } from "react-icons/ai";
 import { BiCameraMovie } from "react-icons/bi";
 
 import useOnClickOutside from '../../hooks/useOutsideClick';
@@ -78,7 +78,7 @@ export const MenuMobile = ( ) => {
     <>
       { sizePage < 800 ? (
         <div className="mobileContainer" style={ sizePage > 800 ? ( { display: 'none' } ) : ( { display: 'flex' } ) }>
-        
+      
           <header style={ { background: backgroundColor } } className='MenuMobile'>
               <Link to='/' > <BiCameraMovie className='mobileLogoIcon' /> </Link>
               <div className="searchBox">
@@ -114,12 +114,14 @@ export const MenuMobile = ( ) => {
             ) : ( null ) }
 
           { openMenu !== false ? (
-              <nav className="navbar">        
-                  <Link to="/" onClick={ ( ) => setOpenMenu( false ) } > Home </Link>
-                  <Link to="/movies" onClick={ ( ) => setOpenMenu( false ) } > Filmes </Link>
-                  <Link to="/series" onClick={ ( ) => setOpenMenu( false ) } > Series </Link>
-                  <button onClick={ closeMenuMobile }> <AiOutlineCloseSquare /> </button>
-                  <h1> VideoBox </h1>
+              <nav className="navbar">
+                  <div>
+                    <Link to="/" onClick={ ( ) => setOpenMenu( false ) } > Home </Link>
+                    <Link to="/movies" onClick={ ( ) => setOpenMenu( false ) } > Filmes </Link>
+                    <Link to="/series" onClick={ ( ) => setOpenMenu( false ) } > Series </Link>
+                    <button onClick={ closeMenuMobile } > x </button>
+                    <h1> VideoBox </h1>
+                  </div>
               </nav>
           ) : ( null ) }
           </div> ) : ( null )

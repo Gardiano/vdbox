@@ -1,4 +1,22 @@
 
+@media screen and ( max-width: 900px ) {
+  body .serieContainer {
+    margin: 0 auto;
+    background-size: 100% 65%;
+    background-position: top;
+  }
+
+  body .serieContainer .details {
+    margin: 5rem auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  body .serieContainer .details .poster img {
+    height: 400px;
+  }
+}
+
 @media screen and ( max-width: 500px ) {
   
   body .serieContainer .details .poster img {
@@ -86,34 +104,17 @@
     font-size: 12px;
   }
 
-  #root .swiper-button-prev::after {
+  #root .mySliderEpsodes .swiper-button-prev::after {
    color: #fff;
+ 
   }
 
   #root .swiper-button-next {
-    margin-top: -3.5rem;
+    margin-top: -5.5rem!important;
   }
 
   #root .swiper-button-next::after {
     color: #fff;
-  }
-}
-
-@media screen and ( max-width: 900px ) {
-  body .serieContainer {
-    margin: 0 auto;
-    background-size: 100% 65%;
-    background-position: top;
-  }
-
-  body .serieContainer .details {
-    margin: 5rem auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  body .serieContainer .details .poster img {
-    height: 400px;
   }
 }
 

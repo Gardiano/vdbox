@@ -124,7 +124,7 @@ body .swiper-button-prev {
   display: flex;
 
   margin-left: -0.65rem;
-  margin-top: -3.5rem;
+  margin-top: -5.5rem;
   
   opacity: 0.7;
   background: #0d1013;
@@ -157,9 +157,10 @@ body .swiper-button-next {
   font-size: 30px;
   display: flex;
   margin-right: -0.7rem;
-  margin-top: -3.5rem;
+  margin-top: -5.5rem;
   
   opacity: 0.7;
+  
   background: #0d1013;
   border-radius: 50px 0px 0px 50px;
 }

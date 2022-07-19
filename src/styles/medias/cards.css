@@ -155,7 +155,7 @@
 
   #root .swiper-button-prev {
     color: #fff;
-    margin-top: -5.5rem;
+    margin-top: -5.5rem!important;
   }
 
   #root .swiper-button-prev::after {
@@ -163,7 +163,7 @@
   }
 
   #root .swiper-button-next {
-  margin-top: -5.5rem!important;
+    margin-top: -5.5rem!important;
   }
 
   #root .swiper-button-next::after {
