@@ -89,11 +89,18 @@
       height: 100vh;
 
       display: flex;
+
+      margin: 0 auto 0;
+
+      top: 0;
+      left: 0;
+      bottom: 0;
       
-      align-items: center;
-      justify-content: center;
       position: fixed;
+     
       z-index: 9999;
+
+      text-align: center;
 
       background: #020202ee;
       backdrop-filter: blur( 5px );
@@ -108,12 +115,11 @@
       display: flex;
       margin: auto;
       
-      align-items: center;
-      justify-content: center;
       flex-wrap: wrap;
 
       flex-direction: column;
- 
+
+      justify-content: center;
   }
   
   .mobileContainer nav p {
@@ -125,10 +131,16 @@
   
   .mobileContainer nav a {
     width: 42px;
+
+    margin: auto;
+
     color: #FBFEFD;
     text-decoration: none;
+
     font-weight: bold;
     text-align: center;
+
+    margin: auto;
   }
 
   .mobileContainer nav button {
@@ -142,7 +154,7 @@
       cursor: pointer;
 
       display: block;
-
+      margin: auto;
 
       border-radius: 20px;
 
@@ -153,11 +165,14 @@
       border: 1px solid salmon;
   }
 
-  .mobileContainer nav h1 {      
-      bottom: 0;
-      position: fixed;
+  .mobileContainer nav h1 {
+      margin: auto;
 
-      color: rgb(220, 100, 100);;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+
+      color: rgb(220, 100, 100);
   }
   
   .mobileContainer nav a:hover {
