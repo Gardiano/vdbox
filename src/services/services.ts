@@ -1,8 +1,6 @@
 
-// baseUrl.ts
 import api from './baseUrl';
 
-// .env
 const GK = process.env.REACT_APP_MAK;
 
 // multi search endpoint ( movie, series, actors )
