@@ -1,6 +1,5 @@
 
 import api from './baseUrl';
-
 process.env.REACT_APP_VERCEL_ENV;
 
 // multi search endpoint ( movie, series, actors )
