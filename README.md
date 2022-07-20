@@ -5,12 +5,12 @@
   <br></br>
 
   <div align="center">
-    <a> https://videobox-two.vercel.app/ </a>
+    <img src="src/assets/gifToGit.gif" alt="gif" width="650" height="500">
   </div>
   <br></br>
-
+  
   <div align="center">
-    <img src="src/assets/gifToGit.gif" alt="gif" width="650" height="500">
+    https://videobox-two.vercel.app/
   </div>
   <br></br>
 
