@@ -124,7 +124,7 @@ export const getActors = async ( movieId : string ) => {
 };
 
 // series endpoints
-export const getPopularSeries = async ( page: number = 1 ) => {
+export const getPopularSeries = async ( page: number ) => {
     try { 
       const response = await api.get( `/tv/popular?api_key=${ GK }&language=en-US&page=${ page }` );
         return response.data.results;        

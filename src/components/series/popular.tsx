@@ -33,7 +33,7 @@
   const [ series , setSeries ] =  useState< [ ] > ( [ ] );
 
   const getData = async ( ) => {
-        const data = await popularSeriesController( );
+        const data = await popularSeriesController( 1 );
         setSeries( data );
   }
 
