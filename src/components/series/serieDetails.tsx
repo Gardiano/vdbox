@@ -128,14 +128,17 @@
             </div>
            
             <h4> TEMPORADAS </h4>
+
             <div className='seasonNavBar'>
-              {serie.seasons?.map( ( season: cardTypes ) => {
+              { serie.seasons?.map( ( season: cardTypes ) => {
                 return (
-                  <div key={ season.id } >
-                    <button onClick={ ( ) => getSeasonsAndEpisodes( season.season_number! ) } > 
+                  <>
+                    <button 
+                      key={ season.id } 
+                      onClick={ ( ) => getSeasonsAndEpisodes( season.season_number! ) } > 
                       { season.season_number } 
                     </button>
-                  </div>
+                  </>
                 );
               })}
             </div>
