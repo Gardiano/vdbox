@@ -255,10 +255,12 @@
     color: #f8f8f8;
     font-size: 22px;
 
-    width: 50px;
+    width: 150px;
     height: 50px;
-    
+
     border-radius: 30px;
+
+    text-align: center;
 
     cursor: pointer;
     background: #0d1013;
