@@ -20,6 +20,7 @@
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
+import { BackButton } from '../buttons/backButton';
 
   Moment.globalLocale = "pt-br";
 
@@ -90,6 +91,7 @@
                       </details>
                   </div>
               </div>
+              <BackButton />
             </div> ) : ( <Loader /> )
         }
       </>

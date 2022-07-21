@@ -5,10 +5,10 @@
 
   import { useSearch } from '../../hooks/useSearchContext';
 
-  import { Link } from 'react-router-dom';
+  import { Link, useNavigate } from "react-router-dom";
   
   import { MovieByIdController, TraillersController, GetActorsController } from '../../controllers/moviesController/movieDetailsController';
-  import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill } from 'react-icons/bs';
+  import { BsFillPersonCheckFill, BsFillPersonBadgeFill, BsFillHandThumbsUpFill, BsFillStarFill, BsArrowReturnLeft } from 'react-icons/bs';
   
   import { Swiper, SwiperSlide } from 'swiper/react';
   import { Autoplay, Navigation, Pagination } from 'swiper';
@@ -35,6 +35,7 @@
   
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
+import { BackButton } from '../buttons/backButton';
 
   Moment.globalLocale = "pt-br";
 
@@ -62,6 +63,10 @@
     const [ youTubePath ] = useState < string > ( 'https://www.youtube.com/embed/' );
 
     const [ gradient ] = useState < string > ( '0deg,#020202 0,rgba(2,2,2,.96) 10%,rgba(2,2,2,.9) 22%,rgba(2,2,2,.66) 38%,rgba(2,2,2,.61) 58%,rgba(0,0,21,.76) 100%' )
+
+    const goBackPage = () => {
+     
+    };
 
     const getData = async ( ) => {
       try {
@@ -104,8 +109,7 @@
                     { movie.overview === '' ? 
                         ( <span> Sinopse Indisponível </span> ) 
                       : 
-                        ( <span> { movie.overview } </span> )
-                    }
+                        ( <span> { movie.overview } </span> )}
                   </div>
 
                   <div className="rating">
@@ -166,7 +170,8 @@
                   </div>
               )}
             </div>
-
+            
+            <BackButton />
           </div> ) : ( <Loader /> )
         }
       </>

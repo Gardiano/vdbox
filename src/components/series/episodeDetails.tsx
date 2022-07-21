@@ -17,6 +17,7 @@
 
   import Moment from 'react-moment';
   import "moment/locale/pt-br";
+import { BackButton } from '../buttons/backButton';
   Moment.globalLocale = "pt-br";
 
   export const EpisodeDetail = ( ) => {
@@ -48,6 +49,7 @@
         { hasBeenLoaded === true ? (
               <div className='wrapper'>
                 <div className='serieContainer episodeDetailContainer' key={ episodeDetail?.id } style={ { backgroundImage: `linear-Gradient( ${ gradient } ), url( ${ bgPath + episodeDetail.still_path } )` } }>
+                <BackButton />
                   <div className='details'>
 
                       <div className='poster' style={ { backgroundImage: ` url( ${ bgPath + episodeDetail.still_path } ) ` } }>
@@ -87,6 +89,7 @@
                       </div>
                   </div>
                 </div>
+                
               </div> ) : 
               ( <Loader /> )
         };

@@ -5,7 +5,7 @@
   <br></br>
 
   <div align="center">
-    <img src="src/assets/gifToGit.gif" alt="gif" width="650" height="500">
+    <img src="src/assets/gifToGit.gif" alt="gif" width="650" height="500" style='border-radius: 5px'>
   </div>
   <br></br>
   
