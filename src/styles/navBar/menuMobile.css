@@ -48,9 +48,6 @@
     background: transparent;
   }
 
-  header button:hover {
-    background: rgb(220, 100, 100);
-  }
   
   header .searchBox {
     width: 50%;
@@ -114,8 +111,6 @@
 
       display: flex;
       margin: auto;
-      
-      flex-wrap: wrap;
 
       flex-direction: column;
 
@@ -130,9 +125,7 @@
   }
   
   .mobileContainer nav a {
-    width: 42px;
-
-    margin: auto;
+    width: 100px;
 
     color: #FBFEFD;
     text-decoration: none;
@@ -141,6 +134,7 @@
     text-align: center;
 
     margin: auto;
+    display: block;
   }
 
   .mobileContainer nav button {
@@ -175,9 +169,7 @@
       color: rgb(220, 100, 100);
   }
   
-  .mobileContainer nav a:hover {
-    border-bottom: 2px solid rgb(220, 100, 100);
-  }
+
   
   .mobileContainer .searchResultsContainer {
     width: 100%;
