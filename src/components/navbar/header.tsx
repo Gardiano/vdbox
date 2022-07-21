@@ -64,7 +64,7 @@ export const Header = ( ) => {
 
   return (
     <>
-      <header style={ { background: ` ${ backgroundColor } ` } } >
+      <header >
         <nav className="navbar">
           <p> VideoBox </p>
             <Link to="/" > Home </Link>

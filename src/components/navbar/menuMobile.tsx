@@ -45,11 +45,6 @@ export const MenuMobile = ( ) => {
   const closeMenuMobile = ( ) => {
     setOpenMenu( false );
   };
-  
-  const changeBackgroundWhenScrollDown = ( ) => {
-   const bg = window.scrollY > 20 ? ( setBackgroundColor( '#000000d9' ) ) : ( setBackgroundColor( 'transparent' ) );
-    return bg;
-  };
 
   const handleChange = ( e: any ) => {
     e.target.value == ' ' || e.target.value.length === 0 ? ( setValues( '' ) ) : ( setValues( e.target.value ) );
@@ -61,6 +56,11 @@ export const MenuMobile = ( ) => {
       setValues( '' );
     }
   };
+
+  const changeBackgroundWhenScrollDown = ( ) => {
+    const bg = window.scrollY > 20 ? ( setBackgroundColor( '#000000d9' ) ) : ( setBackgroundColor( 'transparent' ) );
+     return bg;
+   };
 
   useOnClickOutside( ref, handleClickOutside );
 
@@ -79,7 +79,7 @@ export const MenuMobile = ( ) => {
       { sizePage < 800 ? (
         <div className="mobileContainer" style={ sizePage > 800 ? ( { display: 'none' } ) : ( { display: 'flex' } ) }>
       
-          <header style={ { background: backgroundColor } } className='MenuMobile'>
+          <header className='MenuMobile'>
               <Link to='/' > <BiCameraMovie className='mobileLogoIcon' /> </Link>
               <div className="searchBox">
                 <div className='inputBox'>

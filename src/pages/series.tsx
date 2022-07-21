@@ -3,13 +3,17 @@
   import { useEffect, useState } from 'react';
   import { Cards } from '../view/card';
 
-  import { Link } from 'react-router-dom';
+  import { Link, useLocation } from 'react-router-dom';
 
   import { Autoplay, Navigation, Pagination } from 'swiper';
   import { Swiper, SwiperSlide } from 'swiper/react';
 
   import { SeriesPageController } from '../controllers/seriesController/SeriesController';
   import { SearchController } from '../controllers/seriesController/SearchController';
+
+  import { BackButton } from '../components/buttons/backButton';
+
+  import InfiniteScroll from 'react-infinite-scroll-component';
 
   import { Loader } from '../helper/loader';
 
@@ -39,7 +43,6 @@
 
     useEffect( ( ) => {
         getDataFromInput( );
-        console.log('build');
       }, [ input ] );
 
     const handleChange = ( e: any ) => {
@@ -73,8 +76,16 @@
     return (
         <>
           { hasBeenLoaded === true ? (
-            <>
-              <div className='SeriesContainer'>
+            <InfiniteScroll
+                dataLength={ series?.length }
+                next={ getMoreData }
+                height='100vh'
+                hasMore={ true }
+                loader={ <h4> Loading... </h4> }
+                scrollableTarget="scrollableDiv"
+              >
+            
+              <div className='SeriesContainer' id="scrollableDiv">
                   <div className="searchContainer">
                       <input
                         onChange={ ( e ) => handleChange( e ) }
@@ -118,26 +129,19 @@
 
                   { series.map( ( serie: movieTypes ) => {
                       return (
-                        <div key={ serie.id }>
-                            { hasBeenLoaded === true ? (
-                                <div className='movieList' 
-                                style={ input?.length >= 1 ? ({opacity: '0.05'}) : ({ background: '#020202b0', opacity: '1'}) } >
-                                    <Link to={ `/series/${ serie.id }` }>
-                                        <img src={ bgPath + serie.poster_path }  />
-                                    </Link>
-                                    <label> { serie.title } </label>
-                                </div>
-                                ) : ( <Loader /> ) }
+                        <div className='movieList' 
+                            style={ input?.length >= 1 ? ({opacity: '0.05'}) : ({ background: '#020202b0', opacity: '1'}) } >
+                            <Link to={ `/series/${ serie.id }` }>
+                                <img src={ bgPath + serie.poster_path }  />
+                            </Link>
+                            <label> { serie.title } </label>
                         </div>
                       );
                   })}
               </div>
-
-              <button className='loadMoreMovies' onClick={ ( ) => getMoreData ( ) }> 
-                  +
-              </button>
-            </>
-            ) : ( <Loader /> )}
+              <BackButton />
+            </InfiniteScroll>
+          ) : ( <Loader /> )}
         </>
     );
   };

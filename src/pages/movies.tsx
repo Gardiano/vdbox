@@ -1,16 +1,22 @@
 
 
   import { useEffect, useState } from 'react';
-  import { Cards } from '../view/card';
-  import { Link } from 'react-router-dom';
 
-  import { Autoplay, Navigation, Pagination } from 'swiper';
-  import { Swiper, SwiperSlide } from 'swiper/react';
+  import { Cards } from '../view/card';
+
+  import { Link } from 'react-router-dom';
 
   import { MoviesPageController } from '../controllers/moviesController/MoviesController';
   import { SearchController } from '../controllers/moviesController/searchController';
 
+  import { BackButton } from '../components/buttons/backButton';
+
+  import { Autoplay, Navigation, Pagination } from 'swiper';
+  import { Swiper, SwiperSlide } from 'swiper/react';
+
   import { Loader } from '../helper/loader';
+
+  import InfiniteScroll from 'react-infinite-scroll-component';
 
   import movieTypes from '../models/cards';
   
@@ -63,16 +69,24 @@
     };
 
     const getMoreData = async ( ) => {
-        setPage ( page + 1 );
-          const moreMovies = await MoviesPageController( page + 1 );
-            setMovies( [ ...movies, ...moreMovies ] );
+          setPage ( page + 1 );
+            const moreMovies = await MoviesPageController( page + 1 );
+              setMovies( [ ...movies, ...moreMovies ] );
     };
     
     return (
         <>
           { hasBeenLoaded === true ? (
-            <>
-                <div className='MoviesContainer'>
+            <InfiniteScroll
+                  dataLength={ movies?.length }
+                  next={ getMoreData }
+                  height='100vh'
+                  hasMore={ true }
+                  loader={ <h4> Loading... </h4> }
+                  scrollableTarget="scrollableDiv"
+                >
+                
+                <div className='MoviesContainer' id="scrollableDiv">
                     <div className="searchContainer">
                         <input
                             onChange={ ( e ) => handleChange( e ) }
@@ -111,31 +125,28 @@
                                         </SwiperSlide>
                                       )})}
                               </Swiper>
-                             </> ) : ( null )}
+                          </> ) : ( null )}
                     </div>
 
-                    { movies.map( ( movie: movieTypes ) => {
+                    { movies?.map( ( movie: movieTypes ) => {
                         return (
-                          <div key={movie.id}>
-                              { hasBeenLoaded === true ? (
-                                  <div className='movieList' 
-                                  style={ input?.length >= 1 ? ({opacity: '0.05'}) : ({ background: '#020202b0', opacity: '1'}) } >
-                                      <Link to={ `/movie/${ movie.id }` }>
-                                          <img src={ bgPath + movie.poster_path }  />
-                                      </Link>
-                                          <label> { movie.title } </label>
-                                  </div>
-                                  ) : ( <Loader /> ) }
-                          </div>
+                            <div className='movieList' style={ input?.length >= 1 ? ({opacity: '0.05'}) : ({ background: '#020202b0', opacity: '1'}) } >
+                                <Link to={ `/movie/${ movie.id }` }>
+                                    <img src={ bgPath + movie.poster_path }  />
+                                </Link>
+                                    <label> { movie.title } </label>
+                            </div>
                         );
                     })}
                 </div>
-
-                <button className='loadMoreMovies' onClick={ ( ) => getMoreData ( ) }> 
-                    +
-                </button>
-            </>
+                <BackButton />
+            </InfiniteScroll>
           ) : ( <Loader /> ) }
         </>
     );
   };
+
+
+
+               
+  
