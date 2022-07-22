@@ -79,7 +79,7 @@
             <InfiniteScroll
                 dataLength={ series?.length }
                 next={ getMoreData }
-                height='100vh'
+                height='90vh'
                 hasMore={ true }
                 loader={ <h4> Loading... </h4> }
                 scrollableTarget="scrollableDiv"

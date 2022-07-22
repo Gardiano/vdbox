@@ -23,6 +23,7 @@
   import '../styles/pages/movies.css';
   import '../styles/medias/movies.css';
   import '../styles/search/search.css';
+  import '../styles/medias/backButton.css';
 
   export const Movies = ( ) => {
 
@@ -80,7 +81,7 @@
             <InfiniteScroll
                   dataLength={ movies?.length }
                   next={ getMoreData }
-                  height='100vh'
+                  height='930px'
                   hasMore={ true }
                   loader={ <h4> Loading... </h4> }
                   scrollableTarget="scrollableDiv"
