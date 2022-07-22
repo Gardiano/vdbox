@@ -1,5 +1,11 @@
 
 @media screen and ( max-width: 501px ) {
+    body .wrapper h4 {
+      font-size: 16px;
+      margin-top: 50px;
+      margin-bottom: -2rem;
+    }
+
     #root .movieContainer .details .poster img {
       width: 220px;
       height: 300px;
