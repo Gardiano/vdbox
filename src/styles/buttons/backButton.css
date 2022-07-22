@@ -27,8 +27,8 @@
     cursor: pointer;
 
     background: #DB444C;
-  }
-  
+ }
+ 
   .backButton label {
     color: #f8f8f8;
     
@@ -36,4 +36,4 @@
     line-height: 0;
   
     cursor: pointer;
-  }
+ }
