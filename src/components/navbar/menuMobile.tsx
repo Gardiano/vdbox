@@ -79,7 +79,7 @@ export const MenuMobile = ( ) => {
       { sizePage < 800 ? (
         <div className="mobileContainer" style={ sizePage > 800 ? ( { display: 'none' } ) : ( { display: 'flex' } ) }>
       
-          <header className='MenuMobile'>
+          <header className='MenuMobile' style={{background: backgroundColor}}>
               <Link to='/' > <BiCameraMovie className='mobileLogoIcon' /> </Link>
               <div className="searchBox">
                 <div className='inputBox'>
@@ -124,7 +124,7 @@ export const MenuMobile = ( ) => {
                   </div>
               </nav>
           ) : ( null ) }
-          </div> ) : ( null )
+        </div> ) : ( null )
       }
     </>
   );

@@ -1,0 +1,11 @@
+
+@media screen and (max-width: 900px ) {
+    
+    .episodeDetailContainer {
+        padding-top: 0;
+    }
+
+    body .episodeDetailContainer .details {
+        margin-top: 1rem;
+    }
+}

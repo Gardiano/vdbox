@@ -12,6 +12,7 @@
 
   import '../../styles/series/serie.css';
   import '../../styles/series/episodeDetails.css';
+  import '../../styles/medias/episodeDetails.css';
   import '../../styles/medias/serie.css';
 
 

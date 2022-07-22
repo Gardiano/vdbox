@@ -29,14 +29,14 @@
 
 
 @media screen and ( max-width: 415px ) {    
-    article .overlay {
+    body article .overlay {
         width: calc( 100% - 60px );
         height: 350px;
 
         background-size:  100% 350px;
         background-repeat: no-repeat;
 
-        margin: 8rem auto 40px;
+        margin: 0 auto 40px;
         border-radius: 10px;
     }
 

@@ -4,7 +4,7 @@
     height: auto;
 
     display: block;
-    margin: 8rem auto 5rem;
+    margin: 0 auto 0;
 }
 
 .MoviesContainer .searchContainer input {
